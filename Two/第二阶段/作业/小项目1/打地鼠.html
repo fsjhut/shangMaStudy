@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.maindiv{
+				border: 1px solid black;
+				width: 500px;
+				height: 500px;
+				margin: 0px auto;
+			}
+			
+			.countrydiv{
+				border: 1px solid black;
+				width: 300px;
+				height: 100px;
+				margin: 50px auto;
+				text-align: center;
+			}
+			.countrydiv span{
+				color: red;
+			}
+			
+			.maindiv div{
+				border: 1px solid black;
+				width: 78px;
+				height: 78px;
+				float: left;
+				margin: 10px;
+				background: url(./img/00.jpg);
+			}
+			
+			.maindiv div img{
+				display: none;
+			} 
+			
+			.gameoverDiv{
+				width: 200px;
+				height: 100px;
+				border: 5px solid darkgray;
+				background-color: #D3D3D3;
+				border-radius: 10px;
+				position: absolute;
+				top: 30%;
+				left: 50%;
+				margin-left: -100px;
+				display: none;
+				text-align: center;
+				line-height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="gameoverDiv" class="gameoverDiv">
+					恭喜你 游戏结束!!!
+		</div>
+		<div class="maindiv">
+			<div><img id="img1" src="img/01.jpg" onclick="countScore(this)"></div>
+			<div><img id="img2" src="img/01.jpg" onclick="countScore(this)"></div>
+			<div><img id="img3" src="img/01.jpg" onclick="countScore(this)"></div>
+			<div><img id="img4" src="img/01.jpg" onclick="countScore(this)"></div>
+			<div><img id="img5" src="img/01.jpg" onclick="countScore(this)"></div>
+			
+			<div><img id="img6" src="img/01.jpg" onclick="countScore(this)"></div>
+			<div><img id="img7" src="img/01.jpg" onclick="countScore(this)"></div>
+			<div><img id="img8" src="img/01.jpg" onclick="countScore(this)"></div>
+			<div><img id="img9" src="img/01.jpg" onclick="countScore(this)"></div>
+			<div><img id="img10" src="img/01.jpg" onclick="countScore(this)"></div>
+			
+			<div><img id="img11" src="img/01.jpg" onclick="countScore(this)"></div>
+			<div><img id="img12" src="img/01.jpg" onclick="countScore(this)"></div>
+			<div><img id="img13" src="img/01.jpg" onclick="countScore(this)"></div>
+			<div><img id="img14" src="img/01.jpg" onclick="countScore(this)"></div>
+			<div><img id="img15" src="img/01.jpg" onclick="countScore(this)"></div>
+			
+			<div><img id="img16" src="img/01.jpg" onclick="countScore(this)"></div>
+			<div><img id="img17" src="img/01.jpg" onclick="countScore(this)"></div>
+			<div><img id="img18" src="img/01.jpg" onclick="countScore(this)"></div>
+			<div><img id="img19" src="img/01.jpg" onclick="countScore(this)"></div>
+			<div><img id="img20" src="img/01.jpg" onclick="countScore(this)"></div>
+			
+			<div><img id="img21" src="img/01.jpg" onclick="countScore(this)"></div>
+			<div><img id="img22" src="img/01.jpg" onclick="countScore(this)"></div>
+			<div><img id="img23" src="img/01.jpg" onclick="countScore(this)"></div>
+			<div><img id="img24" src="img/01.jpg" onclick="countScore(this)"></div>
+			<div><img id="img25" src="img/01.jpg" onclick="countScore(this)"></div>
+			
+		</div>
+		<div class="countrydiv">
+			<p>
+				计时:<span id="showTimespan">0</span>秒<br>
+				计分:<span id="showSourcespan">0</span>分<br>
+				<input id="startBtn" type="button" value="开始" onclick="startGame()"/>
+				<input id="stopBtn" type="button" value="结束" onclick="endGame()"/>
+			</p>
+		</div>
+	</body>
+	<script>
+		/* 
+		 1.点击开始按钮                   ok
+		   |--  计时任务
+		   |--  地鼠出现任务
+		   
+		 2.计时任务                       ok
+		   减少触发间隔 数字变化更频繁
+		   .toFixed(2) 字符
+		   
+		 3.地鼠出现任务							ok
+		   独立显示和隐藏  
+		   从多个图片中 随机选出一个 显示和隐藏
+		   
+		 4.地鼠点击								ok
+		   地鼠可以点击  
+		   不能重复加分(用户是否点过)
+		 
+		 5.到时间限制 60秒
+		   打够20只
+		   点结束按钮 */
+		var start;
+		var gameScore;
+		var gameTime;
+		var startTime;
+		var task1;
+		var task2;
+		// var preobj;
+		function startGame(){
+			gameScore = 0;
+			document.getElementById("startBtn").disabled = true;
+			startTime = new Date();
+			document.getElementById("gameoverDiv").style.display="none";
+			// 开启计时
+			task1 = setInterval(function(){
+				var countTime = new Date();
+				var millTime = countTime.getTime();
+				gameTime = countTime.getTime()-startTime.getTime();
+				document.getElementById("showTimespan").innerHTML = (gameTime/1000).toFixed(2);
+			},87);
+			// 地鼠随机出现
+			task2 = setInterval(function(){
+				/* 
+				 通过 setInterval 让地鼠出现  
+					 地鼠出现后 通过settimeout 一定时间后隐藏
+				 */
+				var mynum = parseInt(Math.random()*25)+1;
+				document.getElementById("img"+mynum).style.display = "inline";
+				setTimeout(function(){
+					document.getElementById("img"+mynum).style.display = "none";
+					document.getElementById("img"+mynum).src = "img/01.jpg";
+				},2000)
+			},400) 
+			// 监听程序，判断是否满足结束条件
+			task3 = setInterval(function(){
+				document.getElementById("showSourcespan").innerHTML = gameScore;
+				if(((new Date()).getTime()-startTime.getTime())>=30000){
+					clearInterval(task1);
+					clearInterval(task2);
+					document.getElementById("showTimespan").innerHTML = "30.00";
+					document.getElementById("gameoverDiv").style.display="inline";
+				}
+				if(gameScore>=100){
+					clearInterval(task1);
+					clearInterval(task2);
+					document.getElementById("showSourcespan").innerHTML = 100;
+					document.getElementById("gameoverDiv").style.display="inline";
+				}
+			},100);
+		}
+		// 点击图片后的计分
+		function countScore(obj){
+			// console.log(obj.src.toString().indexOf("01.jpg"))
+			if(obj.src.toString().indexOf("01.jpg")!= -1){
+				gameScore += 1;
+				obj.src = "img/02.jpg";
+				// preobj = obj;
+			}
+		}
+		// 程序结束
+		function endGame(){
+			// 判断task1是否被关闭
+			clearInterval(task1);
+			clearInterval(task2);
+			clearInterval(task3);
+			document.getElementById("startBtn").disabled = false;
+			document.getElementById("gameoverDiv").style.display="inline";
+		}
+	</script>
+</html>

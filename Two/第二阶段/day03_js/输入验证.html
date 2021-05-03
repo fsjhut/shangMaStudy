@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input id="userPhone" type="text" onkeyup="phoneReg"/>
+		<span id="phoneRegSpan"></span>
+	</body>
+	
+	<script>
+		var myreg= /^1(2|4|5|7)\d{9}$/;
+		// myreg.test("12322424") // 正则的使用
+		
+		function phoneReg(){
+			var phoneText = document.getElementById("userPhone").value;
+			var spanMsg="";
+			var mycolor="";
+			if(myreg.test(phoneText)){
+				spanMsg = "手机格式正确";
+				mycolor = "green";
+			}else{
+				spanMsg = "手机格式不正确";
+				mycolor = "red";
+			}
+			document.getElementById("phoneRegSpan").innerHTML = spanMsg;
+			document.getElementById("phoneRegSpan").style.color = mycolor;
+		}
+	</script>
+</html>

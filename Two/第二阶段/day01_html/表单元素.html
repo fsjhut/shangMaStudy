@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="">
+			<!-- 
+			--action: 请求的地址 
+				地址格式：
+				1. 相对路径
+				2. 相对根路径
+				3. 绝对路径
+			--method: 请求的方式
+				1. get: 直接出现在url中
+				2. post:参数在请求发送中可以看到
+				post的隐秘性更高，可以做文件上传
+				get的执行效率较高
+			常见的表单元素 需要传输数据，配置name属性
+			input:
+			type="text"  文本框
+				placeholder  提示信息
+				maxlength    最大长度
+				value         默认值
+				disabled      禁用
+				readonly      只读
+			type="password"  密码框  必须有name属性
+				可以隐藏输入的内容
+			type="hidden"    不想让用户看到，但是需要向后端传递一个数据
+			可以用隐藏框 进行传递
+			label ----- 提示信息
+				for----- 为哪个标签指定
+			type="radio"  单选按钮
+				  name：   单选按钮对应的分组
+				 value：   选项对应的值
+				checked    默认选中
+			type="checkbox" 多选按钮
+			<input type="submit" value="注册"/> value:自定义名字
+			<input type="reset" value="清空"/>
+			<input type="button" value="我的按钮"/>
+		select         下拉列表
+			----name： 传递的key
+			----multiple  多选的下拉框
+			----value  下拉列表对应选项的值
+			----selected  默认选中
+		textarea   多行文本
+			-----cols: 默认的列数
+			-----rows: 默认的行数
+		-->
+			<input type="text" name="myname" placeholder="请输入用户名" 
+			maxlength="5" value="默认值"readonly="" disabled="">
+			<input type="password" name="" id="" value="" />
+			<input type="hidden">
+			<hr>
+			<input id="genderm" name="gender" value="0" type="radio" /><label for="genderm">男</label>
+			<input type="radio" name="gender" value="1" checked="checked"/>女
+			<input type="checkbox" id="hobby" value="1">java
+			<input type="checkbox" id="hobby" value="2">python
+			<input type="checkbox" id="hobby" value="3">JS
+			</hr>
+			<input type="submit" value="注册"/>
+			<input type="reset" value="清空"/>
+			<input type="button" value="我的按钮"/>
+		</form>
+		<hr>
+		<select name="myarea" multiple="3">
+			<option value ="010">北京</option>
+			<option value ="011">上海</option>
+			<option value ="012">深圳</option>
+		</select>
+		<textarea name="123" rows="50" cols="5">
+			abc
+		</textarea>
+		</hr>
+	</body>
+</html>

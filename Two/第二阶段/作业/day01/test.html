@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1 align="center">填写注册资料（以下**为必填项）</h1>
+		<table align="center">
+			<form action="/第二阶段/day01_html/index.html" method="get">
+			<tr><td align="right">姓 名: </td><td><input type="text" name="name">**</td></tr>
+			<tr><td align="right">密 码: </td><td><input type="password" name="pass">**</td></tr>
+			<tr><td align="right">确认密码: </td><td><input type="password" name="pass">**</td></tr>
+			<tr><td align="right">密码提示问题: 
+			</td><td> 
+				<!-- <input type="" name="" id="" value="请选择一个问题" />** -->
+				<select name="question"  value="请选择一个问题">
+					<option checked="checked">请选择一个问题</option>
+					<option value ="001">你的名字?</option>
+					<option value ="002">你的手机号码?</option>
+					<option value ="003">你的身份证号?</option>
+				</select>
+			</td></tr>
+			<tr><td align="right">密码提示答案: </td><td><input type="text">**</td></tr>
+			<tr><td align="right">性 别: 
+			</td><td> 
+				<input type="radio" name="gender" id="genderm" value="0"><label for="genderm">男</label>
+				<input type="radio" name="gender" id="genderm" value="1"><label for="genderm">女 **</label>
+			</td></tr>
+			<tr><td align="right">生 日: 
+			</td><td> 
+				<select name="year">
+					<option value="1980">1980</option>
+					<option value="1981">1981</option>
+					<option value="1982">1982</option>
+					<option value="1983">1983</option>
+				</select>年
+				<select name="month">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+				</select>月
+				<select name="day">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</select>日**
+			</td></tr>
+			<tr><td align="right">地 区: 
+			</td><td>	 
+				<select name="province">
+					<option selected="selected" value="1">河北</option>
+					<option value="2">河南</option>
+					<option value="3">北京</option>
+					<option value="4">广东</option>
+				</select>省/直辖市
+				<select name="city">
+					<option selected="selected" value="1">承德</option>
+				</select>市**
+			</td></tr>
+			<tr><td align="right">爱 好: 
+			</td><td> 
+				<input type="checkbox"  id="hobby" value="1" /> 上网
+				<input type="checkbox"  id="hobby" value="1" /> 体育
+				<input type="checkbox"  id="hobby" value="1" /> 学习 **
+			</td></tr>
+			<tr><td align="right">个人简介: 
+			</td><td> 
+				<textarea name="简介"  rows="10" cols="30"></textarea>**
+			</td></tr>
+			<tr><td align="right">图像按钮: 
+			</td><td>
+			<a href="/第二阶段/day01_html/index.html"><img src="/第二阶段/作业/day01/z2.png"/></a>
+			</td></tr>
+			<tr><td align="right">上传文件: 
+			</td><td>
+				<input type="text" />
+				<!-- <input type="submit" name="" id="" value="游览..." /> -->
+				<input type="file" name="file"  align = "center" id="myfile" size="4" value="上传文件" />**
+			</td></tr>
+				<table align="center">
+					<tr><td align="center"><input type="submit" value="注册"></td>
+					<td align="center"><input type="submit" value="登录"></td></tr>
+				</table>
+		</form>	
+	</table>
+	</body>
+</html>

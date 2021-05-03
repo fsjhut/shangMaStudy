@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			img{
+				vertical-align: middle;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<table  cellspacing="" cellpadding="">
+			<form action="计算器.html" method="get" onsubmit="return regAll()">
+				<tr><td>用户名:</td><td><input id="name" type="text" name="用户名" onkeyup="nameReg()"/>
+				<img id="nameRegImg" class="nameRegImg" src="img/wrong.png" />
+				</td></tr>
+				<tr><td>手机号:</td><td><input id="phone" type="text" name="手机号" onkeyup="phoneReg()"/>
+				<img id="phoneRegImg" class="phongRegImg" src="img/wrong.png" />
+				</td></tr>
+				<tr><td>密码:</td><td><input id="pass" type="password" name="密码" onkeyup="passReg()"/>
+				<img id="passRegImg" class="passRegImg" src="img/wrong.png" />
+				</td></tr>
+				<table align="left">
+					<tr>
+						<td align="center"><input type="submit" value="注册"></td>
+						<td align="center"><input type="submit" value="登录"></td>
+					</tr>
+				</table>
+			</form>
+		</table>
+		
+	</body>
+	<script type="text/javascript">
+		
+		function nameReg(){
+			var phoneText = document.getElementById("name").value;
+			var imgsrc = "";
+			var myreg = /^\w{5,8}$/;
+			var returnVal = false;
+			if(myreg.test(phoneText)){
+				imgsrc = "img/ok.png";
+				returnVal = true;
+			}else{
+				imgsrc = "img/wrong.png";
+			}
+			document.getElementById("nameRegImg").style.display ="inline-block";
+			document.getElementById("nameRegImg").src = imgsrc;
+			return returnVal;
+		}		
+		function phoneReg(){
+			var phoneText = document.getElementById("phone").value;
+			var imgsrc = "";
+			var myreg = /^1(3|4|5|7|8)\d{9}$/;
+			var returnVal = false;
+			if(myreg.test(phoneText)){
+				imgsrc = "img/ok.png";
+				returnVal = true;
+			}else{
+				imgsrc = "img/wrong.png";
+		}
+			document.getElementById("phoneRegImg").style.display ="inline-block";
+			document.getElementById("phoneRegImg").src = imgsrc;
+			return returnVal;
+				}		
+		function passReg(){
+			var phoneText = document.getElementById("pass").value;
+			var imgsrc = "";
+			var myreg = /^.{6,10}$/
+			var returnVal = false;
+			if(myreg.test(phoneText)){
+				imgsrc = "img/ok.png";
+				returnVal = true;
+			}else{
+				imgsrc = "img/wrong.png";
+			}
+			document.getElementById("passRegImg").style.display ="inline-block";
+			document.getElementById("passRegImg").src = imgsrc;
+			return returnVal;
+		}	
+		// function Reg(obj,myreg,regImg){
+		// 	var phoneText = obj.value;
+		// 	var imgsrc = "";
+		// 	var returnVal = false;
+		// 	if(myreg.test(phoneText)){
+		// 		imgsrc = "img/ok.png";
+		// 		returnVal = true;
+		// 	}else{
+		// 		imgsrc = "img/wrong.png";
+		// 	}
+		// 	regImg.style.display ="inline-block";
+		// 	regImg.src = imgsrc;
+		// 	return returnVal;
+		// }	
+		// function regAll(){
+		// 	return phoneReg()&&nameReg()&&passReg();
+		// 		}
+		
+		// function Reg(obj,myreg){
+		// 	var phoneText = document.getElementById("phone").value;
+		// 	var imgsrc = "";
+		// 	var returnVal = false;
+		// 	if(myreg.test(phoneText)){
+		// 		imgsrc = "img/ok.png";
+		// 		returnVal = true;
+		// 	}else{
+		// 		imgsrc = "img/wrong.png";
+		// 	}
+		// 	// obj.style.display ="inline-block";
+		// 	obj.src = imgsrc;
+		// }
+		// function phoneReg(){
+		// 	var myreg = /^1(3|4|5|7|8)\d{9}$/;
+		// 	var RegImg = document.getElementById("phoneRegImg")
+		// 	return Reg(this,myreg,RegImg)
+		// }
+		// function nameReg(){
+		// 	var myreg = /^\w{1-6}$/
+		// 	var RegImg = document.getElementById("nameRegImg")
+		// 	return Reg(this,myreg,nameRegImg)
+		// }
+		// function passReg(){
+		// 	var myreg = /^.{6-10}$/
+		// 	var RegImg = document.getElementById("passRegImg")
+		// 	return Reg(this,myreg,passRegImg)
+		// }
+		
+	</script>
+</html>

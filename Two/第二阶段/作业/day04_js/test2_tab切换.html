@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 2.tab页切换
+		小div跟大div对应
+		大div同时只显示一个（只显示与小div对应的div） -->
+		<style>
+			span{
+				border: 1px solid black;
+			}
+			#div1{
+				padding: 100px;
+				width: 200px;
+				height: 100px;
+				display: none;
+				float: right;
+				margin: 500px,auto;
+				background-color: #008000;
+			}
+			#div2{
+				width: 150px;
+				height: 130px;
+				display: none;
+				float: right;
+				margin: 100px,auto;
+				background-color: #80542e;
+			}
+			#div3{
+				padding: 0px;
+				width: 500px;
+				height: 200px;
+				display: none;
+				float: left;
+				margin: 100px,auto;
+				background-color: #802d71;
+			}
+			#div4{
+				width: 500px;
+				height: 130px;
+				display: none;
+				float: left;
+				margin: 100px,auto;
+				background-color: #55aa00;
+			}
+		</style>
+	</head>
+	<body>
+		<span onclick="changeDiv(1)">tab1</span><span onclick="changeDiv(2)">tab2</span>
+		<span onclick="changeDiv(3)">tab3</span><span onclick="changeDiv(4)">tab4</span>
+		<div id="div1">div1</div>
+		<div id="div2">div2</div>
+		<div id="div3">div3</div>
+		<div id="div4">div4</div>
+	</body>
+	<script type="text/javascript">
+		var pre = 0;
+		function changeDiv(divid){
+			if(pre != 0){
+			document.getElementById("div"+pre).style.display = "none";
+			}
+			document.getElementById("div"+divid).style.display = "inline-block";
+			pre = divid;
+		}
+	</script>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!--最终展示的效果和写的效果尽量保持一致，可以更容易调试
+			为了向下兼容，因此存在许多功能重复的标签
+			h1:标题标签  可以改变字号，粗体，可以加上行间距 
+			    可以自动换行
+			p 段落标签 	块元素	加上间距
+			div 块标签	块元素
+			hr  分割性 	块元素  默认占满一行
+			dl  列表标签
+			dt  列表标题
+			dd  列表内容
+			ul  无序列表
+			ol  有序列表
+			li  列表项
+			 -------------------
+			strong 加粗标签  行内元素
+			u 	下划线	行内元素
+			em  斜体	 行内元素
+			span 划分文本的标记范围，行内元素  可以为css js 提供定位
+			a    超链接标签  页面跳转
+				 href 连接的格式
+				 1. 相对路径-----  ./(可省略) 先找到当前文件的目录 ../当前目录的上层目录
+				 2. 相对根路径---从/开始，后面自己拼接 只需要关心目标资源路径
+				 3. 绝对路径-----访问外部的资源
+				 a 标签中有一个target属性，其默认值target="_self"
+				 
+				 本地文件协议
+				 http协议：只可以读到所开放的部分资源
+				 协议 http:// ip地址:  端口号  / 资源地址 ? 参数key=参数值&参数key=参数value
+				 url 中的值只能是英文，因此如果包含了中文，需要通过了URL编码进行编码，可以通过解码器解码查看
+				 本地文件协议-----File协议
+				 file:///d:/xxx
+				 如何使用默认的端口，则可以不写端口号
+				 https：在传输层增加了一个加密协议，需要一个证书 默认使用443端口
+				 http: 在编码上和https没有任何区别 默认使用80端口
+				 http协议中，通常使用参数，向服务器中传输数据
+				 参数的格式在资源地址后面，通过键值对进行拼接
+				 
+			显示效果：1. 占满一行， 块元素， block 不需要换行
+					 2. 水平排列   行内元素 inline  需要手动换行
+		-->
+		<h1>静夜思 --李白</h1>
+		<p>床前明月光</p>
+		<p>疑是地上霜</p>
+		<p>
+			举头<u>望</u>明月<br/>
+			<strong>低头思故乡</strong>
+		</p>
+		<div>
+			人生若只如初见<br/>
+			何事秋风悲画
+		</div>
+		<hr />
+		<dl>
+			<dt>标题(顶格写)</dt>
+			<dd>内容(有缩进)</dd>
+		</dl>
+		<hr />
+		<!-- 无序列表,可以通过属性修改样式 -->
+		<ul type="square">
+			<li>中国新闻</li>
+			<li>美国新闻</li>
+		</ul>
+		<!-- 有序列表，可以修改有序列表标号的样式 -->
+		<ol>
+			<li>中国新闻</li>
+			<li>美国新闻</li>
+		</ol>
+		<!-- 超链接 -->
+		<a href="./index.html">我的连接</a><br/>
+		<a href="/Html/index.html" target="_self">项目根路径</a><br/>
+		<a href="https://www.baidu.com/"  target="_blank">百度</a><br/>
+		<a href="#">返回顶部</a>
+		<table border="1">
+			<caption>人员信息表格</caption>
+			<tbody>
+			<tr><th rowspan="">姓名</th><th>年龄</th><th>地址</th></tr>
+			<tr><td>小明</td><td>16</td><td>郑州------</td></tr>
+			</tbody>
+			<tfoot>
+			<tr><td>小明</td><td>16</td><td align="center">郑州</td></tr>
+			<tr><td>小明</td><td>16</td></tr>
+			</tfoot>
+		</table>
+		<!-- 表单标签:收集用户的信息，以参数的形式向服务器提交
+				action：提交的服务器的地址
+				method：请求发送的方式  get 
+			<input type="text" ：text：提交的类型：文本框
+			name="myname"><br/>：表单提交时，对应的key
+			<input type="submit"/>：需要配合submit按钮进行表单的提交
+				submit：只能提交当前的表单
+				
+		 -->
+		<form action="index.html" method="get">
+			<input type="text" name="myname"><br/>
+			<input type="submit" />
+		</form>
+	</body>
+</html>

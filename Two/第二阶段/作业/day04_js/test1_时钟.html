@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<!-- 1.时钟
+	制作显示年、月、日、星期几并且显示上午（AM）和下午（PM）的12进制的时钟
+	2017年9月15日 9：23：56 PM 星期五
+	每秒刷新
+	
+	2.tab页切换
+	小div跟大div对应
+	大div同时只显示一个（只显示与小div对应的div）
+	
+	3.全选按钮 反选按钮
+	操作checkbox的checked属性
+	
+	4.轮播图
+	小人奔跑 可以开始和停止 -->
+	<style type="text/css">
+		.maindiv{
+			margin: 100px auto;
+			padding: 0px;
+			width: 200px;
+			height: 130px;
+		}
+		.topdiv{
+			width: 100%;
+			height: 20%;
+			background-color: #89ccff;
+		}
+		.middlediv{
+			width: 100%;
+			height: 20%;
+		}
+		.buttondiv{
+			width: 100%;
+			height: 60%;
+		}
+		.left{
+			width: 50%;
+			height: 100%;
+			display: inline-block;
+			/* margin: 0px auto; */
+			float: left;
+			/* line-height:100px; */
+			
+		}
+		.right{
+			width: 50%;
+			height: 100%;
+			display: inline-block;
+			/* margin: 0px auto; */
+			float: left;
+			/* line-height:100px; */
+			background-color: #a6e0ff;
+		}
+		.topdiv input{
+			width: 100%;
+			height: 100%;
+			margin: 0px auto;
+			font-size: 20px;
+			line-height:200px;
+			list-style: none;
+			background-color: #f7c6ff;
+		}
+		.left input{
+			width: 100%;
+			height: 100%;
+			margin: 0px auto;
+			font-size: 20px;
+			line-height:100px;
+			background-color: #a6e0ff;
+		}
+		.right input{
+			width: 100%;
+			height: 100%;
+			margin: 0px auto;
+			font-size: 18px;
+			line-height:100px;
+			background-color: #8fffc4;
+		}
+		.buttondiv input{
+			width: 100%;
+			height: 100%;
+			margin: 0px auto;
+			font-size: 45px;
+			line-height:100px;
+			background-color: #fff4c7;
+		}
+		
+	</style>
+	<body>
+		<div class="maindiv">
+			<div class="topdiv">
+				<input id = "mydate" type="text" value=""/>
+			</div>
+			<div class="middlediv">
+				<div class="left">
+					<input id = "mypm" type="text" value=""/>
+				</div>
+				<div class="right">
+					<input id = "myweek" type="text" value=""/>
+				</div>
+			</div>
+			<div class="buttondiv">
+				<input id = "mydatetime" type="text" value=""/>
+			</div>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		var task = setInterval(function() {
+			var time = new Date();
+			var date = time.getFullYear()+'年'+time.getMonth()+'月'+time.getDate()+'日';
+			document.getElementById("mydate").value = date;
+			var my_hour = time.getHours();
+			var str="";
+			if(my_hour>=12){
+				my_hour = my_hour-12;
+				str="PM";
+			}else{
+				str="AM"
+			}
+			document.getElementById("mypm").value= str;
+			var chnNumChar = ['零','一','二','三','四','五','六','七']
+			var my_week = "星期"+chnNumChar[time.getDay()];
+			document.getElementById("myweek").value= my_week;
+			
+			var min = time.getMinutes(); 
+			var mill = time.getSeconds();
+			if(my_hour<10){
+				my_hour = "0"+my_hour;
+			}
+			if(min<10){
+				min = "0"+min;
+			}
+			if(mill<10){
+				mill = "0"+mill;
+			}
+			var my_time = my_hour + ": "+min+": "+mill;
+			document.getElementById("mydatetime").value = my_time;
+		},44);
+	</script>
+</html>

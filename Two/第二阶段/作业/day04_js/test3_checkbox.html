@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 3.全选按钮 反选按钮
+		操作checkbox的checked属性 -->
+	</head>
+	<body>
+		<input id="allchoice" type="button" value="全选" onclick="allChoice()"/> 
+		<input id="allchoice" type="button" value="反选" onclick="reverChoice()"/>
+		<hr />
+		<input type="checkbox" name="hobby" />1
+		<input type="checkbox" name="hobby" />2
+		<input type="checkbox" name="hobby" />3
+		<input type="checkbox" name="hobby" />4
+	</body>
+	<script type="text/javascript">
+		function allChoice(){
+			var eles = document.getElementsByName("hobby");
+			for(var i=0;i<eles.length;i++){
+				eles[i].checked = true;
+			}
+		}
+		function reverChoice(){
+			var eles = document.getElementsByName("hobby");
+			for(var i=0;i<eles.length;i++){
+				if(eles[i].checked==true){
+					eles[i].checked = false;
+				}else{
+					eles[i].checked = true;
+				}
+			}
+		}
+	</script>
+</html>

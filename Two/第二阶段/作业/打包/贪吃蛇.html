@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.mainpanel{
+				border: 2px solid black;
+				height: 800px;
+				width: 1600px;
+				margin: 20px auto;
+				font-size: 1px;
+				background: url(img/背景图.png);
+			}
+			.buttondiv{
+				height: 100px;
+				width: 500px;
+				background-color: #29c7ba;
+				margin: -30px auto;
+			}
+			.buttondiv p{
+				font-size: 30px;
+				text-align: center;
+				color: #802D71;
+			}
+			#endBtn,#startBtn{
+				font-size: 30px;
+				margin: 5px 40px;
+				color: #5381FF;
+				/* background-color: #dfdf6f; */
+			}
+			.innerbg{
+				height: 38px;
+				width: 38px;
+				margin: 1px;
+				opacity: 0.08;
+				background-color: #cfcf00;
+				float: left;
+			}
+			.snake{
+				height: 38px;
+				width: 38px;
+				margin: 1px;
+				background-color: #23f349;
+				float: left;
+			}
+			.snakeHead{
+				height: 38px;
+				width: 38px;
+				margin: 1px;
+				background: url(img/贪吃蛇右.png);
+				float: left;
+			}
+			.food{
+				height: 38px;
+				width: 38px;
+				margin: 1px;
+				float: left;
+				background-color: #23f349;
+			}
+			p{
+				text-align: center;
+			}
+			.gameoverDiv{
+				width: 600px;
+				height: 300px;
+				border: 20px solid darkgray;
+				background-color: #89d39b;
+				border-radius: 50px;
+				position: absolute;
+				top: 28%;
+				left: 50%;
+				margin-left: -300px;
+				/* margin: 0px auto; */
+				display: none;
+				text-align: center;
+				line-height: 100px;
+			}
+			#scoreP,#showScoreSpan,#maxScore,#maxScoreSpan{
+				font-size: 40px;
+				color: #ff0000;
+				margin: 30px auto;
+				align-items: auto;
+				line-height:70px;
+			}
+		</style>
+	</head>
+	<body  onkeyup="getKeyCode(event)">
+		<div id="mainpanel" class="mainpanel"></div>
+		<div class="buttondiv">
+			<p>
+				选择级别：<input id="grade1" name="gender" value="300" type="radio" /><label for="grade1">初级</label>
+				<input id="grade2" name="gender" value="200" type="radio" checked="checked"/><label for="grade2">中级</label>
+				<input id="grade3" name="gender" value="100" type="radio" /><label for="grade3">高级</label><br /> 
+				<input id="startBtn" type="button" value="开始" onclick="startGame()"/>
+			    <input id="endBtn" type="button" value="结束" onclick="endGame()"/>
+			</p>
+		</div>
+		<div id="gameoverDiv" class="gameoverDiv">
+					<p id = "maxScore">最高分:<span id="maxScoreSpan">0</span>分</p>
+					<p id = "scoreP">恭喜你获得:<span id="showScoreSpan">0</span>分<br/>游戏结束!!</p>
+		</div>
+	</body>
+	<script>
+		/*
+		1.页面中的块 --- 坐标---点阵
+		使用二维数组表示
+		2.以数组方式表示蛇
+		3.蛇头根据方向移动 
+		4.对应方向 可以通过键盘输入改变
+		后续任务
+		 1.自动移动
+		 2.生成食物
+		   在坐标轴中 不能在蛇上
+		 3.蛇吃食物
+		   蛇头吃食物 边长
+		 4.死掉
+		   撞墙死  吃到自己
+		 5.越吃越快 */
+		//蛇横纵坐标
+		var snakeX ;  // 横坐标
+		var snakeY ;  // 纵坐标
+		
+		
+		var foodX;             // 食物横坐标
+		var foodY;	           // 食物纵坐标
+		/* 37左 38上  39右  40下 */
+		var direction;    // 初始方向39-右
+		
+							  
+		var cankeydown;
+		var gameTask;
+		var gameSpeed;
+		var gameScore;	
+		var addScore;
+		var maxScore = 0;
+		var tailX;  // 数组的尾部  贪吃蛇的头部X
+		var tailY;  // 数组的尾部  贪吃蛇的头部Y
+		var headX;  // 数组的头部	  贪吃蛇的尾部
+		var headY;  // 数组的头部	  贪吃蛇的尾部
+		
+		var task1;
+		var task2;
+		var task3;
+		//基础数组  横坐标40个，纵坐标20个
+		var basearr = new Array(20);
+		for(var i = 0;i<20;i++){
+			basearr[i] = new Array(40);
+		}
+		
+		function startGame(){
+			document.getElementById("startBtn").disabled = true;
+			initGame();
+			task1 = setInterval("spanMove()",gameSpeed)
+			
+			task3 = setInterval("collision()",10);
+			
+			// 监听事件，判断是否撞自己/撞墙/得分/
+			task2 = setInterval(function(){
+				
+				// 撞墙的判断条件
+				if(tailX>39||tailY>19||tailX<0||tailY<0){
+					endGame();
+				}
+				if(basearr[foodY][foodX]==basearr[tailY][tailX]){
+					clearInterval(task3);
+					clearInterval(task1);
+					gameSpeed -= 10;
+					snakeX.push(foodX);
+					snakeY.push(foodY);
+					drawSnake();
+					randomDiv();
+					gameScore += addScore;
+					addScore += 1;
+					task1 = setInterval("spanMove()",gameSpeed);
+					task3 = setInterval("collision()",gameSpeed+1);
+					// document.getElementById("showScoreSpan").innerHTML = gameScore;
+				}
+			},1)
+		}
+		function collision(){
+			tailX = snakeX[snakeX.length-1];
+			tailY = snakeY[snakeY.length-1];
+			for(var t=0;t<snakeX.length-1;t++){
+				// console.log("111111111");
+				if(snakeX[t]==tailX && snakeY[t]==tailY){
+					console.log("111111111");
+					endGame();
+				}
+			}
+		}
+		
+		function endGame(){
+			clearInterval(task1);
+			clearInterval(task2);
+			clearInterval(task3);
+			document.getElementById("startBtn").disabled = false;
+			if(gameScore>maxScore){
+				maxScore = gameScore;
+			}
+			document.getElementById("maxScoreSpan").innerHTML = maxScore;
+			document.getElementById("showScoreSpan").innerHTML = gameScore;
+			document.getElementById("gameoverDiv").style.display="inline";
+		}
+		function getSpeedValue() {
+			var radios = document.getElementsByName("gender");
+			for (var i = 0; i < radios.length; i++) {
+				if (radios[i].checked) {
+					gameSpeed = parseInt(radios[i].value);
+					console.log(gameSpeed);
+				}
+			}
+		}
+
+		function initGame(){
+			 document.getElementById("startBtn").disabled = true;
+			 document.getElementById("gameoverDiv").style.display="none";
+			 document.getElementById("mainpanel").innerHTML = "";
+			var innerbgNum = 0;
+			for(var i=0;i<20;i++){
+				for(var j=0;j<40;j++){
+					basearr[i][j] = innerbgNum;
+					innerbgNum += 1;
+					var newDiv = document.createElement("div");
+					newDiv.className = "innerbg";
+					document.getElementById("mainpanel").appendChild(newDiv);
+				}
+			}
+			snakeX =[4,5,6,7];
+			snakeY =[4,4,4,4];
+			drawSnake();
+			tailX = 7;
+			tailY = 4;
+			randomDiv();
+			getSpeedValue();
+			direction = 39;
+			addScore = 10;
+			gameScore = 0;
+			cankeydown = true;
+			
+		}
+		function drawSnake(){
+			for(var i = 0; i<snakeX.length;i++){
+				if(snakeX[i]>=0&&snakeX[i]<=39&&snakeY[i]>=0&&snakeY[i]<=19){
+					updateDiv(basearr[snakeY[i]][snakeX[i]],"snake");
+					if(i==(snakeX.length-1)){
+						updateDiv(basearr[snakeY[i]][snakeX[i]],"snakeHead");
+					}
+				}
+			}
+		}
+		function updateDiv(updateIndex,typeName){
+			var allDivs = document.getElementById("mainpanel").childNodes;
+			if(typeName=="snakeHead"){
+				allDivs[updateIndex].className = "snakeHead";
+				drawSnakeHead();
+			}else{
+				allDivs[updateIndex].style.background = "";
+				allDivs[updateIndex].className = typeName;
+			}
+		}
+		function drawSnakeHead(){
+			var snakeH = document.getElementsByClassName("snakeHead");
+			
+			if(direction==37){
+				snakeH[0].style.background = "url(img/贪吃蛇左.png)";
+			}else if(direction==38){
+				snakeH[0].style.background = "url(img/贪吃蛇上.png)";
+			}else if(direction==39){
+				snakeH[0].style.background = "url(img/贪吃蛇右.png)";
+			}else if(direction==40){
+				snakeH[0].style.background = "url(img/贪吃蛇下.png)";
+			}
+		}
+		function randomDiv(){
+			var isloop;
+			do{
+				isloop = false;
+				foodX = parseInt(Math.random()*40);
+				foodY = parseInt(Math.random()*20);
+				//判断不要出现在蛇身上
+				for(var i = 0; i<snakeX.length;i++){
+					if(snakeX[i]==foodX&&snakeY[i]==foodY){
+						console.log("重复了");
+						isloop = true;
+					}
+				}
+			}while(isloop)
+			updateDiv(basearr[foodY][foodX],"food");
+		}
+		function getKeyCode(event){
+			// 按反方向不生效
+			if(Math.abs(direction-event.keyCode)!=2){
+				direction = event.keyCode;
+			}
+		}
+		function spanMove(){
+			// 判断需要移动的方向
+			/* 37左 38上  39右  40下 */
+			headX = snakeX[0];
+			headY = snakeY[0];
+			
+			if(direction==37){
+				// 获取y的最后一个元素
+				for(var i = 0; i<snakeX.length;i++){
+					if(i == (snakeX.length-1)){
+						snakeX[i] = snakeX[i] - 1;
+					}else{
+						snakeX[i] = snakeX[i+1];
+						snakeY[i] = snakeY[i+1];
+					}
+				}
+			}else if(direction==38){
+				for(var i = 0; i<snakeY.length;i++){
+					if(i == (snakeY.length-1)){
+						snakeY[i] = snakeY[i] - 1;
+					}else{
+						snakeX[i] = snakeX[i+1];
+						snakeY[i] = snakeY[i+1];
+					}
+				}
+			}else if(direction==39){
+				// 获取y的最后一个元素
+				for(var i = 0; i<snakeX.length;i++){
+					if(i == (snakeX.length-1)){
+						snakeX[i] = snakeX[i] + 1;
+					}else{
+						snakeX[i] = snakeX[i+1];
+						snakeY[i] = snakeY[i+1];
+					}
+				}
+			}else if(direction==40){
+				for(var i = 0; i<snakeY.length;i++){
+					if(i == (snakeY.length-1)){
+						snakeY[i] = snakeY[i] + 1;
+					}else{
+						snakeX[i] = snakeX[i+1];
+						snakeY[i] = snakeY[i+1];
+					}
+				}
+			}
+			drawSnake();
+			tailX = snakeX[snakeX.length-1];
+			tailY = snakeY[snakeY.length-1];
+			updateDiv(basearr[headY][headX],"innerbg");
+		}
+	</script>
+</html>
+

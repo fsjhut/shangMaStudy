@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			// 声明变量
+			// var myNum = 10;
+			// console.log(myNum);
+			// console.log(typeof myNum)
+			// 1. 1549 取每位数字，并相加
+			var mynumber = 1549;
+			var unit = parseInt(mynumber%10);
+			var tenNum = parseInt((mynumber%100)/10);
+			var hundredNum = parseInt((mynumber%1000)/100);
+			var thousandNum = parseInt(mynumber/1000);
+			console.log((unit+tenNum+hundredNum+thousandNum).toFixed(0));
+			// 2. 使用变量输入数字，输出对应的是工作日还是周末 其它输出输入有误
+			var myval = prompt("请输入: ");
+			if(parseInt(myval)==NaN||myval<1||myval>31){
+				console.log("输入的信息有误");
+			}else{
+				var indexNum = parseInt(myval);
+				if(1<=indexNum<=5){
+					console.log("该天是工作日");
+				}else{
+					console.log("该天是周末");
+				}
+			}
+			// 3. 乘法口诀表，
+			  // myval是字符串
+			// 一般是将类型转为正确的再进行比较
+			for(var i=1;i<10;i++){
+				for(var j=1;j<=i;j++){
+					var sum = i*j;
+					if(sum < 10){
+						document.write(j+"*"+i+"="+sum+"&ensp;");
+					}else{
+					document.write(j+"*"+i+"="+sum);
+					}
+					document.writeln();
+				}
+				document.write("<br/>")		
+			}
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
