@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="../../day05_jquery/js/jquery-3.4.1.min.js"></script>
+		
+		<!--   最低减到1 最大增到10 到临界值禁用按钮 -->
+	</head>
+	<body>
+		<input type="button" disabled="true" value="-"/><input type="text" value="1" readonly="readonly" /><input type="button" value="+"/><br />
+		<input type="button" disabled="true" value="-"/><input type="text" value="1" readonly="readonly" /><input type="button" value="+"/><br />
+		<input type="button" disabled="true" value="-"/><input type="text" value="1" readonly="readonly" /><input type="button" value="+"/><br />
+		<input type="button" disabled="true" value="-"/><input type="text" value="1" readonly="readonly" /><input type="button" value="+"/><br />
+	</body>
+	<script type="text/javascript">
+		
+		$("input[type='button']").click(function(){
+			if($(this).val()=='+'){
+				$(this).prev().prev().prop("disabled",false);
+				var startNum = $(this).prev().val();
+				if(startNum==9){
+					$(this).prop("disabled",true);
+				}
+				var num = parseInt(startNum) + 1;
+				$(this).prev().val(num);
+			}
+			if($(this).val()=='-'){
+				$(this).next().next().prop("disabled",false);
+				var startNum = $(this).next().val();
+				if(startNum==2){
+					$(this).prop("disabled",true);
+				}
+				var num = parseInt(startNum) - 1;
+				$(this).next().val(num);
+			}
+		})	
+	</script>
+</html>

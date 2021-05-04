@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="../../day05_jquery/js/jquery-3.4.1.min.js"></script>
+		<!-- 1.根据输入框改变文字颜色和内容 -->
+	</head>
+	<body>
+		<input id="oneBtn" type="button" value="第一首诗字体颜色改变" />
+		<input id="oneText" type="text" placeholder="请输入字体颜色" /><br />
+		<input id="twoBtn" type="button" value="第二首诗字体背景颜色改变" />
+		<input id="twoText" type="text" placeholder="请输入背景颜色" /><br />
+			<div id="one">
+			<h1>静夜思</h1>
+			<p>床前明月光</p>
+			<p>疑是地上霜</p>
+			<p>举头望明月</p>
+			<p>低头思故乡</p></div>
+			<div id="two">
+			<h1>静夜思</h1>
+			<p>床前明月光</p>
+			<p>疑是地上霜</p>
+			<p>举头望明月</p>
+			<p>低头思故乡</p></div>
+	</body>
+	<script type="text/javascript">
+		$("#oneBtn").click(function(){
+			// 获取文本框中的值
+			var firstColor = $("#oneText").val();
+			console.log(firstColor)
+			$("#one p").css("color",firstColor);
+		})
+		$("#twoBtn").click(function(){
+			// 获取文本框中的值
+			var secondColor = $("#twoText").val();
+			console.log(secondColor)
+			$("#two p").css("background-color",secondColor);
+		})
+	</script>
+</html>
