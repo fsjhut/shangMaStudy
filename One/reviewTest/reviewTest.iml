@@ -19,5 +19,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="fastjson-1.2.76" level="project" />
+    <orderEntry type="library" name="commons-dbutils-1.72" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.46" level="project" />
   </component>
 </module>

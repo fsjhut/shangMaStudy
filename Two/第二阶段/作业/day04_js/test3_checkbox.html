@@ -16,20 +16,23 @@
 		<input type="checkbox" name="hobby" />4
 	</body>
 	<script type="text/javascript">
+		var mybol = true;
 		function allChoice(){
 			var eles = document.getElementsByName("hobby");
 			for(var i=0;i<eles.length;i++){
-				eles[i].checked = true;
+				eles[i].checked = mybol;
 			}
+			mybol = !mybol;
 		}
 		function reverChoice(){
 			var eles = document.getElementsByName("hobby");
 			for(var i=0;i<eles.length;i++){
-				if(eles[i].checked==true){
-					eles[i].checked = false;
-				}else{
-					eles[i].checked = true;
-				}
+				eles[i].checked = !eles[i].checked;
+				// if(eles[i].checked==true){
+				// 	eles[i].checked = false;
+				// }else{
+				// 	eles[i].checked = true;
+				// }
 			}
 		}
 	</script>

@@ -17,6 +17,7 @@ public class JDBCUtils {
             String password = pros.getProperty("password");
             String url = pros.getProperty("url");
             String driverClass = pros.getProperty("driverClassName");
+//            System.out.println(driverClass);
             // 加载驱动
             Class.forName(driverClass);
             conn = DriverManager.getConnection(url, user, password);

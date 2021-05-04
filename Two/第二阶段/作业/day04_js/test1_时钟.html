@@ -113,7 +113,7 @@
 	<script type="text/javascript">
 		var task = setInterval(function() {
 			var time = new Date();
-			var date = time.getFullYear()+'年'+time.getMonth()+'月'+time.getDate()+'日';
+			var date = time.getFullYear()+'年'+(time.getMonth()+1)+'月'+time.getDate()+'日';
 			document.getElementById("mydate").value = date;
 			var my_hour = time.getHours();
 			var str="";
