@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+	<script src="../../bootsTool/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../bootsTool/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../bootsTool/addr.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<h1 align="center">个人简历</h1>
+<table align="center">
+    <form action="resume.html" method="get">
+        <tr>
+            <td align="right">姓 名:</td>
+            <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+            <td align="right">年 龄:</td>
+            <td><input type="password" name="pass"></td>
+        </tr>
+        </td>
+        </tr>
+        <tr>
+            <td align="right">性 别:
+            </td>
+            <td>
+                <input type="radio" name="gender" id="genderm" value="0"><label for="genderm">男</label>
+                <input type="radio" name="gender" id="genderm" value="1"><label for="genderm">女</label>
+            </td>
+        </tr>
+
+        <tr>
+            <td align="right">地 区:
+            </td>
+            <td>
+                <select id="prov" class="form-control">
+                    <option disabled selected>---请选择---</option>
+                </select>省
+                <select id="city" class="form-control">
+                    <option vdisabled selected>---请选择---</option>
+                </select>市
+                <select id="coun" class="form-control">
+                    <option disabled selected>---请选择---</option>
+                </select>县/区
+            </td>
+        </tr>
+        <tr>
+            <td align="right">地 址:
+            </td>
+            <td>
+                <input type="text"/>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">爱 好:
+            </td>
+            <td>
+				<label class="checkbox-inline">
+				  <input type="checkbox" id="hobby" value="1"/>编程
+				</label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" id="hobby" value="1"/>运动
+                </label>
+				<label class="checkbox-inline">
+				  <input type="checkbox" id="hobby" value="1"/>游戏
+				</label>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">个人简介:
+            </td>
+            <td>
+                <textarea class="form-control" name="简介" rows="10" cols="40"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">备 注:
+            </td>
+            <td>
+                <textarea class="form-control" name="简介" rows="5" cols="40"></textarea>
+            </td>
+        </tr>
+
+        <table align="center">
+            <tr>
+                <td align="center"><input type="submit" value="提交"></td>
+                <td align="center"><input type="submit" value="重置"></td>
+            </tr>
+        </table>
+    </form>
+</table>
+
+</body>
+<script type="text/javascript">
+    // 三级菜单的设计
+    // 1. 现将所有的省市展示到prov的下拉菜单中  temp是一个列表
+    $.each(temp, function (i, d) {
+        var content = "<option value='" + d.code + "'>" + d.label + "</option>"
+        $("#prov").append(content);
+    });
+    // 2. 将省关联到市，省的改变会影响市的出现
+    $("#prov").change(function () {
+        $("#city").html("<option disabled selected>-----请选择-----</option>");
+        $("#coun").html("<option disabled selected>-----请选择-----</option>");
+        $.each(temp, function (i, d) {
+            // 先获取当前的省的code
+            if (d.code == $("#prov").val()) {
+                // 遍历当前省的所有市
+                $.each(d.children, function (i, d) {
+                    var content = "<option value='" + d.code + "'>" + d.label + "</option>"
+                    $("#city").append(content)
+                })
+            }
+        })
+    })
+    // 3. 将县/区关联到市，市的改变会影响县
+    $("#city").change(function () {
+        $("#coun").html("<option disabled selected>-----请选择-----</option>");
+        var cityCode = $("#city").val();
+        var provCode = $("#prov").val();
+        $.each(temp, function (i, d) {
+            if (d.code == provCode) {
+                $.each(d.children, function (i, d) {
+                    if (d.code == cityCode) {
+                        $.each(d.children, function (i, d) {
+                            var content = "<option value='" + d.code + "'>" + d.label + "</option>";
+                            $("#coun").append(content);
+                        })
+                    }
+                })
+            }
+        })
+    })
+</script>
+</html>
+

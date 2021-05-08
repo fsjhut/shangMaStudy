@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script src="../../day05_jquery/js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<body>
+		<table id="mytable" border="" cellspacing="" cellpadding="">
+			<tr><th><input id="addall" type="checkbox" value="全选">全选</th><th>商品信息</th><th>宜美惠价</th><th>数量</th><th>操作</th></tr>
+			<tr><td><input type="checkbox"></td><td>天堂雨伞</td><td>￥32.9元</td><td><input type="button" disabled="true" value="-"/><input type="text" value="1" readonly="readonly" /><input type="button" value="+"/></td><td><input type="button" value="删除" /></td></tr>
+			<tr id="goods1" ><td><input type="checkbox"></td><td>苹果手机</td><td>￥3239元</td><td><input type="button" disabled="true" value="-"/><input type="text" value="1" readonly="readonly" /><input type="button" value="+"/></td><td><input type="button" value="删除" /></td></tr>
+		</table>
+		<p><input id="addgood" type="button" value="添加"></p>	
+	</body> 
+	<script type="text/javascript">
+		resetBtn();
+		function resetBtn(){
+			$("#mytable input[type='button']").off();
+			$("#mytable input[type='button']").click(function(){
+				if($(this).val()=='+'){
+					$(this).prev().prev().prop("disabled",false);
+					var startNum = $(this).prev().val();
+					if(startNum==9){
+						$(this).prop("disabled",true);
+					}
+					var num = parseInt(startNum) + 1;
+					$(this).prev().val(num);
+				}
+				if($(this).val()=='-'){
+					$(this).next().next().prop("disabled",false);
+					var startNum = $(this).next().val();
+					if(startNum==2){
+						$(this).prop("disabled",true);
+					}
+					var num = parseInt(startNum) - 1;
+					$(this).next().val(num);
+				}
+				if($(this).val()=='删除'){
+					$(this).parent().parent().remove();
+				}
+			})	
+		}
+		
+		$("#addgood").click(function(){
+			var content = '<tr><td><input type="checkbox"></td><td>苹果手机</td><td>￥3239元</td><td><input type="button" disabled="true" value="-"/><input type="text" value="1" readonly="readonly" /><input type="button" value="+"/></td><td><input type="button" value="删除" /></td></tr>'
+			// $("#goods1").clone(true).appendTo($("#mytable"))
+			$("#mytable").append(content);
+			resetBtn();
+		})
+		$("#addall").click(function(){
+			var allgoods = $("input[type='checkbox']");
+			for(var i=0;i<allgoods.length;i++){
+				allgoods[i].checked = this.checked;
+			}
+		})	
+	</script>
+</html>

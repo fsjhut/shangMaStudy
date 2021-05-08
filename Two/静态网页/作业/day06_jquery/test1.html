@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../../day05_jquery/js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="addr.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<select id="prov">
+			<option disabled selected>-----请选择-----</option>
+		</select>省
+		<select id="city">
+			<option vdisabled selected>-----请选择-----</option>
+		</select>市
+		<select id="coun">
+			<option disabled selected>-----请选择-----</option>
+		</select>县/区
+	</body>
+	<script type="text/javascript">
+		// 三级菜单的设计
+		// 1. 现将所有的省市展示到prov的下拉菜单中  temp是一个列表
+		$.each(temp,function(i,d){
+			var content = "<option value='"+d.code+"'>"+d.label+"</option>"
+			$("#prov").append(content);
+		})
+		// 2. 将省关联到市，省的改变会影响市的出现
+		$("#prov").change(function(){
+			$("#city").html("<option disabled selected>-----请选择-----</option>");
+			$("#coun").html("<option disabled selected>-----请选择-----</option>");
+			$.each(temp,function(i,d){
+				// 先获取当前的省的code
+				if(d.code==$("#prov").val()){
+					// 遍历当前省的所有市
+					$.each(d.children,function(i,d){
+						var content = "<option value='"+d.code+"'>"+d.label+"</option>"
+						$("#city").append(content)
+					})	
+				}
+			})
+		})
+		// 3. 将县/区关联到市，市的改变会影响县
+		$("#city").change(function(){
+			$("#coun").html("<option disabled selected>-----请选择-----</option>");
+			var cityCode = $("#city").val();
+			var provCode = $("#prov").val();
+			$.each(temp,function(i,d){
+				if(d.code==provCode){
+					$.each(d.children,function(i,d){
+						if(d.code==cityCode){
+							$.each(d.children,function(i,d){
+								var content = "<option value='"+d.code+"'>"+d.label+"</option>"
+								$("#coun").append(content);
+							})
+						}
+					})
+				}
+			})
+		})
+	</script>
+</html>

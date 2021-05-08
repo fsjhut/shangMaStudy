@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<script src="jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="addr.js" type="text/javascript" charset="utf-8"></script>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.4/favicon.ico">
+		<link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/signin/">
+
+		<title>Signin Template for Bootstrap</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.4/dist/css/bootstrap.min.css"
+			rel="stylesheet">
+
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.4/assets/css/ie10-viewport-bug-workaround.css"
+			rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.4/examples/signin/signin.css"
+			rel="stylesheet">
+
+		<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+		<!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.4/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+		<script
+			src="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.4/assets/js/ie-emulation-modes-warning.js">
+		</script>
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	</head>
+<!-- <div <!-- style="width: 600px; height: 800px; text-align: left; " -->
+	<body>
+		<div>
+			<form class="form-horizontal" action="/resume/submit" method="get">
+				<div class="form-signin-heading" align="center">
+					<h1 class="form-signin-heading" style="font-size: 50px; text-align: center;">个人 简历</h1>
+				</div>
+				<div class="container" style="font-size: 18px;">
+					<div class="form-group">
+						<label class="col-sm-3 control-label">姓名</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" name="name" placeholder="Name" required autofocus>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">年龄</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" name="age" placeholder="Age" required autofocus>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">性别</label>
+						<div class="col-sm-9">
+							<label class="checkbox-inline">
+								<input type="radio" name="gender" value="0">男
+							</label>
+							<label class="checkbox-inline">
+								<input type="radio" name="gender"  value="1">女
+							</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label" >地区</label>
+						<div class="col-sm-8">
+							<select id="prov" class="form-control" name="prov">
+								<option disabled selected>---请选择---</option>
+							</select>
+							<select id="city" class="form-control" name="city">
+								<option vdisabled selected>---请选择---</option>
+							</select>
+							<select id="coun" class="form-control" name="county">
+								<option disabled selected>---请选择---</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">地址</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" name="areaDetail" placeholder="Address" required autofocus>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">个人简介</label>
+						<div class="col-sm-9">
+							<textarea class="form-control" name="resume" rows="10" cols="40"
+								placeholder="Personal resume"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">备注</label>
+						<div class="col-sm-9">
+							<textarea class="form-control" name="comment" rows="5" cols="40"
+								placeholder="Comments"></textarea>
+						</div>
+					</div>
+					<div class="form-group" align="center">
+						<input type="submit" value="提交" align="center">
+						<input type="submit" value="重置" align="center">
+						<!-- <div align="center" class="col-sm-offset-2 col-sm-2 btn-lg btn-primary btn-block">重 置</button>
+						</div> -->
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.4/assets/js/ie10-viewport-bug-workaround.js">
+	</script>
+	<script type="text/javascript">
+		// 三级菜单的设计
+		// 1. 现将所有的省市展示到prov的下拉菜单中  temp是一个列表
+		$.each(temp, function(i, d) {
+			var content = "<option value='" + d.code + "'>" + d.label + "</option>"
+			$("#prov").append(content);
+		});
+		// 2. 将省关联到市，省的改变会影响市的出现
+		$("#prov").change(function() {
+			$("#city").html("<option disabled selected>-----请选择-----</option>");
+			$("#coun").html("<option disabled selected>-----请选择-----</option>");
+			$.each(temp, function(i, d) {
+				// 先获取当前的省的code
+				if (d.code == $("#prov").val()) {
+					// 遍历当前省的所有市
+					$.each(d.children, function(i, d) {
+						var content = "<option value='" + d.code + "'>" + d.label + "</option>"
+						$("#city").append(content)
+					})
+				}
+			})
+		})
+		// 3. 将县/区关联到市，市的改变会影响县
+		$("#city").change(function() {
+			$("#coun").html("<option disabled selected>-----请选择-----</option>");
+			var cityCode = $("#city").val();
+			var provCode = $("#prov").val();
+			$.each(temp, function(i, d) {
+				if (d.code == provCode) {
+					$.each(d.children, function(i, d) {
+						if (d.code == cityCode) {
+							$.each(d.children, function(i, d) {
+								var content = "<option value='" + d.code + "'>" + d.label +
+									"</option>";
+								$("#coun").append(content);
+							})
+						}
+					})
+				}
+			})
+		})
+	</script>
+</html>
