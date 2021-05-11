@@ -79,6 +79,10 @@
 			document.getElementById("passRegImg").src = imgsrc;
 			return returnVal;
 		}	
+		function regAll(){
+			return phoneReg()&&nameReg()&&passReg();
+		}
+		
 		// function Reg(obj,myreg,regImg){
 		// 	var phoneText = obj.value;
 		// 	var imgsrc = "";

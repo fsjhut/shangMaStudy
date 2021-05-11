@@ -11,5 +11,6 @@
     <orderEntry type="library" name="fastjson-1.2.76" level="project" />
     <orderEntry type="library" name="lombok" level="project" />
     <orderEntry type="library" name="mysql-connector-java-5.1.46" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>
