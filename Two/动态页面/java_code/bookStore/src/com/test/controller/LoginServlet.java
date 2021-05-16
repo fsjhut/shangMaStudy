@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
 //            RequestDispatcher view = req.getRequestDispatcher("http://localhost:8080/book/pages/manager/manager.html");
 //            view.forward(req,resp);
 //        }else{
-//            writer.print("用户名或密码错误 请<a href='"+req.getContextPath()+"/pages/user/login.html'>重新登录</a>");
+//            writer.print("用户名或密码错误 请<a href='"+req.getContextPath()+"/pages/user/login.jsp'>重新登录</a>");
 //        }
 //
 //        writer.flush();
@@ -81,12 +81,12 @@ public class LoginServlet extends HttpServlet {
 //            writer.print("<a href='"+req.getContextPath()+"/user'>用户服务</a>");
 //            writer.print("<a href='"+req.getContextPath()+"/order'>订单服务</a>");
             // 请求转发
-//            RequestDispatcher view = req.getRequestDispatcher("/pages/manager/manager.html");
+//            RequestDispatcher view = req.getRequestDispatcher("/pages/manager/manager.jsp");
 //            view.forward(req,resp);
             // 重定向
-            resp.sendRedirect(req.getContextPath()+"/pages/manager/manager.html");
+            resp.sendRedirect(req.getContextPath()+"/pages/manager/manager.jsp");
         }else{
-            writer.print("用户名或密码错误 请<a href='"+req.getContextPath()+"/pages/user/login.html'>重新登录</a>");
+            writer.print("用户名或密码错误 请<a href='"+req.getContextPath()+"/pages/user/login.jsp'>重新登录</a>");
         }
 
         writer.flush();

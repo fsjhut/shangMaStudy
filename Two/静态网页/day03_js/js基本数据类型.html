@@ -14,7 +14,7 @@
 			var tenNum = parseInt((mynumber%100)/10);
 			var hundredNum = parseInt((mynumber%1000)/100);
 			var thousandNum = parseInt(mynumber/1000);
-			console.log((unit+tenNum+hundredNum+thousandNum).toFixed(0));
+			console.log((unit+tenNum+hundredNum+thousandNum).toFixed(2));
 			// 2. 使用变量输入数字，输出对应的是工作日还是周末 其它输出输入有误
 			var myval = prompt("请输入: ");
 			if(parseInt(myval)==NaN||myval<1||myval>31){

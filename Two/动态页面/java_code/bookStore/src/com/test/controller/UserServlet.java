@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet("/book/pages/user/manager")
+@WebServlet("/manager/userManager")
 public class UserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -70,7 +70,7 @@ public class UserServlet extends HttpServlet {
             writer.print("</body>");
             writer.print("</html>");
         }else{
-            writer.print("您还没有登录 请先<a href='"+req.getContextPath()+"/html/user/login.html'>登录</a>");
+            writer.print("您还没有登录 请先<a href='"+req.getContextPath()+"/html/user/login.jsp'>登录</a>");
         }
         writer.flush();
         writer.close();

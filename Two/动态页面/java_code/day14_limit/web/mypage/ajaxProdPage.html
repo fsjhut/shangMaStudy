@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
+    <script src="/day14/js/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/day14/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        .mainPanel {
+            width: 80%;
+            margin: 100px auto;
+        }
+
+        td > img {
+            width: 64px;
+            height: 64px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="mainPanel">
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="prodid">商品id</label>
+            <input type="text" class="form-control" id="prodid" placeholder="prodid">
+        </div>
+        <div class="form-group">
+            <label for="prodname">商品名称</label>
+            <input type="text" class="form-control" id="prodname" placeholder="prodname">
+        </div>
+        <button id="queryBtn" type="button" class="btn btn-info">查询</button>
+    </form>
+    <table class="table">
+        <caption>商品信息</caption>
+        <thead>
+        <tr>
+            <th>商品编号</th>
+            <th>商品名称</th>
+            <th>单价</th>
+            <th>备注</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody id="mainData">
+
+        </tbody>
+    </table>
+
+    <input id="prevBtn" type="button" class="btn btn-default" value="上一页">
+    <input id="nextBtn" type="button" class="btn btn-default" value="下一页">
+
+    当前第 <span id="pageSpan"></span> 页 每页显示 <span id="pageSizeSpan"></span>
+    条记录 总共 <span id="totalPageSpan"></span> 页
+</div>
+</body>
+<script>
+    /*
+    * 后台服务接口
+    *
+    * 在需要数据的时候 调用后台服务接口
+    *
+    * 都是调用查询服务 参数不同
+    * 1.页面加载结束后 调用查询服务
+    * 2.上一页 下一页 调用查询服务
+    * 3.查询按钮      调用查询服务
+    * */
+    var page;
+    var pageSize;
+    var totalPage ;
+
+    $("#queryBtn").click(function(){
+        var myparam = {"prodid":$("#prodid").val(),"prodname":$("#prodname").val()};
+        myAjaxQuery(myparam);
+    });
+    $("#prevBtn").click(function(){
+        /*location.href = "${pageContext.request.contextPath}/prod?page=${page-1}&pageSize=${pageSize}"
+            +"&prodid="+$("#prodid").val()+"&prodname="+$("#prodname").val();*/
+        var myparam = {"page":page-1,"pageSize":pageSize,"prodid":$("#prodid").val(),"prodname":$("#prodname").val()};
+        myAjaxQuery(myparam);
+    });
+
+    $("#nextBtn").click(function(){
+        /*
+        * 访问查询接口
+        * 传递参数
+        * 解析返回的数据
+        *   1.列表数据
+        *   2.页码数据
+        *
+        * */
+        var myparam = {"page":page+1,"pageSize":pageSize,"prodid":$("#prodid").val(),"prodname":$("#prodname").val()};
+        myAjaxQuery(myparam);
+    });
+    function checkBtn(){
+        $("#prevBtn").prop("disabled",false);
+        $("#nextBtn").prop("disabled",false);
+        //当前页码
+        if(page<=1){
+            $("#prevBtn").prop("disabled",true);
+        }
+
+        if(page>=totalPage){
+            $("#nextBtn").prop("disabled",true);
+        }
+    }
+    function myAjaxQuery(param){
+        $.post("../ajaxprod",param,function(data){
+            console.log(data);
+            /*
+            * 1.列表数据  填入table
+            * 2.展示页码相关信息
+            *返回数据示例  :
+         *               有数据
+         *               {"code":20001,
+         *               "pif":{"page":1,"pageSize":5,"totalPage":2},
+         *               "returnData":[{"prodDesc":"xxxx","prodId":"1322333","prodImg":"img/xx.jpg","prodName":"商品1","prodPrice":300},
+         *                            {"prodDesc":"333","prodId":"1333332","prodImg":"3333","prodName":"1333","prodPrice":33},
+         *                            {"prodDesc":"4444","prodId":"333444","prodImg":"444","prodName":"4444","prodPrice":4444},
+         *                            {"prodDesc":"444","prodId":"4444","prodImg":"444","prodName":"4444","prodPrice":4444},
+         *                            {"prodDesc":"55555","prodId":"555","prodImg":"5555","prodName":"555游戏5","prodPrice":5555}],
+         *               "returnMsg":"请求成功"}
+            * */
+            //清空当前的列表数据
+            $("#mainData").html("");
+
+            //根据响应码 决定页面执行的代码
+            if(data.code == 20001){
+                $.each(data.returnData,function(i,d){
+                    var mycontent = '<tr>' +
+                        '                <td>' +d.prodId+'</td>' +
+                        '                <td>' +
+                        '                    <img src="/day14/'+d.prodImg+'" /><br/>' +d.prodName+
+                        '                </td>' +
+                        '                <td>'+d.prodPrice+'</td>' +
+                        '                <td>'+d.prodDesc+'</td>' +
+                        '                <td><input type="button" prodid="'+d.prodId+'" ' +
+                        '                           class="btn btn-info addCart" value="添加到购物车"></td>' +
+                        '            </tr>';
+                    $("#mainData").append(mycontent);
+                    //把页码信息写入页面
+                    page = data.pif.page;
+                    pageSize = data.pif.pageSize;
+                    totalPage =  data.pif.totalPage;
+
+                    $("#pageSpan").html(page);
+                    $("#pageSizeSpan").html(pageSize);
+                    $("#totalPageSpan").html(totalPage);
+                    //检测按钮使用状态
+                    checkBtn();
+
+                })
+            }else if(data.code == 30001){
+                $("#mainData").append(data.returnMsg);
+
+                page = data.pif.page;
+                pageSize = data.pif.pageSize;
+                totalPage =  data.pif.totalPage;
+
+                $("#pageSpan").html(page);
+                $("#pageSizeSpan").html(pageSize);
+                $("#totalPageSpan").html(totalPage);
+
+                checkBtn();
+
+            }
+        },"json")
+    }
+    //进页面初次数据查询
+    myAjaxQuery("");
+
+</script>
+</html>
