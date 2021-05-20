@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
             // 抽了3-5次，获取了3张不同的卡片，则从已抽中卡池中抽取
             cardNo = getCard.get((int)(Math.random()*getCard.size()));
 //            System.out.println(cardNo);
-        }else if((getCardNo>=7 && noCardNo<4)||(getCardNo>=8 && noCardNo<3)||(getCardNo>=9 && noCardNo<2)){
+        }else if((getCardNo>=7 && noCardNo>=3)||(getCardNo>=8 && noCardNo>=2)||(getCardNo>=9 && noCardNo>=1)){
             // 抽了7次，全部都一样的，则进行人工干预
             cardNo = noCard.get((int)(Math.random()*noCard.size()));
         }else{

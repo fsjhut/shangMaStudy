@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
+    <script src="/day15/js/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/day15/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        .mainPanel{
+            width: 80%;
+            margin: 100px auto;
+        }
+        td>img{
+            width: 64px;
+            height: 64px;
+        }
+        .myalertPanel{
+            position: absolute;
+            top: 30%;
+            left: 30%;
+        }
+        .myalert{
+            width: 300px;
+            height: 200px;
+        }
+        .optionBtn{
+            /*margin-right: 0;*/
+            float: right;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="mainPanel">
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="prodid">商品id:</label>
+            <input type="text" class="form-control" id="prodid" placeholder="prodid">
+        </div>
+        <div class="form-group">
+            <label for="prodname">商品名称:</label>
+            <input type="text" class="form-control" id="prodname" placeholder="prodname">
+            <button id="queryBtn" type="button" class="btn btn-info">查询</button>
+        </div>
+        <div class="optionBtn">
+            <!-- Button trigger modal -->
+            <label style="font-size: 20px">操作：</label>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addModal">
+                添加
+            </button>
+            <button id="editBtn" type="button" class="btn btn-warning" data-toggle="modal" data-target="#editModal">
+                修改
+            </button>
+            <button id="delBtn" type="button" class="btn btn-danger" data-toggle="modal">
+                删除
+            </button>
+            <button id="addToCart" type="button" class="btn btn-info">添加到购物车</button>
+        </div>
+
+    </form>
+    <table class="table">
+        <caption>商品信息</caption>
+        <thead>
+        <tr>
+            <th>商品编号</th>
+            <th>商品名称</th>
+            <th>单价</th>
+            <th>备注</th>
+        </tr>
+        </thead>
+        <tbody id="mainData">
+
+        </tbody>
+    </table>
+
+    <input id="prevBtn" type="button" class="btn btn-default" value="上一页">
+    <input id="nextBtn" type="button" class="btn btn-default" value="下一页">
+
+    当前第 <span id="pageSpan"></span> 页 每页显示 <span id="pageSizeSpan"></span> 条记录
+    总共 <span id="totalPageSpan"></span> 页
+    <!--<input id="gotoCart" type="button" class="btn btn-default" value="去购物车">-->
+    <a style="font-size: 23px;float: right" href="/day15/cart">去购物车</a>
+</div>
+
+
+<!-- 弹出的增加商品界面 -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">添加商品</h4>
+            </div>
+            <div class="modal-body">
+                <form id="addform">
+                    <div class="form-group">
+                        <label for="addprodId">商品ID</label>
+                        <input type="text" class="form-control" id="addprodId" name="prodId" placeholder="prodId">
+                    </div>
+                    <div class="form-group">
+                        <label for="addprodName">商品名称</label>
+                        <input type="text" class="form-control" id="addprodName" name="prodName" placeholder="prodName">
+                    </div>
+                    <div class="form-group">
+                        <label for="addprodPrice">商品单价</label>
+                        <input type="text" class="form-control" id="addprodPrice" name="prodPrice"
+                               placeholder="prodPrice">
+                    </div>
+                    <div class="form-group">
+                        <label for="addprodImg">商品图片地址</label>
+                        <input type="text" class="form-control" id="addprodImg" name="prodImg" placeholder="prodImg">
+                    </div>
+                    <div class="form-group">
+                        <label for="addprodDesc">商品描述</label>
+                        <input type="text" class="form-control" id="addprodDesc" name="prodDesc" placeholder="prodDesc">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button id="addSubmitBtn" type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 弹出的修改商品界面 -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">修改商品</h4>
+            </div>
+            <div class="modal-body">
+                <form id="editform">
+                    <div class="form-group">
+                        <label for="addprodId">商品ID</label>
+                        <input type="text" class="form-control" readonly id="editprodId" name="prodId"
+                               placeholder="prodId">
+                    </div>
+                    <div class="form-group">
+                        <label for="addprodName">商品名称</label>
+                        <input type="text" class="form-control" id="editprodName" name="prodName"
+                               placeholder="prodName">
+                    </div>
+                    <div class="form-group">
+                        <label for="addprodPrice">商品单价</label>
+                        <input type="text" class="form-control" id="editprodPrice" name="prodPrice"
+                               placeholder="prodPrice">
+                    </div>
+                    <div class="form-group">
+                        <label for="addprodImg">商品图片地址</label>
+                        <input type="text" class="form-control" id="editprodImg" name="prodImg" placeholder="prodImg">
+                    </div>
+                    <div class="form-group">
+                        <label for="addprodDesc">商品描述</label>
+                        <input type="text" class="form-control" id="editprodDesc" name="prodDesc"
+                               placeholder="prodDesc">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button id="editSubmitBtn" type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="showResPanel" class="myalertPanel">
+</div>
+</body>
+
+
+<script>
+    /*
+    * 后台服务接口
+    *
+    * 在需要数据的时候 调用后台服务接口
+    *
+    * 都是调用查询服务 参数不同
+    * 1.页面加载结束后 调用查询服务
+    * 2.上一页 下一页 调用查询服务
+    * 3.查询按钮      调用查询服务
+    * */
+    // String prodId = req.getParameter("prodId");
+    // String prodName = req.getParameter("prodName");
+    // String prodPriceStr = req.getParameter("prodPrice");
+    // String prodImg = req.getParameter("prodImg");
+    // String prodDesc = req.getParameter("prodDesc");
+    var page;
+    var pageSize;
+    var totalPage;
+    var prodid;//选取元素时 暂存id
+
+    // $("#gotoCart").click(function () {
+    // <a href="${pageContext.request.contextPath}/cart">去购物车</a>
+    // });
+    $("#addToCart").click(function(){
+        console.log(prodid);
+        var prodidstr = "prod_"+prodid;
+        var prodnum = 1;
+        var cookieArr = document.cookie.split("; ");
+        $.each(cookieArr,function(i,d){
+            var kandv = d.split("=");
+            if(prodid == kandv[0]){
+                //如果要添加的cookie 已经存在 取出当前值加1
+                prodnum = parseInt(kandv[1])+1
+            }
+        });
+        document.cookie = prodidstr+"="+prodnum+";path=/;expires="+new Date("2033-12-11 12:12:12");
+    });
+    $("#queryBtn").click(function(){
+        var myparam = {"prodid":$("#prodid").val(),"prodname":$("#prodname").val()};
+        myAjaxQuery(myparam);
+    });
+    $("#prevBtn").click(function () {
+        /*location.href = "${pageContext.request.contextPath}/prod?page=${page-1}&pageSize=${pageSize}"
+            +"&prodid="+$("#prodid").val()+"&prodname="+$("#prodname").val();*/
+        var myparam = {
+            "page": page - 1,
+            "pageSize": pageSize,
+            "prodid": $("#prodid").val(),
+            "prodname": $("#prodname").val()
+        };
+        myAjaxQuery(myparam);
+    });
+    $("#nextBtn").click(function () {
+        /*
+        * 访问查询接口
+        * 传递参数
+        * 解析返回的数据
+        *   1.列表数据
+        *   2.页码数据
+        * */
+        var myparam = {
+            "page": page + 1,
+            "pageSize": pageSize,
+            "prodid": $("#prodid").val(),
+            "prodname": $("#prodname").val()
+        };
+        myAjaxQuery(myparam);
+    });
+    $("#editBtn").click(function () {
+
+    });
+    $("#editBtn").click(function () {
+        $.post("../ajaxprod/readyForEdit","prodId="+prodid,function (data) {
+            if(data.code == 20001){
+                // 将数据库中查询到的数据传入到前端中，进行展示
+                $("#editprodId").val(data.returnData.prodId);
+                console.log(data.returnData.prodId);
+                $("#editprodName").val(data.returnData.prodName);
+                console.log(data.returnData.prodName);
+                $("#editprodPrice").val(data.returnData.prodPrice);
+                $("#editprodImg").val(data.returnData.prodImg);
+                $("#editprodDesc").val(data.returnData.prodDesc);
+            }
+        },"json");
+    });
+    $("#editSubmitBtn").click(function () {
+        //根据表单中根据有name的表单元素 拼接成urlencoded格式的键值对
+        var myparam = $("#editform").serialize();
+        console.log(myparam);
+        // 将url和拼接的参数传入mycud函数中进行处理
+        var myurl = "../ajaxprod/ajaxedit";
+        myCUD(myurl,myparam);
+    });
+    $("#delBtn").click(function () {
+        //ajaxDelete
+        myparam = "prodId="+prodid;
+        var myurl = "../ajaxprod/ajaxdelete";
+        myCUD(myurl,myparam);
+    });
+    $("#addSubmitBtn").click(function () {
+        var myparam = $("#addform").serialize();
+        console.log(myparam);
+        //prodId=6666&prodName=66666&prodPrice=66666&prodImg=66666&prodDesc=6666
+        //访问后台 保存商品数据服务接口
+        // 请求地址/ajaxprod/ajaxAdd
+        // 接收参数 prodId=6666&prodName=66666&prodPrice=66666&prodImg=66666&prodDesc=6666
+        //返回数据格式 json
+        //返回数据实例 {"code":20001,"returnMsg":"请求成功"}
+        var myurl = "../ajaxprod/ajaxadd";
+        myCUD(myurl,myparam);
+    });
+    function checkBtn() {
+        $("#prevBtn").prop("disabled", false);
+        $("#nextBtn").prop("disabled", false);
+        //当前页码
+        if (page <= 1) {
+            $("#prevBtn").prop("disabled", true);
+        }
+        if (page >= totalPage) {
+            $("#nextBtn").prop("disabled", true);
+        }
+    }
+
+    function myAjaxQuery(param) {
+        $.post("../ajaxprod/ajaxquery", param, function (data) {
+            console.log(data);
+            /*
+            * 1.列表数据  填入table
+            * 2.展示页码相关信息
+            *返回数据示例  :
+         *               有数据
+         *               {"code":20001,
+         *               "pif":{"page":1,"pageSize":5,"totalPage":2},
+         *               "returnData":[{"prodDesc":"xxxx","prodId":"1322333","prodImg":"img/xx.jpg","prodName":"商品1","prodPrice":300},
+         *                            {"prodDesc":"333","prodId":"1333332","prodImg":"3333","prodName":"1333","prodPrice":33},
+         *                            {"prodDesc":"4444","prodId":"333444","prodImg":"444","prodName":"4444","prodPrice":4444},
+         *                            {"prodDesc":"444","prodId":"4444","prodImg":"444","prodName":"4444","prodPrice":4444},
+         *                            {"prodDesc":"55555","prodId":"555","prodImg":"5555","prodName":"555游戏5","prodPrice":5555}],
+         *               "returnMsg":"请求成功"}
+            * */
+            //清空当前的列表数据
+            $("#mainData").html("");
+
+            //根据响应码 决定页面执行的代码
+            if (data.code == 20001) {
+                $.each(data.returnData, function (i, d) {
+                    var mycontent = '<tr>' +
+                        '                <td>' + d.prodId + '</td>' +
+                        '                <td>' +
+                        '                    <img src="/day15/' + d.prodImg + '" /><br/>' + d.prodName +
+                        '                </td>' +
+                        '                <td>' + d.prodPrice + '</td>' +
+                        '                <td>' + d.prodDesc + '</td>' +
+                        '            </tr>';
+                    $("#mainData").append(mycontent);
+                });
+                //保证页面元素存在 再绑定
+                $("#mainData>tr").click(function(){
+                    $("#mainData>tr").removeClass("info");
+                    $(this).addClass("info");
+                    // 选取元素的id值--->可以让
+                    prodid = $(this).find("td").eq(0).html();
+                    console.log(prodid);});
+                //把页码信息写入页面
+                page = data.pif.page;
+                pageSize = data.pif.pageSize;
+                totalPage = data.pif.totalPage;
+
+                $("#pageSpan").html(page);
+                $("#pageSizeSpan").html(pageSize);
+                $("#totalPageSpan").html(totalPage);
+                //检测按钮使用状态
+                checkBtn();
+            } else if (data.code == 30001) {
+                $("#mainData").append(data.returnMsg);
+                page = data.pif.page;
+                pageSize = data.pif.pageSize;
+                totalPage = data.pif.totalPage;
+
+                $("#pageSpan").html(page);
+                $("#pageSizeSpan").html(pageSize);
+                $("#totalPageSpan").html(totalPage);
+                checkBtn();
+            }
+        }, "json")
+    }
+
+    // 增删改操作 需要传递的参数，url和param
+    function myCUD(url,myparam){
+        $.post(url,myparam,function (data) {
+             console.log(data);
+            var alertcls = "";
+             if(data.code==20001){
+                 alertcls = "alert-success";
+             }else{
+                 alertcls = "alert-danger";
+             }
+            var mycontent = '<div class="alert '+alertcls+' alert-dismissible fade in myalert" role="alert">' +
+                '        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>' +
+                '        <h4>操作结果:</h4>' +
+                '        <p>'+data.returnMsg+'</p>' +
+                '    </div>';
+            $("#showResPanel").html(mycontent);
+            // 刷新页面的数据------>执行完毕后可以仍继续显示之前的页面
+            var myparam = {"page":page,"pageSize":pageSize,"prodid":$("#prodid").val(),"prodname":$("#prodname").val()};
+            myAjaxQuery(myparam);
+        },"json")
+    }
+    //进页面初次数据查询
+    myAjaxQuery("");
+
+</script>
+</html>

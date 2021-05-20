@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="worldCup:war exploded" />
+      <artifact name="e_shop:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
@@ -34,112 +34,72 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="startBall.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/worldCup/web/startBall.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="558" column="9" lean-forward="true" selection-start-line="558" selection-start-column="9" selection-end-line="558" selection-end-column="9" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#h4#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GoBall.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/controller/GoBall.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1431">
-              <caret line="64" column="20" lean-forward="true" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/dao/impl/UserDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1411">
-              <caret line="89" column="36" lean-forward="true" selection-start-line="89" selection-start-column="36" selection-end-line="89" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/entity/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="23" column="37" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/service/impl/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="925">
-              <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#467#468#0" expanded="true" />
-                <element signature="e#520#521#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mytest2.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/day14_limit/src/com/test/test/mytest2.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReturnEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/entity/ReturnEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="UserServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/controller/UserServlet.java">
+        <entry file="file://$PROJECT_DIR$/e_shop/src/test/controller/UserServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="51" column="23" lean-forward="true" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
+            <state relative-caret-position="119">
+              <caret line="75" column="23" lean-forward="true" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AjaxProdServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/day14_limit/src/com/test/controller/AjaxProdServlet.java">
+      <file leaf-file-name="register.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/e_shop/web/pages/user/register.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-709">
-              <caret line="61" column="25" lean-forward="true" selection-start-line="61" selection-start-column="25" selection-end-line="61" selection-end-column="25" />
+            <state relative-caret-position="343">
+              <caret line="64" column="17" lean-forward="true" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ajaxProdPage.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/day14_limit/web/mypage/ajaxProdPage.html">
+      <file leaf-file-name="resume1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/day08_tomcat/web/resume1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="830">
-              <caret line="111" column="29" lean-forward="true" selection-start-line="111" selection-start-column="29" selection-end-line="111" selection-end-column="29" />
+            <state relative-caret-position="54">
+              <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="resume2.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/day08_tomcat/web/resume2.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="person.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/day08_tomcat/web/person.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="resume.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/day08_tomcat/web/resume.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="resume.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/e_shop/web/pages/user/resume.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="228" column="18" lean-forward="true" selection-start-line="228" selection-start-column="18" selection-end-line="228" selection-end-column="18" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/e_shop/web/pages/user/login.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -156,60 +116,65 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>user</find>
+    </findStrings>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/day11_jsp/src/com/javasm/dao/ProductDao.java" />
-        <option value="$PROJECT_DIR$/day11_jsp/src/com/javasm/controller2/ProductServlet.java" />
-        <option value="$PROJECT_DIR$/day11_jsp/src/com/javasm/dao/impl/ProductDaoImpl.java" />
-        <option value="$PROJECT_DIR$/day11_jsp/web/mypage/productPage.jsp" />
-        <option value="$PROJECT_DIR$/day12_cookie/src/com/javasm/entity/MyUser.java" />
-        <option value="$PROJECT_DIR$/day12_cookie/web/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/day12_cookie/web/mypage/common.jsp" />
-        <option value="$PROJECT_DIR$/day12_cookie/src/com/javasm/controller2/CartServlet.java" />
-        <option value="$PROJECT_DIR$/day12_cookie/src/com/javasm/controller2/LoginServlet.java" />
-        <option value="$PROJECT_DIR$/day12_cookie/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/day12_cookie/web/mypage/userPage.jsp" />
-        <option value="$PROJECT_DIR$/day12_cookie/web/mypage/productPage.jsp" />
-        <option value="$PROJECT_DIR$/day12_cookie/web/mypage/cartPage.jsp" />
-        <option value="$PROJECT_DIR$/day12_cookie/src/com/javasm/dao/impl/AreaServlet.java" />
-        <option value="$PROJECT_DIR$/day12_cookie/src/com/javasm/entity/ReturnEntity.java" />
-        <option value="$PROJECT_DIR$/day12_cookie/src/com/javasm/dao/impl/AreaDaoImpl.java" />
-        <option value="$PROJECT_DIR$/day12_cookie/web/areaPage.jsp" />
-        <option value="$PROJECT_DIR$/day12_cookie/web/mypage/main.jsp" />
-        <option value="$PROJECT_DIR$/day12_cookie/web/areaPage.html" />
-        <option value="$PROJECT_DIR$/day12_cookie/src/com/javasm/controller2/UserServlet.java" />
-        <option value="$PROJECT_DIR$/day12_cookie/src/com/javasm/dao/ProdDao.java" />
-        <option value="$PROJECT_DIR$/day12_cookie/src/com/javasm/dao/impl/ProdDaoImpl.java" />
-        <option value="$PROJECT_DIR$/day12_cookie/src/com/javasm/service/impl/ProdServiceImpl.java" />
-        <option value="$PROJECT_DIR$/day12_cookie/src/com/javasm/service/ProdService.java" />
-        <option value="$PROJECT_DIR$/day14_limit/src/com/test/utils/DBHelper.java" />
-        <option value="$PROJECT_DIR$/day14_limit/src/com/test/dao/impl/ProdDaoImplt.java" />
-        <option value="$PROJECT_DIR$/day12_cookie/src/com/javasm/controller2/ProdServlet.java" />
-        <option value="$PROJECT_DIR$/day14_limit/src/com/test/entity/MyProduct.java" />
-        <option value="$PROJECT_DIR$/day14_limit/src/com/test/test/MyTest.java" />
-        <option value="$PROJECT_DIR$/day14_limit/src/com/test/service/ProdService.java" />
-        <option value="$PROJECT_DIR$/day14_limit/src/com/test/dao/ProdDao.java" />
-        <option value="$PROJECT_DIR$/day14_limit/web/mypage/prodPage.jsp" />
-        <option value="$PROJECT_DIR$/day14_limit/src/com/test/service/impl/ProdServiceImpl.java" />
-        <option value="$PROJECT_DIR$/day14_limit/src/com/test/dao/impl/ProdDaoImpl.java" />
-        <option value="$PROJECT_DIR$/day14_limit/src/com/test/controller/ProdServlet.java" />
-        <option value="$PROJECT_DIR$/day14_limit/src/com/test/entity/ReturnEntity.java" />
-        <option value="$PROJECT_DIR$/day14_limit/src/com/test/entity/ReturnCode.java" />
-        <option value="$PROJECT_DIR$/day14_limit/src/com/test/entity/PageInfo.java" />
-        <option value="$PROJECT_DIR$/day14_limit/src/com/test/controller/AjaxProdServlet.java" />
-        <option value="$PROJECT_DIR$/day14_limit/web/mypage/ajaxProdPage.html" />
-        <option value="$PROJECT_DIR$/worldCup/web/index.html" />
-        <option value="$PROJECT_DIR$/worldCup/src/com/test/controller/UserServlet.java" />
-        <option value="$PROJECT_DIR$/worldCup/src/com/test/entity/User.java" />
-        <option value="$PROJECT_DIR$/worldCup/src/com/test/entity/ReturnEntity.java" />
-        <option value="$PROJECT_DIR$/worldCup/src/com/test/service/UserService.java" />
-        <option value="$PROJECT_DIR$/worldCup/src/com/test/dao/UserDao.java" />
-        <option value="$PROJECT_DIR$/worldCup/src/com/test/dao/impl/UserDaoImpl.java" />
-        <option value="$PROJECT_DIR$/worldCup/src/com/test/controller/GoBall.java" />
-        <option value="$PROJECT_DIR$/day14_limit/src/com/test/test/mytest2.java" />
-        <option value="$PROJECT_DIR$/worldCup/src/com/test/service/impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/worldCup/web/startBall.html" />
+        <option value="$PROJECT_DIR$/day12_cookie/src/com/javasm/controller2/AreaServlet.java" />
+        <option value="$PROJECT_DIR$/day15_curd/src/test/controller/CartServlet.java" />
+        <option value="$PROJECT_DIR$/day15_curd/web/mypage/main.jsp" />
+        <option value="$PROJECT_DIR$/day15_curd/web/mypage/common.jsp" />
+        <option value="$PROJECT_DIR$/day15_curd/web/mypage/ajaxProdPage.html" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/controller/AjaxProdServlet.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/controller/goodsServlet.java" />
+        <option value="$PROJECT_DIR$/day15_curd/src/test/controller/ProdServlet.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/dao/BaseDao.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/dao/impl/BaseDaoImpl.java" />
+        <option value="$PROJECT_DIR$/day15_curd/src/test/utils/DBUtil.java" />
+        <option value="$PROJECT_DIR$/day15_curd/src/test/test/test3.java" />
+        <option value="$PROJECT_DIR$/day16/src/com/javasm/controller/MyUploadServlet.java" />
+        <option value="$PROJECT_DIR$/day16/web/ajaxUpload.html" />
+        <option value="$PROJECT_DIR$/day16/src/com/javasm/controller/MyAjaxUploadServlet.java" />
+        <option value="$PROJECT_DIR$/day15_curd/src/test/dao/impl/ProdDaoImpl.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/controller/RegisterServlet.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/controller/baseServlet.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/entity/PageInfo.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/entity/MyUser.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/entity/Goods.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/entity/Order.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/entity/OrderInfo.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/entity/Cart.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/controller/CartServlet.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/controller/GoodsServlet.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/controller/ManagerServlet.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/controller/OrderServlet.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/entity/ReturnCode.java" />
+        <option value="$PROJECT_DIR$/e_shop/web/mypage/3reguname.jsp" />
+        <option value="$PROJECT_DIR$/books/src/com/atguigu/util/Utils.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/service/UserService.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/dao/UserDao.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/dao/ProdDao.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/dao/impl/UserDaoImpl.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/dao/impl/ProdDaoImpl.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/service/ProdService.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/service/impl/ProdServiceImpl.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/test/test3.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/test/mytest2.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/test/MyTest.java" />
+        <option value="$PROJECT_DIR$/e_shop/src/druid.properties" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/controller/BaseServlet.java" />
+        <option value="$PROJECT_DIR$/e_shop/web/pages/user/login.jsp" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/entity/User.java" />
+        <option value="$PROJECT_DIR$/e_shop/web/pages/user/regist.jsp" />
+        <option value="$PROJECT_DIR$/e_shop/src/test/controller/UserServlet.java" />
+        <option value="$PROJECT_DIR$/e_shop/web/pages/user/register.jsp" />
+        <option value="$PROJECT_DIR$/e_shop/web/pages/user/resume.html" />
       </list>
     </option>
   </component>
@@ -235,7 +200,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="691" />
     <option name="y" value="82" />
     <option name="width" value="974" />
@@ -246,7 +211,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
@@ -254,163 +218,93 @@
           <expand>
             <path>
               <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="day11_jsp" type="462c0819:PsiDirectoryNode" />
+              <item name="books" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="day11_jsp" type="462c0819:PsiDirectoryNode" />
+              <item name="books" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="day11_jsp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="javasm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="day11_jsp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="javasm" type="462c0819:PsiDirectoryNode" />
-              <item name="controller2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="day11_jsp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="javasm" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="day11_jsp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="javasm" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="day14_limit" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="day14_limit" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="day14_limit" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="day14_limit" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="day14_limit" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="day14_limit" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="day14_limit" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="day14_limit" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="day14_limit" type="462c0819:PsiDirectoryNode" />
+              <item name="books" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="day14_limit" type="462c0819:PsiDirectoryNode" />
+              <item name="books" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="books" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="books" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="day08_tomcat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="day08_tomcat" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="day11_jsp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="day11_jsp" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="day11_jsp" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="mypage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="day14_limit" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="day15_curd" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="worldCup" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="worldCup" type="462c0819:PsiDirectoryNode" />
+              <item name="day15_curd" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="worldCup" type="462c0819:PsiDirectoryNode" />
+              <item name="day15_curd" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="worldCup" type="462c0819:PsiDirectoryNode" />
+              <item name="day15_curd" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="worldCup" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="worldCup" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="worldCup" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="worldCup" type="462c0819:PsiDirectoryNode" />
+              <item name="day15_curd" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="worldCup" type="462c0819:PsiDirectoryNode" />
+              <item name="day15_curd" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
@@ -418,26 +312,81 @@
             </path>
             <path>
               <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="worldCup" type="462c0819:PsiDirectoryNode" />
+              <item name="day15_curd" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="day15_curd" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="mypage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="e_shop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="e_shop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="e_shop" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="worldCup" type="462c0819:PsiDirectoryNode" />
+              <item name="e_shop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="e_shop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="e_shop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="e_shop" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="worldCup" type="462c0819:PsiDirectoryNode" />
+              <item name="e_shop" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="e_shop" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java_code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="e_shop" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -447,33 +396,35 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/day14_limit/web/WEB-INF/lib/standard.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/books/web/WEB-INF/lib/commons-logging-1.1.1.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.38871795" />
-    <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\study_java\Two\动态页面\java_code\worldCup\src" />
-      <recent name="E:\study_java\Two\动态页面\java_code\worldCup\web" />
-      <recent name="E:\study_java\Two\动态页面\java_code\worldCup\web\WEB-INF\lib" />
-      <recent name="E:\study_java\Two\动态页面\java_code\day14_limit\web" />
-      <recent name="E:\study_java\Two\动态页面\java_code\day14_limit\src" />
+      <recent name="E:\study_java\Two\动态页面\java_code\e_shop\web\js" />
+      <recent name="E:\study_java\Two\动态页面\java_code\e_shop\web\pages\user" />
+      <recent name="E:\study_java\Two\动态页面\java_code\e_shop\web\mypage" />
+      <recent name="E:\study_java\Two\动态页面\java_code\day16\web" />
+      <recent name="E:\study_java\Two\动态页面\java_code\day16" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.test.entity" />
-      <recent name="com.test.utils" />
-      <recent name="com.test.controller" />
+      <recent name="test.utils" />
+      <recent name="test.controller" />
+      <recent name="test.test" />
+      <recent name="test.dao.impl" />
+      <recent name="test.dao" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\study_java\Two\动态页面\java_code\e_shop\web\pages\user" />
+      <recent name="E:\study_java\Two\动态页面\java_code\day15_curd\web" />
       <recent name="E:\study_java\Two\动态页面\java_code\day12_cookie\web" />
       <recent name="E:\study_java\Two\动态页面\java_code\bookStore\web" />
       <recent name="E:\study_java\Two\动态页面\java_code\day08_tomcat\web\js" />
-      <recent name="E:\study_java\Two\动态页面\java_code\day08_tomcat\web\css" />
-      <recent name="E:\study_java\Two\动态页面\java_code\day08_tomcat\web" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -488,7 +439,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.34">
+  <component name="RunManager" selected="Tomcat Server.shop">
     <configuration name="MyServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.test.service.MyServer" />
       <module name="day08_servlet" />
@@ -524,6 +475,17 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="test3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.test.test3" />
+      <module name="day15_curd" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -596,16 +558,18 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="Tomcat 8.5.34" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.34" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration name="book" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.34" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/book/" />
+      <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="worldCup:war exploded">
+        <artifact name="books:war exploded">
           <settings>
-            <option name="CONTEXT_PATH" value="/" />
+            <option name="CONTEXT_PATH" value="/book" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Tomcat_8_5_34_java_code_6" />
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_java_code_2" />
       </server-settings>
       <predefined_log_file id="Tomcat" enabled="true" />
       <predefined_log_file id="Tomcat Catalina" enabled="true" />
@@ -613,7 +577,7 @@
       <predefined_log_file id="Tomcat Host Manager" enabled="false" />
       <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="10305" />
+        <option name="DEBUG_PORT" value="13656" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -662,7 +626,7 @@
       </ConfigurationWrapper>
       <method>
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="worldCup:war exploded" />
+          <artifact name="books:war exploded" />
         </option>
       </method>
     </configuration>
@@ -735,16 +699,234 @@
         <option name="BuildArtifacts" enabled="false" />
       </method>
     </configuration>
+    <configuration name="day15" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.34" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/day15/" />
+      <deployment>
+        <artifact name="day15_curd:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/day15" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Tomcat_8_5_34_java_code_8" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="9174" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="day15_curd:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="day16" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.34" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/day16/" />
+      <deployment>
+        <artifact name="day16:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/day16" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Tomcat_8_5_34_java_code_7" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="5769" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="day16:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="shop" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.34" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/shop/" />
+      <deployment>
+        <artifact name="e_shop:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/shop" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Tomcat_8_5_34_java_code_9" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="12364" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="e_shop:war exploded" />
+        </option>
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="Tomcat Server.book" />
       <item itemvalue="Tomcat Server.day14" />
-      <item itemvalue="Tomcat Server.Tomcat 8.5.34" />
+      <item itemvalue="Tomcat Server.day15" />
+      <item itemvalue="Tomcat Server.shop" />
+      <item itemvalue="Tomcat Server.day16" />
       <item itemvalue="Application.MyServer" />
       <item itemvalue="Application.MyTest" />
       <item itemvalue="Application.MyTest (1)" />
+      <item itemvalue="Application.test3" />
       <item itemvalue="JUnit.mytest2.test2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.test3" />
         <item itemvalue="JUnit.mytest2.test2" />
         <item itemvalue="Application.MyTest (1)" />
         <item itemvalue="Application.MyTest" />
@@ -781,7 +963,8 @@
       <workItem from="1620955366020" duration="24523000" />
       <workItem from="1621041684369" duration="26927000" />
       <workItem from="1621160116710" duration="197000" />
-      <workItem from="1621162015603" duration="3384000" />
+      <workItem from="1621162015603" duration="62546000" />
+      <workItem from="1621395740880" duration="29609000" />
     </task>
     <servers />
   </component>
@@ -797,7 +980,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155757000" />
+    <option name="totallyTimeSpent" value="244528000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -809,12 +992,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Key Promoter X" order="3" weight="0.32995737" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.17377399" side_tool="true" weight="0.4117647" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.17430703" side_tool="true" weight="0.44008714" />
       <window_info anchor="bottom" id="Application Servers" order="8" weight="0.32897604" />
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.32995737" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
@@ -832,10 +1015,11 @@
       <window_info anchor="bottom" id="Java Enterprise" order="8" weight="0.32897604" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.826226" visible="true" weight="0.32026145" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.82569295" visible="true" weight="0.32352942" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32897604" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.80930233" visible="true" weight="0.24786781" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.80930233" visible="true" weight="0.20415778" />
       <window_info id="Web" order="2" sideWeight="0.19069767" side_tool="true" weight="0.271855" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" sideWeight="0.18290259" side_tool="true" weight="0.25054705" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -843,14 +1027,13 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
     </layout>
     <layout-to-restore>
       <window_info anchor="bottom" id="Application Servers" order="12" weight="0.32897604" />
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info id="Image Layers" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.826226" weight="0.4335512" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.826226" weight="0.3769063" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
@@ -860,16 +1043,16 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.17377399" side_tool="true" weight="0.4117647" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32897604" />
+      <window_info active="true" anchor="bottom" id="Messages" order="9" visible="true" weight="0.32897604" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Key Promoter X" order="6" weight="0.32995737" />
+      <window_info anchor="right" id="Key Promoter X" order="5" weight="0.32995737" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32897604" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
-      <window_info anchor="right" id="Maven Projects" order="7" weight="0.32995737" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.80930233" visible="true" weight="0.20895523" />
-      <window_info anchor="right" id="Database" order="5" weight="0.32995737" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
+      <window_info anchor="right" id="Maven Projects" order="6" weight="0.32995737" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.80930233" visible="true" weight="0.24786781" />
+      <window_info anchor="right" id="Database" order="7" weight="0.32995737" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Web" order="7" sideWeight="0.19069767" side_tool="true" weight="0.271855" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
@@ -877,7 +1060,7 @@
       <window_info id="Structure" order="1" sideWeight="0.5016234" side_tool="true" weight="0.2889126" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.27450982" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.43899783" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -943,38 +1126,39 @@
           <properties />
           <option name="timeStamp" value="24" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/day15_curd/src/test/controller/CartServlet.java</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/worldCup/web/startBall.html</url>
           <line>480</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/worldCup/web/startBall.html</url>
           <line>491</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/worldCup/web/startBall.html</url>
           <line>386</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/worldCup/web/startBall.html</url>
           <line>495</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/worldCup/web/startBall.html</url>
           <line>537</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="30" />
+      <option name="time" value="35" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -982,400 +1166,377 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/controller/GoBall.java">
+    <entry file="file://$PROJECT_DIR$/e_shop/web/pages/editProdPage.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e_shop/web/pages/main.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="324">
+          <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/dao/impl/UserDaoImpl.java">
+    <entry file="file://$PROJECT_DIR$/day15_curd/src/test/controller/LoginServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="50" column="56" selection-start-line="50" selection-start-column="49" selection-end-line="50" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="135">
+          <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/utils/DBHelper.java">
+    <entry file="file://$PROJECT_DIR$/books/src/com/atguigu/servlet/BaseServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1107">
-          <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+        <state relative-caret-position="838">
+          <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="23" column="37" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/day14_limit/src/com/test/test/mytest2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="16" column="36" lean-forward="true" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/entity/ReturnEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/service/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="25" column="57" lean-forward="true" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#467#468#0" expanded="true" />
-            <element signature="e#520#521#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/day14_limit/src/com/test/dao/ProdDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/day14_limit/src/com/test/service/impl/ProdServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/day14_limit/src/com/test/entity/ReturnEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_261/jre/lib/rt.jar!/sun/java2d/pipe/PixelFillPipe.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/day14_limit/web/mypage/prodPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2781">
-          <caret line="103" column="7" selection-start-line="103" selection-start-column="7" selection-end-line="103" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/web/js/baseh.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5076">
-          <caret line="188" column="39" selection-start-line="188" selection-start-column="39" selection-end-line="188" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/web/tips/error.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="10" lean-forward="true" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/web/tips/please.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="11" lean-forward="true" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/web/js/jquery-3.2.1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="7800" column="4" selection-start-line="7800" selection-start-column="4" selection-end-line="7800" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/day14_limit/src/com/test/entity/ReturnCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/day14_limit/src/com/test/entity/MyProduct.java">
+    <entry file="file://$PROJECT_DIR$/books/src/com/atguigu/servlet/BookServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
-          <caret line="8" column="28" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="8" selection-end-column="28" />
+          <caret line="18" column="52" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/web/index.html">
+    <entry file="file://$PROJECT_DIR$/books/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-172">
-          <caret line="103" column="41" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="41" />
+        <state relative-caret-position="1809">
+          <caret line="76" column="35" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/day14_limit/src/com/test/controller/ProdServlet.java">
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/controller/CartServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="611">
-          <caret line="61" column="41" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="41" />
+        <state relative-caret-position="324">
+          <caret line="12" column="20" lean-forward="true" selection-start-line="12" selection-start-column="20" selection-end-line="13" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/day12_cookie/src/com/javasm/controller2/AreaServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="77" column="31" lean-forward="true" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/day12_cookie/src/com/javasm/controller2/CartServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="891">
-          <caret line="45" column="29" lean-forward="true" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/day12_cookie/src/com/javasm/controller2/LoginServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-523">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/day12_cookie/src/com/javasm/controller2/OrderServlet.java">
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/controller/GoodsServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="26" />
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/day12_cookie/src/com/javasm/controller2/ProdServlet.java">
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/controller/ManagerServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="26" column="26" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="26" />
+        <state relative-caret-position="351">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/day12_cookie/src/com/javasm/controller2/UserServlet.java">
+    <entry file="file://$PROJECT_DIR$/books/src/com/atguigu/servlet/UserServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        <state relative-caret-position="351">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="173" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/day11_jsp/src/com/javasm/controller2/OrderServlet.java">
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/entity/ReturnCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding>
+            <element signature="e#548#549#0" expanded="true" />
+            <element signature="e#574#575#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e_shop/web/pages/addProdPage.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/books/web/WEB-INF/lib/commons-beanutils-1.8.0.jar!/org/apache/commons/beanutils/BeanUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/books/src/com/atguigu/util/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-50">
+          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="26" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day15_curd/src/test/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day15_curd/src/test/service/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/day11_jsp/src/com/javasm/controller2/ProductServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/day11_jsp/src/com/javasm/controller2/UserServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/web/manifest.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="838">
-          <caret line="172" column="56" selection-start-line="172" selection-start-column="53" selection-end-line="172" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151605">
-          <caret line="5628" column="4" selection-start-line="5628" selection-start-column="4" selection-end-line="5628" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/day14_limit/src/com/test/entity/PageInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/web/jiayou.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-638">
-          <caret line="121" column="46" lean-forward="true" selection-start-line="121" selection-start-column="46" selection-end-line="121" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/day11_jsp/src/com/javasm/dao/impl/ProductDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/day11_jsp/src/com/javasm/dao/impl/UserDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1026">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/day14_limit/src/com/test/dao/impl/ProdDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="90" column="38" selection-start-line="90" selection-start-column="38" selection-end-line="90" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/utils/DBHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/day14_limit/src/com/test/test/mytest2.java">
+    <entry file="jar://$PROJECT_DIR$/day15_curd/web/WEB-INF/lib/commons-dbutils-1.7.jar!/org/apache/commons/dbutils/QueryRunner.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
-          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+          <caret line="207" column="5" lean-forward="true" selection-start-line="207" selection-start-column="5" selection-end-line="207" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_261/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/entity/ReturnEntity.java">
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/dao/impl/BaseDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+        <state relative-caret-position="289">
+          <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/entity/User.java">
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/dao/UserDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="23" column="37" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="37" />
+        <state relative-caret-position="378">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/service/impl/UserServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/dao/ProdDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="925">
-          <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#467#468#0" expanded="true" />
-            <element signature="e#520#521#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="243">
+          <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/dao/impl/UserDaoImpl.java">
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/dao/impl/UserDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="89" column="36" lean-forward="true" selection-start-line="89" selection-start-column="36" selection-end-line="89" selection-end-column="36" />
+        <state relative-caret-position="235">
+          <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/controller/GoBall.java">
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/dao/impl/ProdDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1431">
-          <caret line="64" column="20" lean-forward="true" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
+        <state relative-caret-position="2700">
+          <caret line="105" column="13" lean-forward="true" selection-start-line="105" selection-start-column="13" selection-end-line="105" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/service/ProdService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/service/impl/ProdServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e_shop/web/pages/3reguname.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="41" column="10" selection-start-line="41" selection-start-column="10" selection-end-line="51" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/test/test3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="20" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/test/MyTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="27" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e_shop/src/druid.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/test/mytest2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="15" column="35" lean-forward="true" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/src/com/test/controller/UserServlet.java">
+    <entry file="file://$PROJECT_DIR$/day15_curd/src/test/controller/AjaxProdServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="51" column="23" lean-forward="true" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
+        <state relative-caret-position="194">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/worldCup/web/startBall.html">
+    <entry file="file://$PROJECT_DIR$/day15_curd/src/test/controller/baseServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="558" column="9" lean-forward="true" selection-start-line="558" selection-start-column="9" selection-end-line="558" selection-end-column="9" />
+        <state relative-caret-position="58">
+          <caret line="27" column="39" lean-forward="true" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day15_curd/src/test/controller/CartServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#h4#0;n#!!top" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/day14_limit/src/com/test/controller/AjaxProdServlet.java">
+    <entry file="file://$PROJECT_DIR$/day15_curd/src/test/controller/ProdServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-709">
-          <caret line="61" column="25" lean-forward="true" selection-start-line="61" selection-start-column="25" selection-end-line="61" selection-end-column="25" />
+        <state relative-caret-position="135">
+          <caret line="22" column="44" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/day14_limit/web/mypage/ajaxProdPage.html">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_261/src.zip!/java/lang/Exception.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="830">
-          <caret line="111" column="29" lean-forward="true" selection-start-line="111" selection-start-column="29" selection-end-line="111" selection-end-column="29" />
+        <state relative-caret-position="296">
+          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/controller/BaseServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="61" column="20" lean-forward="true" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/controller/OrderServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e_shop/src/test/controller/UserServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="75" column="23" lean-forward="true" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day08_tomcat/web/resume2.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day08_tomcat/web/resume1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day08_tomcat/web/person.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day08_tomcat/web/resume.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e_shop/web/pages/user/register.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="64" column="17" lean-forward="true" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e_shop/web/js/jquery.validate.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day15_curd/web/mypage/ajaxProdPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="46" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e_shop/web/pages/user/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/e_shop/web/pages/user/resume.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="228" column="18" lean-forward="true" selection-start-line="228" selection-start-column="18" selection-end-line="228" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1433,7 +1594,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>worldCup</last-edited>
+          <last-edited>e_shop</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

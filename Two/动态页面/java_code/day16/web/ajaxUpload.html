@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <script src="/day16/js/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/day16/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body>
+
+    <form id="myform">
+        <input type="text" name="uname"><br>
+        <input type="file" id="myfile" name="myfile"><span id="showImg"></span> <br>
+
+        <input type="hidden" id="imsrc" name="imgsrc">
+        <input id="mysubmit" type="button" value="我的提交">
+    </form>
+
+</body>
+    <script>
+        /*
+        * 文件框  读取 files 文件对象
+        *
+        * 1. formdata 对象
+        *    通过formdata对象 发送文件
+        * 2.使用ajax请求发送
+        *    processData:false,      //对原始数据不要进行处理
+             contentType:false,      //不改变原始的请求方式
+        *
+        *
+        *
+        * */
+        $("#myfile").change(function(){
+            //console.log($("#myfile")[0].files[0]);
+            //console.log($("#myfile").attr("files"));  attr读不到
+            console.log($("#myfile").prop("files")[0]);
+
+            //传递文件的formdata对象
+            var newFormData = new FormData();
+            newFormData.append("testfile",$("#myfile").prop("files")[0]);
+            //newFormData.append("mykay","myval");
+            $.ajax({
+                url:"ajaxUpload",
+                type:"post",
+                data:newFormData,         //json格式 {"key":value}   urlencoded格式  xxx=xx&xxx=xx
+                dataType:"json",
+                processData:false,      //对原始数据不要进行处理
+                contentType:false,      //不改变原始的请求方式
+                success:function(data){
+                    console.log(data);
+                    //修改页面中元素的数据
+                    $("#imsrc").val(data.imgsrc);
+                    //给用户响应提示
+                    $("#showImg").html("<img src='"+data.imgsrc+"'/>");
+                }
+            })
+
+        })
+
+
+        $("#mysubmit").click(function(){
+            // console.log($("#showImg img").prob("src")[0])
+            var myparam = $("#myform").serialize();
+            $.post("regist",myparam,function(data){},"json");
+        })
+
+
+    </script>
+
+</html>

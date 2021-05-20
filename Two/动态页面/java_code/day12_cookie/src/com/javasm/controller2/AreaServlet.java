@@ -79,8 +79,6 @@ public class AreaServlet extends HttpServlet {
         writer.print(JSON.toJSONString(re));
         writer.flush();
         writer.close();
-
-
     }
 
     @Override

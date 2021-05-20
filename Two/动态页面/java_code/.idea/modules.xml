@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/books/books.iml" filepath="$PROJECT_DIR$/books/books.iml" />
       <module fileurl="file://$PROJECT_DIR$/day08_servlet/day08_servlet.iml" filepath="$PROJECT_DIR$/day08_servlet/day08_servlet.iml" />
       <module fileurl="file://$PROJECT_DIR$/day08_tomcat/day08_tomcat.iml" filepath="$PROJECT_DIR$/day08_tomcat/day08_tomcat.iml" />
       <module fileurl="file://$PROJECT_DIR$/day11_jsp/day11_jsp.iml" filepath="$PROJECT_DIR$/day11_jsp/day11_jsp.iml" />
       <module fileurl="file://$PROJECT_DIR$/day12_cookie/day12_cookie.iml" filepath="$PROJECT_DIR$/day12_cookie/day12_cookie.iml" />
       <module fileurl="file://$PROJECT_DIR$/day14_limit/day14_limit.iml" filepath="$PROJECT_DIR$/day14_limit/day14_limit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day15_curd/day15_curd.iml" filepath="$PROJECT_DIR$/day15_curd/day15_curd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day16/day16.iml" filepath="$PROJECT_DIR$/day16/day16.iml" />
+      <module fileurl="file://$PROJECT_DIR$/e_shop/e_shop.iml" filepath="$PROJECT_DIR$/e_shop/e_shop.iml" />
       <module fileurl="file://$PROJECT_DIR$/worldCup/worldCup.iml" filepath="$PROJECT_DIR$/worldCup/worldCup.iml" />
     </modules>
   </component>
