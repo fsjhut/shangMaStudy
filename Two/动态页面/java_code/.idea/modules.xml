@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/allCity/allCity.iml" filepath="$PROJECT_DIR$/allCity/allCity.iml" />
       <module fileurl="file://$PROJECT_DIR$/books/books.iml" filepath="$PROJECT_DIR$/books/books.iml" />
       <module fileurl="file://$PROJECT_DIR$/day08_servlet/day08_servlet.iml" filepath="$PROJECT_DIR$/day08_servlet/day08_servlet.iml" />
       <module fileurl="file://$PROJECT_DIR$/day08_tomcat/day08_tomcat.iml" filepath="$PROJECT_DIR$/day08_tomcat/day08_tomcat.iml" />

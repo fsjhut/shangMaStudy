@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.js"></script>
+	</head>
+	<style type="text/css">
+		.cls1 {
+			width: 100px;
+			height: 100px;
+		}
+
+		.cls2 {
+			background-color: #F08080;
+		}
+
+		.cls3 {
+			color: aliceblue;
+		}
+	</style>
+	<body>
+		<div id="base">
+			{{msg}}
+		</div>
+		<div id="base1">
+			<div v-html="msg"></div>
+		</div>
+		<div id="base2">
+			<div v-bind:class="mycls">123</div>
+		</div>
+		<div id="base3" class="cls3" v-bind:class="{'cls1':cls1use,'cls2':cls2use}">654321</div>
+	</body>
+	<script type="text/javascript">
+		// let mydata = {msg:"上马教育"}
+		// let vm = new Vue({
+		// 	el:"#base",
+		// 	data:mydata
+		// })
+		// console.log(vm.msg)
+		// vm.msg = '郑州上马教育'
+		// console.log(vm.msg)
+		// console.log("--------------")
+		// console.log(vm.$data)
+		// console.log("-#############")
+		// console.log(vm.$el)
+		// console.log(vm.$data.msg)
+		new Vue({
+			el: "#base1",
+			data: {
+				msg: '<h1>带格式的标题</h1>'
+			}
+		})
+		var myvue = new Vue({
+			el: "#base3",
+			data: {
+				cls1use: true,
+				cls2use: true
+			}
+		})
+	</script>
+</html>

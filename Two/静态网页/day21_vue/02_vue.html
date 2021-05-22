@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.js"></script>
+	</head>
+	<body>
+		<div id="base">
+			<div v-if="showStatus">test</div>
+		</div>
+		<div id="base1">
+			<div v-if="showStatus==1">test1</div>
+			<div v-else-if="showStatus==2">test2</div>
+			<div v-else>test3</div>
+		</div>
+		<div id="base2">
+			<input type="text" :value="test" />
+			<input type="button" value="点击修改" v-on:click="myMethod" />
+		</div>
+	</body>
+	<script type="text/javascript">
+		var myvue = new Vue({
+			el: "#base1",
+			data: {
+				showStatus: 8
+			}
+		})
+		var myvue2 = new Vue({
+			el: "#base2",
+			data: {
+				test: "123"
+			},
+			methods: {
+				myMethod() {
+					this.test = 'abc';
+				}
+			}
+		})
+	</script>
+</html>

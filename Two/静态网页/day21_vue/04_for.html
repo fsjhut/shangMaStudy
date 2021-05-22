@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.js"></script>
+
+	</head>
+	<body>
+		<div id="base">
+			<ul>
+				<!-- lis为数组 li是数组中遍历到的数据 
+		            	 在遍历过程中 可以通过li读取数组中的json元素的值 -->
+				<li v-for="li in lis">{{li.content}}</li>
+			</ul>
+		</div>
+		<div id="base1">
+			<table border="1">
+				<caption>测试table</caption>
+				<tr>
+					<th>姓名</th>
+					<th>年龄</th>
+					<th>性别</th>
+				</tr>
+				<tr v-for="tr in trs">
+					<td>{{tr.name}}</td>
+					<td>{{tr.age}}</td>
+					<td>{{tr.gender}}</td>
+				</tr>
+			</table>
+		</div>
+		<div id="base2">
+			<select v-model="area" @change="getVal">
+				<option disabled  value="">------请选择------</option>
+				<!--遍历过程中 需要显示在页面中的数据 通常用插值 { { option.text } }
+		            如果是给属性赋值 需要使用绑定数据的语法 给属性做绑定 
+		            并通过遍历到的数据给其赋值  : value = "option.val" -->
+				<option v-for="option in options" :value="option.val">
+					{{option.text}}
+				</option>
+
+
+			</select>
+		</div>
+	</body>
+	<script>
+		var myvue = new Vue({
+			el: "#base",
+			data: {
+				lis: [{
+					content: '主页'
+				}, {
+					content: '相关新闻'
+				}, {
+					content: '关于我们'
+				}]
+			}
+		})
+		var myvue1 = new Vue({
+			el: "#base1",
+			data: {
+				trs: [{
+						name: "jack",
+						age: 16,
+						gender: "男性"
+					},
+					{
+						name: "rose",
+						age: 17,
+						gender: "女性"
+					},
+					{
+						name: "小明",
+						age: 20,
+						gender: "女性"
+					}
+				]
+			}
+		})
+		var myvue2 = new Vue({
+			el: "#base2",
+			data: {
+				area: "",
+				options: [{
+						val: "1001",
+						text: "北京"
+					},
+					{
+						val: "2001",
+						text: "上海"
+					},
+					{
+						val: "3001",
+						text: "深圳"
+					}
+				]
+			},
+			methods: {
+				getVal() {
+					console.log(this.area);
+				}
+			}
+		})
+	</script>
+</html>

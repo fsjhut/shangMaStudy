@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.js"></script>
+
+	</head>
+	<body>
+		<div id="base">
+			<!-- 文本框1为双向绑定 用户的输入可以改变viewmodel中的test的值
+		                此时与test值绑定的其他位置的数据可以直接改变
+		                点击按钮时 通过事件触发test值的改变 被双向绑定的第一个文本框 也会接受到test值的				改变而改变 此为双向绑定-->
+			<input type="text" v-model="test" />
+			<input type="text" :value="test" />
+			{{test}}
+			<input type="button" value="点击触发修改绑定数据" @click="myMethod" />
+		</div>
+		<div id="base1">
+			<input type="radio" id="male" value="male" v-model="gender" />
+			<label for="male">男</label>
+			<input type="radio" id="fmale" value="fmale" v-model="gender" />
+			<label for="fmale">女</label>
+			{{gender}}
+		</div>
+		<div id="base2">
+			<input id="java" type="checkbox" value="1" v-model="hobby" />
+			<label for="java">java</label>
+			<input id="c#" type="checkbox" value="2" v-model="hobby" />
+			<label for="c#">c#</label>
+			<input id="python" type="checkbox" value="3" v-model="hobby" />
+			<label for="python">python</label>
+			{{hobby}}
+		</div>
+		<div id="base3">
+			<select v-model="area" @change="getVal">
+				<option disabled value="">------请选择------</option>
+				<option value="100">北京</option>
+				<option value="110">上海</option>
+				<option value="120">深圳</option>
+
+			</select>
+		</div>
+	</body>
+	<script>
+		var myvue = new Vue({
+			el: "#base",
+			data: {
+				test: "123"
+			},
+			methods: {
+				myMethod() {
+					this.test = 'abc';
+				}
+			}
+		})
+
+		var myvue1 = new Vue({
+			el: "#base1",
+			data: {
+				gender: "fmale",
+			}
+		})
+		var myvue2 = new Vue({
+			el: "#base2",
+			data: {
+				hobby: [1, 2]
+			}
+		})
+		var myvue3 = new Vue({
+			el: "#base3",
+			data: {
+				//设置area的值 可以让对应的option选中
+				area: ""
+			},
+			methods: {
+				getVal() {
+					console.log(this.area);
+				}
+			}
+		})
+	</script>
+</html>
