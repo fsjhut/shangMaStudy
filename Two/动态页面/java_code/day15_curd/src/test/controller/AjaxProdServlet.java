@@ -25,6 +25,7 @@ import java.util.List;
  */
 @WebServlet("/ajaxprod/*")
 public class AjaxProdServlet extends baseServlet {
+
     public void ajaxquery(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         req.setCharacterEncoding("utf-8");
         String pageStr = req.getParameter("page");
@@ -50,6 +51,7 @@ public class AjaxProdServlet extends baseServlet {
         resp.setContentType("application/json;charset=utf-8");
         PrintWriter writer = resp.getWriter();
         ReturnEntity re = new ReturnEntity();
+        System.out.println(re);
         // 判断是否查询到数据
         if(allProduct.size()>0){
             re.setCode(ReturnCode.REQ_SUCCESS.getCode());
