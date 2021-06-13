@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="aa.bb">
+    <!--id===方法名   type：参数类型  -->
+    <select id="selectUserByKey" parameterType="int" resultType="sysuser">
+        select * from sysuser where uid=#{uid}
+    </select>
+    <select id="selectListUser" resultType="sysuser">
+        select * from sysuser
+    </select>
+    <insert id="addUser" parameterType="Sysuser" useGeneratedKeys="true" keyProperty="uid">
+         insert into sysuser(uname, upwd, uphone, uwechat, uemail, create_by) values
+        (#{uname}, #{upwd}, #{uphone}, #{uwechat}, #{uemail},#{createBy})
+    </insert>
+    <update id="updateUser" parameterType="Sysuser">
+        update sysuser set upwd=#{upwd},uphone=#{uphone} where uid=#{uid}
+    </update>
+    <delete id="deleteUser" parameterType="int">
+        delete from sysuser where uid=#{uid}
+    </delete>
+</mapper>

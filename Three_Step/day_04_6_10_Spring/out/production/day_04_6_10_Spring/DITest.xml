@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--// 通过set注入-->
+    <!--<bean id="diTest" class="com.javasm.controller.DiTest">-->
+        <!--<property name="name" value="sss"></property>-->
+        <!--<property name="pwd" value="hhhh"></property>-->
+        <!--<property name="sysUser" ref="sysUser"></property>-->
+    <!--</bean>-->
+    <!--通过构造器注入-->
+    <!--<bean id="diTest" class="com.javasm.controller.DiTest">-->
+        <!--<constructor-arg name="name" value="hhhh"></constructor-arg>-->
+        <!--<constructor-arg index="1" value="1111"></constructor-arg>-->
+        <!--<constructor-arg name="sysUser" ref="sysUser"></constructor-arg>-->
+    <!--</bean>-->
+    <!--<bean id="sysUser" class="com.javasm.entity.SysUser"></bean>-->
+    <!--通过内部bean注入的方式进行-->
+    <bean class="com.javasm.controller.DiTest">
+        <property name="sysUser">
+            <bean class="com.javasm.entity.SysUser"/>
+        </property>
+    </bean>
+</beans>

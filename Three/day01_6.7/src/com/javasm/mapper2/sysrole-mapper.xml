@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.mapper2.SysroleMapper">
+        <select id="selectRoleByKey" parameterType="int" resultType="Sysrole">
+            select * from sysrole where rid=#{rid};
+        </select>
+        <!--聚合，查询出一个角色下的所有用户-->
+        <!--1. 手动进行两次查询-->
+        <select id="selectUserAndRoleByKey" parameterType="int" resultType="Sysrole">
+            select * from sysrole when rid=#{}
+        </select>
+        <resultMap id="" type="" >
+
+        </resultMap>
+        <select id="selectUsersAndRole" resultMap="">
+
+        </select>
+</mapper>

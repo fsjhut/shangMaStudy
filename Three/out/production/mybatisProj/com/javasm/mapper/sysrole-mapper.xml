@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.javasm.mapper.SysRoleMapper">
+    <delete id="removePermissionByRoleId" parameterType="int">
+        delete from sys_role_permission where role_id = #{rid}
+    </delete>
+    <insert id="setPermisisons">
+    insert into sys_role_permission(role_id, per_id) values
+    <foreach collection="perids" item="perid" separator=",">
+        (#{rid},#{perid})
+    </foreach>
+    </insert>
+    <insert id="addObj" parameterType="SysRole">
+        insert into sysrole (rname,rdesc) values (#{rname}, #{rdesc})
+    </insert>
+    <delete id="delObj">
+        delete from sysrole where uid=#{id}
+    </delete>
+
+    <select id="selectById" resultType="SysRole">
+        select rid,rname,rdesc from sysrole where uid=#{uid}
+    </select>
+    <select id="selectList" resultType="SysRole">
+        select rid,rname,rdesc from sysrole
+    </select>
+
+    <!--关联查询，查询出角色拥有的权限-->
+    <resultMap id="roleAllPermission" type="SysRole">
+        <id column="rid" property="rid"></id>
+        <result column="rname" property="rname"></result>
+        <result column="rdesc" property="rdesc"></result>
+        <collection property="sysPermissions" ofType="SysPermission">
+            <result column="pname" property="pname"></result>
+        </collection>
+    </resultMap>
+    <select id="selectListRolePermissions" resultMap="roleAllPermission">
+        select r.rid,r.rname,r.rdesc,p.pname
+        from sysrole as r
+        LEFT JOIN sys_role_permission as rp on r.rid = rp.role_id
+        left join syspermission as p on rp.per_id = p.pid
+        order by r.rname
+    </select>
+
+    <resultMap id="roleAllUsers" type="SysRole">
+        <id column="rid" property="rid"></id>
+        <result column="rname" property="rname"></result>
+        <result column="rdesc" property="rdesc"></result>
+        <collection property="sysUsers" ofType="SysUser">
+            <result column="uname" property="uname"></result>
+        </collection>
+    </resultMap>
+    <select id="selectListRoleUsers" resultMap="roleAllUsers">
+        select r.rid,r.rname,r.rdesc,u.uname
+        from sysrole as r
+        left join sysuser as u on u.rid= r.rid
+        order by r.rname
+    </select>
+</mapper>

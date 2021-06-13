@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.mapper.SysUserMapper">
+    <!--private Integer rid;
+    private Integer deptId;
+    private Integer userGender-->
+    <sql id="basicFields">
+      uname,upwd,uphone, uwechat, uemail,user_gender,rid,dept_id
+    </sql>
+
+    <sql id="allFields">
+      uid,uname,uemail,uphone,uwechat,user_gender,dept_id,rid,create_time,update_time,create_by
+    </sql>
+
+    <sql id="basicQuery">
+-- insert into sysuser(uname, upwd, uphone, uwechat, uemail, create_by) values
+--         (#{uname}, #{upwd}, #{uphone}, #{uwechat}, #{uemail},#{createBy})
+        select uid,uname,uemail,uphone,uwechat,create_time,update_time,create_by from sysuser
+    </sql>
+    <insert id="addObj" parameterType="SysUser">
+        insert into sysuser (
+        <include refid="basicFields"/>
+        ) values (#{uname}, #{upwd}, #{uphone}, #{uwechat}, #{uemail},#{userGender},#{rid},#{deptId})
+    </insert>
+    <insert id="batchAddObjs" parameterType="SysUser">
+        insert into sysuser (
+        <include refid="basicFields"/>
+        ) values
+        <foreach collection="array" separator="," item="obj" >
+            (#{obj.uname}, #{obj.upwd}, #{obj.uphone}, #{obj.uwechat}, #{obj.uemail},#{obj.userGender},#{obj.rid},#{obj.deptId})
+        </foreach>
+    </insert>
+    <delete id="delObj">
+      delete from sysuser where uid=#{id}
+    </delete>
+    <delete id="batchDelObjs">
+        delete from sysuser where uid in
+        <foreach collection="ids" open="(" close=")" item="uid" separator=",">
+            #{uid}
+        </foreach>
+    </delete>
+    <update id="updateObj" parameterType="SysUser">
+        update sysuser
+        <set>
+            <if test="uname!=null">
+                uname=#{uname},
+            </if>
+            <if test="upwd!=null">
+                upwd=#{upwd},
+            </if>
+            <if test="uemail!=null">
+                uemail=#{uemail},
+            </if>
+            <if test="uphone!=null">
+                uphone=#{uphone},
+            </if>
+            <if test="uwechat!=null">
+                uwechat=#{uwechat},
+            </if>
+            <if test="userGender!=null">
+                user_gender=#{userGender},
+            </if>
+        </set>
+        where uid=#{uid}
+    </update>
+    <select id="selectById" resultType="SysUser">
+      select
+      <include refid="allFields"></include>
+      from sysuser where uid=#{uid}
+    </select>
+    <select id="selectList" resultType="SysUser">
+        select
+        <include refid="allFields"></include>
+        from sysuser
+    </select>
+    <select id="selectListByParams" resultType="SysUser">
+      select * from sysuser
+      <where>
+          <if test="uname!=null">
+              and rname like "%"#{rname}"%"
+          </if>
+          <if test="uemail!=null">
+              and uemail like "%"#{uemail}"%"
+          </if>
+          <if test="uphone!=null">
+              and uphone like "%"#{uphone}"%"
+          </if>
+          <if test="uwechat!=null">
+              and uwechat like "%"#{uwechat}"%"
+          </if>
+          <if test="userGender!=null">
+              and user_gender = #{userGender}
+          </if>
+          <if test="rid!=null">
+              and rid = #{rid}
+          </if>
+          <if test="deptId!=null">
+              and dept_id = #{deptId}
+          </if>
+      </where>
+        order by create_time desc
+    </select>
+    <resultMap id="userInfo" type="SysUser">
+        <id column="uid" property="uid"></id>
+        <result column="uname" property="uname"></result>
+        <result column="uphone" property="uphone"></result>
+        <result column="uwechat" property="uwechat"></result>
+        <result column="uemail" property="uemail"></result>
+        <result column="create_time" property="createTime"></result>
+        <association property="sysRole" javaType="SysRole">
+            <result column="rname" property="rname"></result>
+        </association>
+        <association property="sysDicts" javaType="SysDicts">
+            <result column="dict_name" property="dictName"></result>
+        </association>
+        <association property="sysDept" javaType="SysDept">
+            <result column="dept_name" property="deptName"></result>
+        </association>
+    </resultMap>
+    <select id="selectOneObjAndObj" resultMap="userInfo">
+        select u.uid,u.uname,u.uphone,u.uwechat,dict.dict_name,u.uemail,u.create_time,r.rname,d.dept_name
+        from sysuser as u
+        LEFT JOIN sysrole as r on r.rid = u.rid
+        left JOIN sysdept as d on d.dept_id = u.dept_id
+        LEFT JOIN sysdicts as dict on dict.dict_value = u.user_gender
+        WHERE u.uid=#{uid} and
+        dict.dict_name = (select dict.dict_name from sysdicts as dict2
+        where dict.dict_parent_id = dict2.dict_id
+        and dict2.dict_type = 'user_gender' AND dict.dict_value = u.user_gender)
+    </select>
+
+    <select id="selectListObjAndObj" resultMap="userInfo">
+        select u.uid,u.uname,u.uphone,u.uwechat,dict.dict_name,u.uemail,u.create_time,r.rname,d.dept_name
+        from sysuser as u
+        LEFT JOIN sysrole as r on r.rid = u.rid
+        left JOIN sysdept as d on d.dept_id = u.dept_id
+        LEFT JOIN sysdicts as dict on dict.dict_value = u.user_gender
+        WHERE
+        dict.dict_name = (select dict.dict_name from sysdicts as dict2
+        where dict.dict_parent_id = dict2.dict_id
+        and dict2.dict_type = 'user_gender' AND dict.dict_value = u.user_gender)
+    </select>
+
+
+    <resultMap id="userAllPermission" type="SysUser">
+        <result column="uname" property="uname"></result>
+        <result column="uphone" property="uphone"></result>
+        <result column="uwechat" property="uwechat"></result>
+        <result column="uemail" property="uemail"></result>
+        <result column="create_time" property="createTime"></result>
+        <collection property="permissions" ofType="SysPermission">
+            <result column="pname" property="pname"></result>
+        </collection>
+    </resultMap>
+    <!--查询单个用户的所有权限-->
+    <select id="selectOnePermissions" resultMap="userAllPermission">
+        select u.uname,u.uphone,u.uwechat,u.uemail,u.create_time,p.pname
+        from sysuser as u
+        RIGHT JOIN sys_role_permission as rp on u.rid = rp.role_id
+        inner JOIN  syspermission as p on p.pid=rp.per_id
+        where u.uid=#{uid}
+        order by p.pname
+    </select>
+    <!--查询所有用户的所有权限-->
+    <select id="selectListPermissions" resultMap="userAllPermission">
+        select u.uname,u.uphone,u.uwechat,u.uemail,u.create_time,p.pname
+        from sysuser as u
+        RIGHT JOIN sys_role_permission as rp on u.rid = rp.role_id
+        inner JOIN  syspermission as p on p.pid=rp.per_id
+        order by p.pname
+    </select>
+</mapper>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="javasm.dao.SysroleDao">
+
+    <resultMap type="javasm.entity.Sysrole" id="SysroleMap">
+        <result property="rid" column="rid" jdbcType="INTEGER"/>
+        <result property="rname" column="rname" jdbcType="VARCHAR"/>
+        <result property="rdesc" column="rdesc" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="SysroleMap">
+        select
+          rid, rname, rdesc, create_time, update_time
+        from crm.sysrole
+        where rid = #{rid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="SysroleMap">
+        select
+          rid, rname, rdesc, create_time, update_time
+        from crm.sysrole
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="SysroleMap">
+        select
+        rid, rname, rdesc, create_time, update_time
+        from crm.sysrole
+        <where>
+            <if test="rid != null">
+                and rid = #{rid}
+            </if>
+            <if test="rname != null and rname != ''">
+                and rname = #{rname}
+            </if>
+            <if test="rdesc != null and rdesc != ''">
+                and rdesc = #{rdesc}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="rid" useGeneratedKeys="true">
+        insert into crm.sysrole(rname, rdesc, create_time, update_time)
+        values (#{rname}, #{rdesc}, #{createTime}, #{updateTime})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="rid" useGeneratedKeys="true">
+        insert into crm.sysrole(rname, rdesc, create_time, update_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.rname}, #{entity.rdesc}, #{entity.createTime}, #{entity.updateTime})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="rid" useGeneratedKeys="true">
+        insert into crm.sysrole(rname, rdesc, create_time, update_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.rname}, #{entity.rdesc}, #{entity.createTime}, #{entity.updateTime})
+        </foreach>
+        on duplicate key update
+        rname = values(rname) , rdesc = values(rdesc) , create_time = values(create_time) , update_time =
+        values(update_time)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update crm.sysrole
+        <set>
+            <if test="rname != null and rname != ''">
+                rname = #{rname},
+            </if>
+            <if test="rdesc != null and rdesc != ''">
+                rdesc = #{rdesc},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        where rid = #{rid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from crm.sysrole where rid = #{rid}
+    </delete>
+
+</mapper>
+

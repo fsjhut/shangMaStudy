@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.mapper2.SysuserMapper">
+    <!--<sql id="basicFields">-->
+        <!--uid,uname,uemail,uphone,uwechat-->
+    <!--</sql>-->
+    <!--<sql id="allFields">-->
+        <!--uid,uname,-->
+    <!--</sql>-->
+
+    <select id="selectUsers"  resultType="Sysuser">
+        select * from sysuser order by update_time desc
+    </select>
+
+    <select id="selectUsers2" parameterType="map" resultType="Sysuser">
+        select * from sysuser where uname=#{uname_key} and upwd=#{upwd_key} order by update_time desc
+    </select>
+    <!--select * from sysuser where uname=#{0} and upwd=#{1} order by update_time desc-->
+    <select id="login" parameterType="map" resultType="Sysuser">
+        select * from sysuser where uname=#{uname2} and upwd=#{upwd2} order by update_time desc
+    </select>
+
+    <insert id="addUser"  parameterType="Sysuser" useGeneratedKeys="true" keyProperty="uid">
+        insert into sysuser(uname, upwd, uphone, uwechat, uemail, create_by) values
+        (#{uname}, #{upwd}, #{uphone}, #{uwechat}, #{uemail},#{createBy})
+    </insert>
+
+    <update id="updateUser"  parameterType="Sysuser">
+        update sysuser set upwd=#{upwd},uphone=#{uphone} where uid=#{uid}
+    </update>
+    <delete id="del">
+        delete from sysuser where uid=#{uid}
+    </delete>
+    <!--第一种查询方法-->
+    <select id="selectById" parameterType="int" resultType="Sysuser">
+        select * from sysuser where uid=#{uid}
+    </select>
+    <!--第二种查询方法-->
+    <!--没有映射的属性，系统不会自动映射，因此需要所有需要查询的字段都进行映射-->
+    <resultMap id="userAndRoleMap" type="Sysuser">
+        <id column="uid" property="uid"></id>
+        <result column="uname" property="uname"></result>
+        <result column="uemail" property="uemail"></result>
+        <result column="create_time" property="createTime"></result>
+        <association property="sysrole" javaType="Sysrole">
+            <id column="rid" property="rid"></id>
+            <result column="rname" property="rname"></result>
+            <result column="rdesc" property="rdesc"></result>
+            <result column="rctime" property="createTime"></result>
+            <result column="rutime" property="updateTime"></result>
+        </association>
+    </resultMap>
+    <select id="selectUserAndRoleById" parameterType="int" resultMap="userAndRoleMap">
+      select u.*,r.rname,r.rdesc,r.create_time as rctime,r.update_time as rutime from sysuser u left join
+      sysrole r on u.rid=r.rid where u.uid = #{uid}
+    </select>
+
+    <!--第三种查询方法，利用mybatis自动进行两次查询-->
+    <resultMap id="userAndRoleMap2" type="Sysuser">
+        <id column="uid" property="uid"></id>
+        <!--在association中配置参数-->
+        <association property="sysrole" javaType="Sysrole" column="rid"
+        select="com.javasm.mapper2.SysroleMapper.selectRoleByKey">
+        </association>
+    </resultMap>
+    <select id="selectUserAndRoleById2" parameterType="int" resultMap="userAndRoleMap2">
+      select * from sysuser where uid=#{uid}
+    </select>
+
+    <!--查询出来多个数据,返回一个list集合-->
+    <select id="selectUsersAndRole" resultMap="userAndRoleMap">
+      select u.*,r.rname,r.rdesc,r.create_time as rctime,r.update_time as rutime from sysuser u left join
+      sysrole r on u.rid=r.rid
+    </select>
+</mapper>

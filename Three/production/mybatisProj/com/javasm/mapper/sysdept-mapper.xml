@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.mapper.SysDeptMapper">
+    <insert id="addObj" parameterType="SysDept">
+        insert into sysdept (dept_name,dept_parent_id,dept_manager_id,dept_phone) values
+        (#{deptName}, #{deptParentId}, #{deptManagerId}, #{deptPhone})
+    </insert>
+    <delete id="delObj">
+        delete from sysdept where dept_id=#{id}
+    </delete>
+
+    <!--关联查询，查询出部门的上级部门名字，管理员名字-->
+    <resultMap id="deptInfo" type="SysDept">
+        <id column="dept_id" property="deptId"></id>
+        <result column="dept_name" property="deptName"></result>
+        <result column="dept_phone" property="deptPhone"></result>
+        <association property="sysDept" javaType="SysDept">
+            <result column="parent_name" property="deptName"></result>
+        </association>
+        <association property="sysUser" javaType="SysUser">
+            <result column="manager_name" property="uname"></result>
+        </association>
+    </resultMap>
+    <select id="selectById" resultMap="deptInfo">
+        select d.dept_id,d.dept_name,d.dept_phone,d2.dept_name as parent_name,u.uname as manager_name
+        from sysdept d
+        LEFT JOIN sysuser as u on u.uid = d.dept_manager_id
+        LEFT JOIN sysdept as d2 on d.dept_parent_id=d2.dept_id
+        where d.dept_id = #{deptId}
+        order by d.dept_name
+    </select>
+    <select id="selectList" resultMap="deptInfo">
+        select d.dept_name,d.dept_phone,d2.dept_name as parent_name,u.uname as manager_name
+        from sysdept d
+        LEFT JOIN sysuser as u on u.uid = d.dept_manager_id
+        LEFT JOIN sysdept as d2 on d.dept_parent_id=d2.dept_id
+        order by d.dept_name
+    </select>
+
+    <!--查询部门下的所有用户-->
+    <resultMap id="deptAllUsers" type="SysDept">
+        <id column="dept_id" property="deptId"></id>
+        <result column="dept_name" property="deptName"></result>
+        <collection property="sysUsers" ofType="SysUser">
+            <result column="uname" property="uname"></result>
+        </collection>
+    </resultMap>
+    <select id="selectListDeptUsers" resultMap="deptAllUsers">
+        select d.dept_id,d.dept_name,u.uname
+        from sysdept as d
+        left join sysuser as u on u.dept_id= d.dept_id
+        order by d.dept_name
+    </select>
+</mapper>

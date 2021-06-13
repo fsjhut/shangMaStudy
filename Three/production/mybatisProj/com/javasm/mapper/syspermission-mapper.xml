@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.mapper.SysPermissionMapper">
+
+    <insert id="addObj" parameterType="SysPermission">
+        insert into syspermission (pname,per_path,per_parent_id)
+        values (#{pname}, #{perPath}, #{perParentId})
+    </insert>
+    <delete id="delObj">
+        delete from syspermission where pid=#{id}
+    </delete>
+
+    <select id="selectById" resultType="SysPermission">
+        select from syspermission where pid=#{uid}
+    </select>
+    <select id="selectList" resultType="SysPermission">
+        select from syspermission
+    </select>
+</mapper>

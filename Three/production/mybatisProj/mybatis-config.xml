@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--配置数据库连接properties文件的路径-->
+    <properties resource="jdbc.properties"/>
+    <!--常用setting的配置-->
+    <settings>
+        <!--开启日志 stdout_loggin：代表将日志文件输出到控制台中-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <!--开启驼峰命名映射-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <!--配置别名-->
+    <typeAliases>
+        <!--在创建Configuration对象,对指定包下的所有的类,做别名映射,把类名小写作为别名,映射文件中的resultType忽略大小写-->
+        <package name="com.javasm"/>
+        <!--对单个的类使用别名-->
+        <!--<typeAlias type="com.javasm.sys.entity.SysUser" alias="sysuser"></typeAlias>-->
+    </typeAliases>
+    <!--配置数据库环境-->
+    <environments default="dev">
+        <!--在一个项目中可能有多个分库分表操作，后续有专门的mycat中间件做分库操作-->
+        <!--第一个数据库环境-->
+        <environment id="dev">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+
+        </environment>
+        <!--第二个数据库环境，现在已经没用了-->
+        <!--<environment id="">-->
+            <!--<transactionManager type=""></transactionManager>-->
+            <!--<dataSource type=""></dataSource>-->
+        <!--</environment>-->
+    </environments>
+    <!--配置实体类的映射文件-->
+    <mappers>
+        <mapper resource="com\javasm\mapper\sysuser-mapper.xml"/>
+        <mapper resource="com\javasm\mapper\sysrole-mapper.xml"/>
+        <mapper resource="com\javasm\mapper\sysdept-mapper.xml"/>
+        <mapper resource="com\javasm\mapper\syspermission-mapper.xml"/>
+    </mappers>
+</configuration>

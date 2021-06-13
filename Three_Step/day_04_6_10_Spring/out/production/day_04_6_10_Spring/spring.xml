@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <!--打开包扫描-->
+    <context:component-scan base-package="com.javasm"/>
+    <!--<bean id="sysUserController" class="com.javasm.controller.SysUserController">-->
+        <!--<property name="userService" ref="sysUserService"/>-->
+    <!--</bean>-->
+
+    <bean id="userService" class="com.javasm.service.impl.SysUserServiceImpl" init-method="init"/>
+
+    <!--静态工厂方法-->
+    <!--<bean id="sqlSessionFactory" class="com.javasm.factory.SessionFactoryBean" factory-method="createFactory"/>-->
+    <!--<bean id="sysUser" class="com.javasm.entity.SysUser"/>-->
+    <!--实例工厂方法-->
+    <bean id="sqlSessionFactory" class="com.javasm.factory.SessionFactoryBean"/>
+    <bean id="sqlSessionFactory2" factory-bean="sqlSessionFactory" factory-method="createFactory"/>
+</beans>

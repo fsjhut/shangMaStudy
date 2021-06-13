@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.mapper.SysPermissionMapper">
+
+    <resultMap type="SysPermission" id="SyspermissionMap">
+        <result property="pid" column="pid" jdbcType="INTEGER"/>
+        <result property="pname" column="pname" jdbcType="VARCHAR"/>
+        <result property="perPath" column="per_path" jdbcType="VARCHAR"/>
+        <result property="perParentId" column="per_parent_id" jdbcType="INTEGER"/>
+        <result property="persort" column="persort" jdbcType="INTEGER"/>
+    </resultMap>
+
+
+    <select id="selectPermissionByRoleId" parameterType="int" resultMap="SyspermissionMap">
+        select p.* from syspermission as p,sys_role_permission as srp
+        where p.pid = srp.per_id and srp.role_id= #{rid}
+    </select>
+
+    <select id="selectLastNodePermissionByRoleId" parameterType="int" resultMap="SyspermissionMap">
+          select p.* from sys_role_permission as rp,syspermission as p where rp.per_id = p.pid and role_id=#{rid}
+          and per_id not in (select DISTINCT per_parent_id from syspermission)
+    </select>
+
+    <select id="selectUpPermission" parameterType="int" resultMap="SyspermissionMap">
+        select p2.* from syspermission as p2
+        where p2.per_parent_id = (select p.per_parent_id from syspermission as p where p.pid = #{pid})
+        and p2.persort &lt; #{perSort} order by persort desc limit 1
+    </select>
+
+    <insert id="addObj" parameterType="SysPermission">
+        insert into syspermission (pname,per_path,per_parent_id)
+        values (#{pname}, #{perPath}, #{perParentId})
+    </insert>
+    <delete id="delObj">
+        delete from syspermission where pid=#{id}
+    </delete>
+
+    <select id="selectById" resultType="SysPermission">
+        select from syspermission where pid=#{uid}
+    </select>
+    <select id="selectList" resultType="SysPermission">
+        select from syspermission
+    </select>
+</mapper>
