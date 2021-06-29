@@ -1,0 +1,44 @@
+"data": [
+	{
+		"year": 2020,
+		"province": [
+			{
+				"pid":65,
+				"type":[1,2],
+				"batch":[8],
+				"batch_group":{
+					"46":[
+						{
+							"id": "10591",
+							"sg_name": "（01）",
+							"sg_type": "80003",
+							"sg_fxk": "",
+							"sg_sxk": "70000",
+							"weight": "40",
+							"elective_info": "物理必选"
+						},
+						{
+							"id": "10592",
+							"sg_name": "（02）",
+							"sg_type": "80001",
+							"sg_fxk": "",
+							"sg_sxk": "70008",
+							"weight": "39",
+							"elective_info": "不限"
+						}
+					]
+				},
+				"first":[]
+			}]
+	},
+	{
+		"year": 2019,
+		"province": [{
+				"pid":65,
+				"type":[1,2],
+				"batch":[8],
+				"batch_group":[],
+				"first":[]
+			}]
+	}
+]

@@ -1,0 +1,7 @@
+com\javasm\base\BaseEntity.class
+com\javasm\sys\entity\SysdictsList.class
+com\javasm\sys\entity\Sysdept.class
+com\javasm\sys\entity\SysdictsType.class
+com\javasm\sys\entity\Sysrole.class
+com\javasm\sys\entity\Syspermission.class
+com\javasm\sys\entity\Sysuser.class

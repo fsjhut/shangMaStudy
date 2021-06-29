@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--配置quartz环境-->
+    <!--任务bean对象-->
+    <bean class="com.javasm.commons.task.MyTasks" id="myTasks"></bean>
+
+    <!--任务详情:JobDetail-->
+    <bean id="task1" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="myTasks"></property>
+        <property name="targetMethod" value="task1"></property>
+    </bean>
+
+    <!--对jobDetail配置cron-->
+    <bean id="task1CronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="task1"></property>
+        <property name="cronExpression" value="0/5 * * * * ?"></property>
+    </bean>
+
+    <!--quartz只能并行任务-->
+    <!--识别Cron表达式,对任务进行调度-->
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <array>
+                <ref bean="task1CronTrigger"></ref>
+            </array>
+        </property>
+    </bean>
+
+</beans>

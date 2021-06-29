@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.SysroleDao">
+
+    <resultMap type="com.javasm.sys.entity.Sysrole" id="SysroleMap">
+        <result property="rid" column="rid" jdbcType="INTEGER"/>
+        <result property="rname" column="rname" jdbcType="VARCHAR"/>
+        <result property="rdesc" column="rdesc" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="SysroleMap">
+        select
+          rid, rname, rdesc, create_time, update_time
+        from sysrole
+        where rid = #{rid}
+    </select>
+
+
+    <select id="selectList" resultMap="SysroleMap">
+        select
+        rid, rname, rdesc, create_time, update_time
+        from sysrole
+        <where>
+            <if test="rid != null">
+                and rid = #{rid}
+            </if>
+            <if test="rname != null and rname != ''">
+                and rname = #{rname}
+            </if>
+            <if test="rdesc != null and rdesc != ''">
+                and rdesc = #{rdesc}
+            </if>
+            <if test="createTime != null and createTime != ''">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null and updateTime != ''">
+                and update_time = #{updateTime}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="rid" useGeneratedKeys="true">
+        insert into sysrole(rname, rdesc, create_time, update_time)
+        values (#{rname}, #{rdesc}, #{createTime}, #{updateTime})
+    </insert>
+
+    <update id="updateById">
+        update sysrole
+        <set>
+            <if test="rname != null and rname != ''">
+                rname = #{rname},
+            </if>
+            <if test="rdesc != null and rdesc != ''">
+                rdesc = #{rdesc},
+            </if>
+            <if test="createTime != null and createTime != ''">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null and updateTime != ''">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        where rid = #{rid}
+    </update>
+
+    <delete id="delById">
+        delete from sysrole where rid = #{rid}
+    </delete>
+
+    <delete id="delByIds">
+        delete from sysrole where rid in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

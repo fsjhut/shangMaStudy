@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+     <!--创建连接池对象-->
+    <!--加载properties配置文件-->
+    <context:property-placeholder location="classpath:jdbc.properties" ignore-unresolvable="true"/>
+    <!--配置数据库连接池-->
+    <bean class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close" id="dataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="initialSize" value="${jdbc.initialSize}"/>
+    </bean>
+
+    <!--配置mybatis最核心的对象SqlSessionFactory-->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
+        <!--数据库的引入-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--配置mybatis中mapper.xml文件的加载-->
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+        <!--配置包的别名，实体类可以不用全类名-->
+        <property name="typeAliasesPackage" value="com.javasm"/>
+        <!--配置mybatis的引入文件-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <!--配置插件（分页拦截插件）-->
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <property name="properties">
+                        <!--配置分页合理化参数-->
+                        <value>reasonable=true</value>
+                    </property>
+                </bean>
+            </array>
+        </property>
+    </bean>
+    <!--配置dao接口的代理对象-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--指定给哪些dao创建代理，尽量具体，不要包含service-->
+        <!--如果有service则 容器中有两个实现类，注入时会出现异常-->
+        <property name="basePackage" value="com.javasm.*.dao"/>
+    </bean>
+
+    <!--配置事务管理器对象（依赖于dataSources对象）-->
+    <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--事务的具体配置，(通过注解进行配置)-->
+    <tx:annotation-driven/>
+</beans>

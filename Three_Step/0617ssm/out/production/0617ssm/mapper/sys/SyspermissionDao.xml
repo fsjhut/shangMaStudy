@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.SyspermissionDao">
+
+    <resultMap type="com.javasm.sys.entity.Syspermission" id="SyspermissionMap">
+        <result property="perid" column="perid" jdbcType="INTEGER"/>
+        <result property="pername" column="pername" jdbcType="VARCHAR"/>
+        <result property="perurl" column="perurl" jdbcType="VARCHAR"/>
+        <result property="pericon" column="pericon" jdbcType="VARCHAR"/>
+        <result property="parentid" column="parentid" jdbcType="INTEGER"/>
+        <result property="persort" column="persort" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="SyspermissionMap">
+        select
+          perid, pername, perurl, pericon, parentid, persort, create_time, update_time
+        from crm.syspermission
+        where perid = #{perid}
+    </select>
+
+
+    <select id="selectList" resultMap="SyspermissionMap">
+        select
+        perid, pername, perurl, pericon, parentid, persort, create_time, update_time
+        from crm.syspermission
+        <where>
+            <if test="perid != null">
+                and perid = #{perid}
+            </if>
+            <if test="pername != null and pername != ''">
+                and pername = #{pername}
+            </if>
+            <if test="perurl != null and perurl != ''">
+                and perurl = #{perurl}
+            </if>
+            <if test="pericon != null and pericon != ''">
+                and pericon = #{pericon}
+            </if>
+            <if test="parentid != null">
+                and parentid = #{parentid}
+            </if>
+            <if test="persort != null">
+                and persort = #{persort}
+            </if>
+            <if test="createTime != null and createTime != ''">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null and updateTime != ''">
+                and update_time = #{updateTime}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="perid" useGeneratedKeys="true">
+        insert into crm.syspermission(pername, perurl, pericon, parentid, persort, create_time, update_time)
+        values (#{pername}, #{perurl}, #{pericon}, #{parentid}, #{persort}, #{createTime}, #{updateTime})
+    </insert>
+
+    <update id="updateById">
+        update crm.syspermission
+        <set>
+            <if test="pername != null and pername != ''">
+                pername = #{pername},
+            </if>
+            <if test="perurl != null and perurl != ''">
+                perurl = #{perurl},
+            </if>
+            <if test="pericon != null and pericon != ''">
+                pericon = #{pericon},
+            </if>
+            <if test="parentid != null">
+                parentid = #{parentid},
+            </if>
+            <if test="persort != null">
+                persort = #{persort},
+            </if>
+            <if test="createTime != null and createTime != ''">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null and updateTime != ''">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        where perid = #{perid}
+    </update>
+
+    <delete id="delById">
+        delete from crm.syspermission where perid = #{perid}
+    </delete>
+
+    <delete id="delByIds">
+        delete from crm.syspermission where perid in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

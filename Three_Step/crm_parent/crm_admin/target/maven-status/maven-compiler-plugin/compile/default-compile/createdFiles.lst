@@ -1,0 +1,9 @@
+com\javasm\sys\handler\SysdictsTypeHandler.class
+com\javasm\sys\handler\TestFilter.class
+com\javasm\base\BaseHandler.class
+com\javasm\sys\handler\SysdictsListHandler.class
+com\javasm\exception\MvcException.class
+com\javasm\sys\handler\SysuserHandler.class
+com\javasm\sys\handler\SysdeptHandler.class
+com\javasm\exception\MvcExceptionHandler.class
+com\javasm\sys\handler\SysroleHandler.class

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.dao.SchoolplanDao">
+
+    <!--<resultMap type="com.javasm.entity.Schoolplan" id="SchoolplanMap">-->
+        <!--<result property="schoolId" column="school_id" jdbcType="VARCHAR"/>-->
+        <!--<result property="type" column="type" jdbcType="VARCHAR"/>-->
+        <!--<result property="num" column="num" jdbcType="INTEGER"/>-->
+        <!--<result property="length" column="length" jdbcType="VARCHAR"/>-->
+        <!--<result property="speId" column="spe_id" jdbcType="VARCHAR"/>-->
+        <!--<result property="level1Name" column="level1_name" jdbcType="VARCHAR"/>-->
+        <!--<result property="level2Name" column="level2_name" jdbcType="VARCHAR"/>-->
+        <!--<result property="level3Name" column="level3_name" jdbcType="VARCHAR"/>-->
+        <!--<result property="level1" column="level1" jdbcType="VARCHAR"/>-->
+        <!--<result property="level2" column="level2" jdbcType="VARCHAR"/>-->
+        <!--<result property="level3" column="level3" jdbcType="VARCHAR"/>-->
+        <!--<result property="spcode" column="spcode" jdbcType="VARCHAR"/>-->
+        <!--<result property="spname" column="spname" jdbcType="VARCHAR"/>-->
+        <!--<result property="localBatchName" column="local_batch_name" jdbcType="VARCHAR"/>-->
+        <!--<result property="zslxName" column="zslx_name" jdbcType="VARCHAR"/>-->
+        <!--<result property="batch" column="batch" jdbcType="VARCHAR"/>-->
+    <!--</resultMap>-->
+
+    <!--<select id="selectById" resultMap="SchoolplanMap">-->
+        <!--select-->
+          <!--school_id, type, num, length, spe_id, level1_name, level2_name, level3_name, level1, level2, level3, spcode, spname, local_batch_name, zslx_name, batch-->
+        <!--from school_info.schoolplan-->
+        <!--where  = #{}-->
+    <!--</select>-->
+
+
+    <!--<select id="selectList" resultMap="SchoolplanMap">-->
+        <!--select-->
+        <!--school_id, type, num, length, spe_id, level1_name, level2_name, level3_name, level1, level2, level3, spcode,-->
+        <!--spname, local_batch_name, zslx_name, batch-->
+        <!--from school_info.schoolplan-->
+        <!--<where>-->
+            <!--<if test="schoolId != null and schoolId != ''">-->
+                <!--and school_id = #{schoolId}-->
+            <!--</if>-->
+            <!--<if test="type != null and type != ''">-->
+                <!--and type = #{type}-->
+            <!--</if>-->
+            <!--<if test="num != null">-->
+                <!--and num = #{num}-->
+            <!--</if>-->
+            <!--<if test="length != null and length != ''">-->
+                <!--and length = #{length}-->
+            <!--</if>-->
+            <!--<if test="speId != null and speId != ''">-->
+                <!--and spe_id = #{speId}-->
+            <!--</if>-->
+            <!--<if test="level1Name != null and level1Name != ''">-->
+                <!--and level1_name = #{level1Name}-->
+            <!--</if>-->
+            <!--<if test="level2Name != null and level2Name != ''">-->
+                <!--and level2_name = #{level2Name}-->
+            <!--</if>-->
+            <!--<if test="level3Name != null and level3Name != ''">-->
+                <!--and level3_name = #{level3Name}-->
+            <!--</if>-->
+            <!--<if test="level1 != null and level1 != ''">-->
+                <!--and level1 = #{level1}-->
+            <!--</if>-->
+            <!--<if test="level2 != null and level2 != ''">-->
+                <!--and level2 = #{level2}-->
+            <!--</if>-->
+            <!--<if test="level3 != null and level3 != ''">-->
+                <!--and level3 = #{level3}-->
+            <!--</if>-->
+            <!--<if test="spcode != null and spcode != ''">-->
+                <!--and spcode = #{spcode}-->
+            <!--</if>-->
+            <!--<if test="spname != null and spname != ''">-->
+                <!--and spname = #{spname}-->
+            <!--</if>-->
+            <!--<if test="localBatchName != null and localBatchName != ''">-->
+                <!--and local_batch_name = #{localBatchName}-->
+            <!--</if>-->
+            <!--<if test="zslxName != null and zslxName != ''">-->
+                <!--and zslx_name = #{zslxName}-->
+            <!--</if>-->
+            <!--<if test="batch != null and batch != ''">-->
+                <!--and batch = #{batch}-->
+            <!--</if>-->
+        <!--</where>-->
+    <!--</select>-->
+
+    <!--<insert id="addObj" parameterMap="mapList" useGeneratedKeys="true">-->
+        <!--insert into school_info.schoolplan(school_id, type, num, length, spe_id, level1_name, level2_name, level3_name, level1, level2, level3, spcode, spname, local_batch_name, zslx_name, batch)-->
+        <!--values (#{schoolId}, #{type}, #{num}, #{length}, #{speId}, #{level1Name}, #{level2Name}, #{level3Name}, #{level1}, #{level2}, #{level3}, #{spcode}, #{spname}, #{localBatchName}, #{zslxName}, #{batch})-->
+    <!--</insert>-->
+
+    <insert id="batchAddObjs" parameterType="java.util.HashMap">
+        insert into school_info.schoolplan(school_id, type, num, length, spe_id, level1_name, level2_name, level3_name, level1, level2, level3, spcode, spname, local_batch_name, zslx_name, batch)
+        values
+        <foreach collection="list" separator="," item="obj" >
+            <!--<foreach collection="obj" item="value" index="key" separator=",">-->
+                <!--#{value}-->
+            <!--</foreach>-->
+            (#{obj.school_id}, #{obj.type}, #{obj.num}, #{obj.length}, #{obj.spe_id}, #{obj.level1_name}, #{obj.level2_name}, #{obj.level3_name}, #{obj.level1}, #{obj.level2}, #{obj.level3}, #{obj.spcode}, #{obj.spname},
+            #{obj.local_batch_name}, #{obj.zslx_name}, #{obj.batch})
+        </foreach>
+    </insert>
+
+    <!--(#{obj.get(school_id)}, #{obj.get(type)}, #{obj.get(num)}, #{obj.get(length)}, #{obj.get(spe_id)}, #{obj.get(level1_name)}, #{obj.get(level2_name)}, #{obj.get(level3_name)}, #{obj.get(level1)}, #{obj.get(level2)}, #{obj.get(level3)}, #{obj.get(spcode)}, #{obj.get(spname)},
+            #{obj.get(local_batch_name)}, #{obj.get(zslx_name)}, #{obj.get(batch)})-->
+    <!--(obj.school_id, obj.type, obj.get(num), obj.get(length), obj.get(spe_id), obj.get(level1_name), obj.get(level2_name), obj.get(level3_name), obj.get(level1), obj.get(level2), obj.get(level3), obj.get(spcode), obj.get(spname),-->
+    <!--obj.get(local_batch_name), obj.get(zslx_name), obj.get(batch))-->
+
+    <!--<update id="updateById">-->
+        <!--update school_info.schoolplan-->
+        <!--<set>-->
+            <!--<if test="schoolId != null and schoolId != ''">-->
+                <!--school_id = #{schoolId},-->
+            <!--</if>-->
+            <!--<if test="type != null and type != ''">-->
+                <!--type = #{type},-->
+            <!--</if>-->
+            <!--<if test="num != null">-->
+                <!--num = #{num},-->
+            <!--</if>-->
+            <!--<if test="length != null and length != ''">-->
+                <!--length = #{length},-->
+            <!--</if>-->
+            <!--<if test="speId != null and speId != ''">-->
+                <!--spe_id = #{speId},-->
+            <!--</if>-->
+            <!--<if test="level1Name != null and level1Name != ''">-->
+                <!--level1_name = #{level1Name},-->
+            <!--</if>-->
+            <!--<if test="level2Name != null and level2Name != ''">-->
+                <!--level2_name = #{level2Name},-->
+            <!--</if>-->
+            <!--<if test="level3Name != null and level3Name != ''">-->
+                <!--level3_name = #{level3Name},-->
+            <!--</if>-->
+            <!--<if test="level1 != null and level1 != ''">-->
+                <!--level1 = #{level1},-->
+            <!--</if>-->
+            <!--<if test="level2 != null and level2 != ''">-->
+                <!--level2 = #{level2},-->
+            <!--</if>-->
+            <!--<if test="level3 != null and level3 != ''">-->
+                <!--level3 = #{level3},-->
+            <!--</if>-->
+            <!--<if test="spcode != null and spcode != ''">-->
+                <!--spcode = #{spcode},-->
+            <!--</if>-->
+            <!--<if test="spname != null and spname != ''">-->
+                <!--spname = #{spname},-->
+            <!--</if>-->
+            <!--<if test="localBatchName != null and localBatchName != ''">-->
+                <!--local_batch_name = #{localBatchName},-->
+            <!--</if>-->
+            <!--<if test="zslxName != null and zslxName != ''">-->
+                <!--zslx_name = #{zslxName},-->
+            <!--</if>-->
+            <!--<if test="batch != null and batch != ''">-->
+                <!--batch = #{batch},-->
+            <!--</if>-->
+        <!--</set>-->
+        <!--where = #{}-->
+    <!--</update>-->
+
+    <!--<delete id="delById">-->
+        <!--delete from school_info.schoolplan where  = #{}-->
+    <!--</delete>-->
+
+    <!--<delete id="delByIds">-->
+        <!--delete from school_info.schoolplan where in-->
+        <!--<foreach collection="list" open="(" close=")" item="id" separator=",">-->
+            <!--#{id}-->
+        <!--</foreach>-->
+    <!--</delete>-->
+</mapper>
+

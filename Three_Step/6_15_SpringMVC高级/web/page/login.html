@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/s/css/login.css">
+    <!--
+        同步下载:
+        location.href="http://yuming/down?path=adsfasd"
+        异步下载:
+        const res = axios.request({
+    url: '/api/**/getFiles',
+	method: 'post',   // 以post请求为例
+	data: {page: 1, pageSize: 20, age: 20},   // 筛选列表的请求参数
+	responseType: 'blob',
+}).then(res=>{
+	const data = res.data
+	let url = window.URL.createObjectURL(data)   // 将二进制文件转化为可访问的url
+    var a = document.createElement('a')
+    document.body.appendChild(a)
+    a.href = url
+    a.download = '宿主列表.xls'
+    a.click()   // 模拟点击下载
+    window.URL.revokeObjectURL(url)
+})
+    -->
+</head>
+<body>
+    登录页面.
+    <!--同步下载-->
+    <a href="/down?path=/upload/aaa.txt">aaa.txt</a>
+
+
+</body>
+</html>

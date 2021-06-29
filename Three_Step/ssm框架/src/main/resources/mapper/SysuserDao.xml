@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.SysuserDao">
+
+    <resultMap type="com.javasm.sys.entity.Sysuser" id="SysuserMap">
+        <result property="uid" column="uid" jdbcType="INTEGER"/>
+        <result property="uname" column="uname" jdbcType="VARCHAR"/>
+        <result property="upwd" column="upwd" jdbcType="VARCHAR"/>
+        <result property="uphone" column="uphone" jdbcType="VARCHAR"/>
+        <result property="uwechat" column="uwechat" jdbcType="VARCHAR"/>
+        <result property="uemail" column="uemail" jdbcType="VARCHAR"/>
+        <result property="userGender" column="user_gender" jdbcType="INTEGER"/>
+        <result property="rid" column="rid" jdbcType="INTEGER"/>
+        <result property="deptId" column="dept_id" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="SysuserMap">
+        select
+          uid, uname, upwd, uphone, uwechat, uemail, user_gender, rid, dept_id, create_time, update_time, create_by
+        from crm.sysuser
+        where uid = #{uid}
+    </select>
+
+
+    <select id="selectList" resultMap="SysuserMap">
+        select
+        uid, uname, upwd, uphone, uwechat, uemail, user_gender, rid, dept_id, create_time, update_time, create_by
+        from crm.sysuser
+        <where>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+            <if test="uname != null and uname != ''">
+                and uname = #{uname}
+            </if>
+            <if test="upwd != null and upwd != ''">
+                and upwd = #{upwd}
+            </if>
+            <if test="uphone != null and uphone != ''">
+                and uphone = #{uphone}
+            </if>
+            <if test="uwechat != null and uwechat != ''">
+                and uwechat = #{uwechat}
+            </if>
+            <if test="uemail != null and uemail != ''">
+                and uemail = #{uemail}
+            </if>
+            <if test="userGender != null">
+                and user_gender = #{userGender}
+            </if>
+            <if test="rid != null">
+                and rid = #{rid}
+            </if>
+            <if test="deptId != null">
+                and dept_id = #{deptId}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="createBy != null and createBy != ''">
+                and create_by = #{createBy}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="uid" useGeneratedKeys="true">
+        insert into crm.sysuser(uname, upwd, uphone, uwechat, uemail, user_gender, rid, dept_id, create_time, update_time, create_by)
+        values (#{uname}, #{upwd}, #{uphone}, #{uwechat}, #{uemail}, #{userGender}, #{rid}, #{deptId}, #{createTime}, #{updateTime}, #{createBy})
+    </insert>
+
+    <update id="updateById">
+        update crm.sysuser
+        <set>
+            <if test="uname != null and uname != ''">
+                uname = #{uname},
+            </if>
+            <if test="upwd != null and upwd != ''">
+                upwd = #{upwd},
+            </if>
+            <if test="uphone != null and uphone != ''">
+                uphone = #{uphone},
+            </if>
+            <if test="uwechat != null and uwechat != ''">
+                uwechat = #{uwechat},
+            </if>
+            <if test="uemail != null and uemail != ''">
+                uemail = #{uemail},
+            </if>
+            <if test="userGender != null">
+                user_gender = #{userGender},
+            </if>
+            <if test="rid != null">
+                rid = #{rid},
+            </if>
+            <if test="deptId != null">
+                dept_id = #{deptId},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="createBy != null and createBy != ''">
+                create_by = #{createBy},
+            </if>
+        </set>
+        where uid = #{uid}
+    </update>
+
+    <delete id="delById">
+        delete from crm.sysuser where uid = #{uid}
+    </delete>
+
+    <delete id="delByIds">
+        delete from crm.sysuser where uid in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

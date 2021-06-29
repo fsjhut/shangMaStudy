@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <!--开启定时任务的注解识别 @Scheduler-->
+    <!--<task:annotation-driven></task:annotation-driven>-->
+    <!--// 配置并行的任务，多个定时任务互相不影响-->
+    <bean class="com.javasm.commons.task.MyTasks" id="myTasks"/>
+    <task:scheduler id="threadPoolTaskScheduler" pool-size="5"/>
+    <task:scheduled-tasks scheduler="threadPoolTaskScheduler">
+        <task:scheduled ref="myTasks" method="task1" cron="0/5 * * * * ?"/>
+        <task:scheduled ref="myTasks" method="task2" cron="3/5 * * * * ?"/>
+    </task:scheduled-tasks>
+</beans>

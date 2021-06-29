@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--<configuration>-->
+    <!--&lt;!&ndash;配置数据库连接properties文件的路径&ndash;&gt;-->
+    <!--<properties resource="jdbc.properties"/>-->
+    <!--&lt;!&ndash;常用setting的配置&ndash;&gt;-->
+    <!--<settings>-->
+        <!--&lt;!&ndash;开启日志 stdout_loggin：代表将日志文件输出到控制台中&ndash;&gt;-->
+        <!--<setting name="logImpl" value="STDOUT_LOGGING"/>-->
+        <!--&lt;!&ndash;开启驼峰命名映射&ndash;&gt;-->
+        <!--<setting name="mapUnderscoreToCamelCase" value="true"/>-->
+    <!--</settings>-->
+    <!--&lt;!&ndash;配置别名&ndash;&gt;-->
+    <!--<typeAliases>-->
+        <!--&lt;!&ndash;在创建Configuration对象,对指定包下的所有的类,做别名映射,把类名小写作为别名,映射文件中的resultType忽略大小写&ndash;&gt;-->
+        <!--<package name="com.javasm"/>-->
+        <!--&lt;!&ndash;对单个的类使用别名&ndash;&gt;-->
+        <!--&lt;!&ndash;<typeAlias type="com.javasm.sys.entity.SysUser" alias="sysuser"></typeAlias>&ndash;&gt;-->
+    <!--</typeAliases>-->
+
+    <!--&lt;!&ndash;配置数据库环境&ndash;&gt;-->
+    <!--<environments default="dev">-->
+        <!--&lt;!&ndash;在一个项目中可能有多个分库分表操作，后续有专门的mycat中间件做分库操作&ndash;&gt;-->
+        <!--&lt;!&ndash;第一个数据库环境&ndash;&gt;-->
+        <!--<environment id="dev">-->
+            <!--<transactionManager type="JDBC"/>-->
+            <!--<dataSource type="POOLED">-->
+                <!--<property name="driver" value="${jdbc.driver}"/>-->
+                <!--<property name="url" value="${jdbc.url}"/>-->
+                <!--<property name="username" value="${jdbc.username}"/>-->
+                <!--<property name="password" value="${jdbc.password}"/>-->
+            <!--</dataSource>-->
+        <!--</environment>-->
+    <!--</environments>-->
+
+    <!--&lt;!&ndash;引入映射文件&ndash;&gt;-->
+    <!--<mappers>-->
+        <!--&lt;!&ndash;<mapper class="com.javasm.goods.dao.GoodsDao"></mapper>&ndash;&gt;-->
+        <!--&lt;!&ndash;配置包，代表可以在该包下的所有文件都生效&ndash;&gt;-->
+        <!--<package name="com.javasm.goods.dao"/>-->
+    <!--</mappers>-->
+<!--</configuration>-->

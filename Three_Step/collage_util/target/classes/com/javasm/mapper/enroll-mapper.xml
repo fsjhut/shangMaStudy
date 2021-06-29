@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.dao.EnrollDao">
+
+    <resultMap type="com.javasm.entity.Enroll" id="EnrollMap">
+        <result property="schoolId" column="school_id" jdbcType="VARCHAR"/>
+        <result property="batch" column="batch" jdbcType="VARCHAR"/>
+        <result property="zslx" column="zslx" jdbcType="VARCHAR"/>
+        <result property="xclevel" column="xclevel" jdbcType="VARCHAR"/>
+        <result property="max" column="max" jdbcType="VARCHAR"/>
+        <result property="minSection" column="min_section" jdbcType="VARCHAR"/>
+        <result property="min" column="min" jdbcType="VARCHAR"/>
+        <result property="average" column="average" jdbcType="VARCHAR"/>
+        <result property="filing" column="filing" jdbcType="VARCHAR"/>
+        <result property="firstKm" column="first_km" jdbcType="VARCHAR"/>
+        <result property="localBatchName" column="local_batch_name" jdbcType="VARCHAR"/>
+        <result property="zslxName" column="zslx_name" jdbcType="VARCHAR"/>
+        <result property="xclevelName" column="xclevel_name" jdbcType="VARCHAR"/>
+        <result property="proscore" column="proscore" jdbcType="VARCHAR"/>
+        <result property="year" column="year" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="EnrollMap">
+        select
+          school_id, batch, zslx, xclevel, max, min_section, min, average, filing, first_km, local_batch_name, zslx_name, xclevel_name, proscore, year
+        from school_info.enroll
+        where school_id = #{schoolId}
+    </select>
+
+    <select id="selectAllSchoolIds" resultType="java.lang.String">
+         SELECT DISTINCT school_id FROM `enroll` WHERE local_batch_name = '本科二批' AND school_id > 1391 ORDER BY school_id;
+    </select>
+
+
+    <select id="selectList" resultMap="EnrollMap">
+        select
+        school_id, batch, zslx, xclevel, max, min_section, min, average, filing, first_km, local_batch_name, zslx_name,
+        xclevel_name, proscore, year
+        from school_info.enroll
+        <where>
+            <if test="schoolId != null and schoolId != ''">
+                and school_id = #{schoolId}
+            </if>
+            <if test="batch != null and batch != ''">
+                and batch = #{batch}
+            </if>
+            <if test="zslx != null and zslx != ''">
+                and zslx = #{zslx}
+            </if>
+            <if test="xclevel != null and xclevel != ''">
+                and xclevel = #{xclevel}
+            </if>
+            <if test="max != null and max != ''">
+                and max = #{max}
+            </if>
+            <if test="minSection != null and minSection != ''">
+                and min_section = #{minSection}
+            </if>
+            <if test="min != null and min != ''">
+                and min = #{min}
+            </if>
+            <if test="average != null and average != ''">
+                and average = #{average}
+            </if>
+            <if test="filing != null and filing != ''">
+                and filing = #{filing}
+            </if>
+            <if test="firstKm != null and firstKm != ''">
+                and first_km = #{firstKm}
+            </if>
+            <if test="localBatchName != null and localBatchName != ''">
+                and local_batch_name = #{localBatchName}
+            </if>
+            <if test="zslxName != null and zslxName != ''">
+                and zslx_name = #{zslxName}
+            </if>
+            <if test="xclevelName != null and xclevelName != ''">
+                and xclevel_name = #{xclevelName}
+            </if>
+            <if test="proscore != null and proscore != ''">
+                and proscore = #{proscore}
+            </if>
+            <if test="year != null and year != ''">
+                and year = #{year}
+            </if>
+        </where>
+    </select>
+
+    <insert id="addObj" keyProperty="schoolId" useGeneratedKeys="true">
+        insert into school_info.enroll(school_id, batch, zslx, xclevel, max, min_section, min, average, filing, first_km, local_batch_name, zslx_name, xclevel_name, proscore, year)
+        values (#{schoolId},#{batch}, #{zslx}, #{xclevel}, #{max}, #{minSection}, #{min}, #{average}, #{filing}, #{firstKm}, #{localBatchName}, #{zslxName}, #{xclevelName}, #{proscore}, #{year})
+    </insert>
+
+    <update id="updateById">
+        update school_info.enroll
+        <set>
+            <if test="batch != null and batch != ''">
+                batch = #{batch},
+            </if>
+            <if test="zslx != null and zslx != ''">
+                zslx = #{zslx},
+            </if>
+            <if test="xclevel != null and xclevel != ''">
+                xclevel = #{xclevel},
+            </if>
+            <if test="max != null and max != ''">
+                max = #{max},
+            </if>
+            <if test="minSection != null and minSection != ''">
+                min_section = #{minSection},
+            </if>
+            <if test="min != null and min != ''">
+                min = #{min},
+            </if>
+            <if test="average != null and average != ''">
+                average = #{average},
+            </if>
+            <if test="filing != null and filing != ''">
+                filing = #{filing},
+            </if>
+            <if test="firstKm != null and firstKm != ''">
+                first_km = #{firstKm},
+            </if>
+            <if test="localBatchName != null and localBatchName != ''">
+                local_batch_name = #{localBatchName},
+            </if>
+            <if test="zslxName != null and zslxName != ''">
+                zslx_name = #{zslxName},
+            </if>
+            <if test="xclevelName != null and xclevelName != ''">
+                xclevel_name = #{xclevelName},
+            </if>
+            <if test="proscore != null and proscore != ''">
+                proscore = #{proscore},
+            </if>
+            <if test="year != null and year != ''">
+                year = #{year},
+            </if>
+        </set>
+        where school_id = #{schoolId}
+    </update>
+
+    <delete id="delById">
+        delete from school_info.enroll where school_id = #{schoolId}
+    </delete>
+
+    <delete id="delByIds">
+        delete from school_info.enroll where school_id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

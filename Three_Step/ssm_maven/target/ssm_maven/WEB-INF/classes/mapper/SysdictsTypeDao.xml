@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.SysdictsTypeDao">
+
+    <resultMap type="com.javasm.sys.entity.SysdictsType" id="SysdictsTypeMap">
+        <result property="did" column="did" jdbcType="INTEGER"/>
+        <result property="dname" column="dname" jdbcType="VARCHAR"/>
+        <result property="dkey" column="dkey" jdbcType="VARCHAR"/>
+        <result property="ddesc" column="ddesc" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="SysdictsTypeMap">
+        select
+          did, dname, dkey, ddesc
+        from sysdicts_type
+        where did = #{did}
+    </select>
+
+
+    <select id="selectList" resultMap="SysdictsTypeMap">
+        select
+        did, dname, dkey, ddesc
+        from sysdicts_type
+        <where>
+            <if test="did != null">
+                and did = #{did}
+            </if>
+            <if test="dname != null and dname != ''">
+                and dname = #{dname}
+            </if>
+            <if test="dkey != null and dkey != ''">
+                and dkey = #{dkey}
+            </if>
+            <if test="ddesc != null and ddesc != ''">
+                and ddesc = #{ddesc}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="did" useGeneratedKeys="true">
+        insert into sysdicts_type(dname, dkey, ddesc)
+        values (#{dname}, #{dkey}, #{ddesc})
+    </insert>
+
+    <update id="updateById">
+        update sysdicts_type
+        <set>
+            <if test="dname != null and dname != ''">
+                dname = #{dname},
+            </if>
+            <if test="dkey != null and dkey != ''">
+                dkey = #{dkey},
+            </if>
+            <if test="ddesc != null and ddesc != ''">
+                ddesc = #{ddesc},
+            </if>
+        </set>
+        where did = #{did}
+    </update>
+
+    <delete id="delById">
+        delete from sysdicts_type where did = #{did}
+    </delete>
+
+    <delete id="delByIds">
+        delete from sysdicts_type where did in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

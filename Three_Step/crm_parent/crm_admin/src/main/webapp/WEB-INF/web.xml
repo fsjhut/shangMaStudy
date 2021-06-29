@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <!--配置过滤器代理对象-->
+    <filter>
+        <filter-name>delegatingFilterProxy</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <!--配置初始化参数-->
+        <!--跨域对象-->
+        <init-param>
+            <param-name>targetBeanName</param-name>
+            <param-value>corsFilter</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>delegatingFilterProxy</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!--配置监听器的参数-->
+    <!--监听器首先初始化的是spring.xml就是父容器-->
+    <!--context-param: 配置全局的参数，与servlet标签同级，所有的servlet都可以读取。-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath*:spring.xml</param-value>
+    </context-param>
+    <!--配置监听器-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!--servlet加载的是mvc中的配置文件-->
+    <!--指定初始化参数，进行springmvc的初始化工作-->
+    <servlet>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:springmvc.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <!--指定springmvc这个servlet的生效范围一般就是项目的根目录/-->
+    <servlet-mapping>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+</web-app>

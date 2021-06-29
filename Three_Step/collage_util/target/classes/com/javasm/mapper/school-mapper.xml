@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.dao.SchoolDao">
+
+    <resultMap type="com.javasm.entity.School" id="SchoolMap">
+        <result property="schoolId" column="school_id" jdbcType="VARCHAR"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="f985" column="f985" jdbcType="VARCHAR"/>
+        <result property="f211" column="f211" jdbcType="VARCHAR"/>
+        <result property="codeEnroll" column="code_enroll" jdbcType="VARCHAR"/>
+        <result property="belong" column="belong" jdbcType="VARCHAR"/>
+        <result property="cityId" column="city_id" jdbcType="VARCHAR"/>
+        <result property="schoolNatureName" column="school_nature_name" jdbcType="VARCHAR"/>
+        <result property="cityName" column="city_name" jdbcType="VARCHAR"/>
+        <result property="address" column="address" jdbcType="VARCHAR"/>
+        <result property="schoolSite" column="school_site" jdbcType="VARCHAR"/>
+        <result property="xiaoyuan" column="xiaoyuan" jdbcType="VARCHAR"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="SchoolMap">
+        select
+          school_id, name, f985, f211, code_enroll, belong, city_id, school_nature_name, city_name, address, school_site, xiaoyuan, content
+        from school_info.school
+        where school_id = #{schoolId}
+    </select>
+
+
+    <select id="selectList" resultMap="SchoolMap">
+        select
+        school_id, name, f985, f211, code_enroll, belong, city_id, school_nature_name, city_name, address, school_site,
+        xiaoyuan, content
+        from school_info.school
+        <where>
+            <if test="schoolId != null and schoolId != ''">
+                and school_id = #{schoolId}
+            </if>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="f985 != null and f985 != ''">
+                and f985 = #{f985}
+            </if>
+            <if test="f211 != null and f211 != ''">
+                and f211 = #{f211}
+            </if>
+            <if test="codeEnroll != null and codeEnroll != ''">
+                and code_enroll = #{codeEnroll}
+            </if>
+            <if test="belong != null and belong != ''">
+                and belong = #{belong}
+            </if>
+            <if test="cityId != null and cityId != ''">
+                and city_id = #{cityId}
+            </if>
+            <if test="schoolNatureName != null and schoolNatureName != ''">
+                and school_nature_name = #{schoolNatureName}
+            </if>
+            <if test="cityName != null and cityName != ''">
+                and city_name = #{cityName}
+            </if>
+            <if test="address != null and address != ''">
+                and address = #{address}
+            </if>
+            <if test="schoolSite != null and schoolSite != ''">
+                and school_site = #{schoolSite}
+            </if>
+            <if test="xiaoyuan != null and xiaoyuan != ''">
+                and xiaoyuan = #{xiaoyuan}
+            </if>
+            <if test="content != null and content != ''">
+                and content = #{content}
+            </if>
+        </where>
+    </select>
+
+    <insert id="addObj" parameterType="School">
+        insert into school_info.school(school_id,name, f985, f211, code_enroll, belong, city_id, school_nature_name, city_name, address, school_site, xiaoyuan, content)
+        values (#{schoolId},#{name}, #{f985}, #{f211}, #{codeEnroll}, #{belong}, #{cityId}, #{schoolNatureName}, #{cityName}, #{address}, #{schoolSite}, #{xiaoyuan}, #{content})
+    </insert>
+
+    <update id="updateById">
+        update school_info.school
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="f985 != null and f985 != ''">
+                f985 = #{f985},
+            </if>
+            <if test="f211 != null and f211 != ''">
+                f211 = #{f211},
+            </if>
+            <if test="codeEnroll != null and codeEnroll != ''">
+                code_enroll = #{codeEnroll},
+            </if>
+            <if test="belong != null and belong != ''">
+                belong = #{belong},
+            </if>
+            <if test="cityId != null and cityId != ''">
+                city_id = #{cityId},
+            </if>
+            <if test="schoolNatureName != null and schoolNatureName != ''">
+                school_nature_name = #{schoolNatureName},
+            </if>
+            <if test="cityName != null and cityName != ''">
+                city_name = #{cityName},
+            </if>
+            <if test="address != null and address != ''">
+                address = #{address},
+            </if>
+            <if test="schoolSite != null and schoolSite != ''">
+                school_site = #{schoolSite},
+            </if>
+            <if test="xiaoyuan != null and xiaoyuan != ''">
+                xiaoyuan = #{xiaoyuan},
+            </if>
+            <if test="content != null and content != ''">
+                content = #{content},
+            </if>
+        </set>
+        where school_id = #{schoolId}
+    </update>
+
+    <delete id="delById">
+        delete from school_info.school where school_id = #{schoolId}
+    </delete>
+
+    <delete id="delByIds">
+        delete from school_info.school where school_id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

@@ -1,0 +1,6 @@
+com\javasm\base\BaseDao.class
+com\javasm\sys\dao\SysdictsTypeDao.class
+com\javasm\sys\dao\SysroleDao.class
+com\javasm\sys\dao\SysuserDao.class
+com\javasm\sys\dao\SysdictsListDao.class
+com\javasm\sys\dao\SysdeptDao.class

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.dao.SpecialDao">
+
+    <!--<resultMap type="com.javasm.entity.Special" id="SpecialMap">-->
+        <!--<result property="schoolId" column="school_id" jdbcType="VARCHAR"/>-->
+        <!--<result property="specialId" column="special_id" jdbcType="VARCHAR"/>-->
+        <!--<result property="max" column="max" jdbcType="VARCHAR"/>-->
+        <!--<result property="min" column="min" jdbcType="VARCHAR"/>-->
+        <!--<result property="average" column="average" jdbcType="VARCHAR"/>-->
+        <!--<result property="minSection" column="min_section" jdbcType="VARCHAR"/>-->
+        <!--<result property="info" column="info" jdbcType="VARCHAR"/>-->
+        <!--<result property="level1Name" column="level1_name" jdbcType="VARCHAR"/>-->
+        <!--<result property="level2Name" column="level2_name" jdbcType="VARCHAR"/>-->
+        <!--<result property="level3Name" column="level3_name" jdbcType="VARCHAR"/>-->
+        <!--<result property="spname" column="spname" jdbcType="VARCHAR"/>-->
+        <!--<result property="zslxName" column="zslx_name" jdbcType="VARCHAR"/>-->
+        <!--<result property="localBatchName" column="local_batch_name" jdbcType="VARCHAR"/>-->
+    <!--</resultMap>-->
+
+    <!--<select id="selectById" resultMap="SpecialMap">-->
+        <!--select-->
+          <!--school_id, special_id, max, min, average, min_section, info, level1_name, level2_name, level3_name, spname, zslx_name, local_batch_name-->
+        <!--from school_info.special-->
+        <!--where  = #{}-->
+    <!--</select>-->
+
+
+    <!--<select id="selectList" resultMap="SpecialMap">-->
+        <!--select-->
+        <!--school_id, special_id, max, min, average, min_section, info, level1_name, level2_name, level3_name, spname,-->
+        <!--zslx_name, local_batch_name-->
+        <!--from school_info.special-->
+        <!--<where>-->
+            <!--<if test="schoolId != null and schoolId != ''">-->
+                <!--and school_id = #{schoolId}-->
+            <!--</if>-->
+            <!--<if test="specialId != null and specialId != ''">-->
+                <!--and special_id = #{specialId}-->
+            <!--</if>-->
+            <!--<if test="max != null and max != ''">-->
+                <!--and max = #{max}-->
+            <!--</if>-->
+            <!--<if test="min != null and min != ''">-->
+                <!--and min = #{min}-->
+            <!--</if>-->
+            <!--<if test="average != null and average != ''">-->
+                <!--and average = #{average}-->
+            <!--</if>-->
+            <!--<if test="minSection != null and minSection != ''">-->
+                <!--and min_section = #{minSection}-->
+            <!--</if>-->
+            <!--<if test="info != null and info != ''">-->
+                <!--and info = #{info}-->
+            <!--</if>-->
+            <!--<if test="level1Name != null and level1Name != ''">-->
+                <!--and level1_name = #{level1Name}-->
+            <!--</if>-->
+            <!--<if test="level2Name != null and level2Name != ''">-->
+                <!--and level2_name = #{level2Name}-->
+            <!--</if>-->
+            <!--<if test="level3Name != null and level3Name != ''">-->
+                <!--and level3_name = #{level3Name}-->
+            <!--</if>-->
+            <!--<if test="spname != null and spname != ''">-->
+                <!--and spname = #{spname}-->
+            <!--</if>-->
+            <!--<if test="zslxName != null and zslxName != ''">-->
+                <!--and zslx_name = #{zslxName}-->
+            <!--</if>-->
+            <!--<if test="localBatchName != null and localBatchName != ''">-->
+                <!--and local_batch_name = #{localBatchName}-->
+            <!--</if>-->
+        <!--</where>-->
+    <!--</select>-->
+
+    <!--<insert id="add" keyProperty="" useGeneratedKeys="true">-->
+        <!--insert into school_info.special(school_id, special_id, max, min, average, min_section, info, level1_name, level2_name, level3_name, spname, zslx_name, local_batch_name)-->
+        <!--values (#{schoolId}, #{specialId}, #{max}, #{min}, #{average}, #{minSection}, #{info}, #{level1Name}, #{level2Name}, #{level3Name}, #{spname}, #{zslxName}, #{localBatchName})-->
+    <!--</insert>-->
+
+    <!--<update id="updateById">-->
+        <!--update school_info.special-->
+        <!--<set>-->
+            <!--<if test="schoolId != null and schoolId != ''">-->
+                <!--school_id = #{schoolId},-->
+            <!--</if>-->
+            <!--<if test="specialId != null and specialId != ''">-->
+                <!--special_id = #{specialId},-->
+            <!--</if>-->
+            <!--<if test="max != null and max != ''">-->
+                <!--max = #{max},-->
+            <!--</if>-->
+            <!--<if test="min != null and min != ''">-->
+                <!--min = #{min},-->
+            <!--</if>-->
+            <!--<if test="average != null and average != ''">-->
+                <!--average = #{average},-->
+            <!--</if>-->
+            <!--<if test="minSection != null and minSection != ''">-->
+                <!--min_section = #{minSection},-->
+            <!--</if>-->
+            <!--<if test="info != null and info != ''">-->
+                <!--info = #{info},-->
+            <!--</if>-->
+            <!--<if test="level1Name != null and level1Name != ''">-->
+                <!--level1_name = #{level1Name},-->
+            <!--</if>-->
+            <!--<if test="level2Name != null and level2Name != ''">-->
+                <!--level2_name = #{level2Name},-->
+            <!--</if>-->
+            <!--<if test="level3Name != null and level3Name != ''">-->
+                <!--level3_name = #{level3Name},-->
+            <!--</if>-->
+            <!--<if test="spname != null and spname != ''">-->
+                <!--spname = #{spname},-->
+            <!--</if>-->
+            <!--<if test="zslxName != null and zslxName != ''">-->
+                <!--zslx_name = #{zslxName},-->
+            <!--</if>-->
+            <!--<if test="localBatchName != null and localBatchName != ''">-->
+                <!--local_batch_name = #{localBatchName},-->
+            <!--</if>-->
+        <!--</set>-->
+        <!--where = #{}-->
+    <!--</update>-->
+
+    <!--<delete id="delById">-->
+        <!--delete from school_info.special where  = #{}-->
+    <!--</delete>-->
+
+    <!--<delete id="delByIds">-->
+        <!--delete from school_info.special where in-->
+        <!--<foreach collection="list" open="(" close=")" item="id" separator=",">-->
+            <!--#{id}-->
+        <!--</foreach>-->
+    <!--</delete>-->
+    <insert id="add" keyProperty="" useGeneratedKeys="true">
+    insert into school_info.special(school_id, special_id, `max`, `min`, average, min_section, info, level1_name, level2_name, level3_name, spname, zslx_name, local_batch_name)
+    values (#{schoolId}, #{specialId}, #{max}, #{min}, #{average}, #{minSection}, #{info}, #{level1Name}, #{level2Name}, #{level3Name}, #{spname}, #{zslxName}, #{localBatchName})
+    </insert>
+    <insert id="batchAddObjs" parameterType="java.util.HashMap">
+        insert into school_info.special(school_id, special_id, `max`, `min`, average, min_section, info, level1_name,
+        level2_name, level3_name, spname, zslx_name, local_batch_name,score_year)
+        values
+        <foreach collection="list" separator="," item="obj" >
+            (#{obj.school_id}, #{obj.special_id}, #{obj.max}, #{obj.min}, #{obj.average},
+            #{obj.min_section}, #{obj.info}, #{obj.level1_name}, #{obj.level2_name}, #{obj.level3_name}, #{obj.spname},
+            #{obj.zslx_name}, #{obj.local_batch_name},#{obj.score_year})
+        </foreach>
+    </insert>
+</mapper>
+

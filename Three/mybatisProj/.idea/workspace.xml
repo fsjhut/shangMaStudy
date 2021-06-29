@@ -25,66 +25,16 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="crm@localhost" type="feb32156:DbDataSourceImpl" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="crm@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="crm@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="crm: schema" type="c314c289:MysqlImplModel$Schema" />
-      </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TestOtherCRUD.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TestOtherCRUD.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/javasm/TestOtherCRUD.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="611">
-              <caret line="115" column="42" selection-start-line="115" selection-start-column="42" selection-end-line="115" selection-end-column="42" />
-              <folding>
-                <element signature="e#703#704#0" expanded="true" />
-                <element signature="e#740#741#0" expanded="true" />
-                <element signature="e#793#794#0" expanded="true" />
-                <element signature="e#817#818#0" expanded="true" />
-                <element signature="e#932#933#0" expanded="true" />
-                <element signature="e#963#964#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sysrole-mapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/sysrole-mapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestUserCRUD.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/javasm/TestUserCRUD.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5">
-              <caret line="103" column="27" lean-forward="true" selection-start-line="103" selection-start-column="27" selection-end-line="103" selection-end-column="27" />
-              <folding>
-                <element signature="e#740#741#0" expanded="true" />
-                <element signature="e#777#778#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sysuser-mapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/sysuser-mapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="104" column="42" selection-start-line="104" selection-start-column="35" selection-end-line="104" selection-end-column="42" />
+            <state relative-caret-position="1053">
+              <caret line="58" column="44" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -92,47 +42,71 @@
       <file leaf-file-name="syspermission-mapper.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/syspermission-mapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
-              <folding>
-                <element signature="e#1392#1396#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="162">
+              <caret line="6" column="56" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="56" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SysPermissionMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/SysPermissionMapper.java">
+      <file leaf-file-name="mybatis-config.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/mybatis-config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="503">
+              <caret line="48" column="18" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SysroleDao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SysroleDao.xml">
+      <file leaf-file-name="sysdept-mapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/sysdept-mapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="10" selection-end-column="16" />
+            <state relative-caret-position="297">
+              <caret line="11" column="13" selection-start-line="5" selection-start-column="4" selection-end-line="11" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SyspermissionDao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SyspermissionDao.xml">
+      <file leaf-file-name="BaseMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/BaseMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="11" selection-end-column="16" />
+            <state relative-caret-position="652">
+              <caret line="33" column="34" selection-start-line="14" selection-start-column="4" selection-end-line="33" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SysPermission.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/javasm/entity/SysPermission.java">
+      <file leaf-file-name="SysDeptMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/SysDeptMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+            <state relative-caret-position="270">
+              <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sysrole-mapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/sysrole-mapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sysuser-mapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/sysuser-mapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="433">
+              <caret line="104" column="42" selection-start-line="104" selection-start-column="35" selection-end-line="104" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SysRoleMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/SysRoleMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="16" column="63" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -140,24 +114,32 @@
       <file leaf-file-name="SysUserMapper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/SysUserMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="405">
+              <caret line="20" selection-start-line="20" selection-end-line="21" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/com/javasm/mapper/SysUserMapper.java" />
         <option value="$PROJECT_DIR$/src/com/javasm/mapper/SysRoleMapper.java" />
-        <option value="$PROJECT_DIR$/resources/mybatis-config.xml" />
         <option value="$PROJECT_DIR$/src/com/javasm/mapper/sysrole-mapper.xml" />
         <option value="$PROJECT_DIR$/src/com/javasm/entity/SysPermission.java" />
         <option value="$PROJECT_DIR$/src/com/javasm/mapper/syspermission-mapper.xml" />
         <option value="$PROJECT_DIR$/src/com/javasm/mapper/SysPermissionMapper.java" />
+        <option value="$PROJECT_DIR$/resources/mybatis-config.xml" />
+        <option value="$PROJECT_DIR$/src/com/javasm/plugin/MyFirstPlugin.java" />
         <option value="$PROJECT_DIR$/test/javasm/TestOtherCRUD.java" />
       </list>
     </option>
@@ -172,8 +154,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="18" />
-    <option name="y" value="90" />
+    <option name="x" value="720" />
+    <option name="y" value="110" />
     <option name="width" value="974" />
     <option name="height" value="951" />
   </component>
@@ -182,6 +164,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -229,6 +212,13 @@
               <item name="mybatisProj" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="javasm" type="462c0819:PsiDirectoryNode" />
+              <item name="plugin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mybatisProj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mybatisProj" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="javasm" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -253,7 +243,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -282,7 +271,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestOtherCRUD.test7_selectUpPermission">
+  <component name="RunManager" selected="JUnit.TestOtherCRUD.test6_selectLastNodePermissionByRoleId">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -299,29 +288,6 @@
       <option name="PACKAGE_NAME" value="javasm" />
       <option name="MAIN_CLASS_NAME" value="javasm.TestOtherCRUD" />
       <option name="METHOD_NAME" value="test5_selectListRoleUsers" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="TestOtherCRUD.test5_setPermission" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="mybatisProj" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="javasm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="javasm" />
-      <option name="MAIN_CLASS_NAME" value="javasm.TestOtherCRUD" />
-      <option name="METHOD_NAME" value="test5_setPermission" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -401,6 +367,29 @@
       </option>
       <patterns />
     </configuration>
+    <configuration name="TestUserCRUD.test6_selectUserByKey" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mybatisProj" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javasm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="javasm" />
+      <option name="MAIN_CLASS_NAME" value="javasm.TestUserCRUD" />
+      <option name="METHOD_NAME" value="test6_selectUserByKey" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -440,19 +429,19 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="JUnit.TestOtherCRUD.test5_setPermission" />
-      <item itemvalue="JUnit.TestOtherCRUD.test5_selectListRoleUsers" />
       <item itemvalue="JUnit.TestOtherCRUD.test6_selectPermissionByRoleId" />
       <item itemvalue="JUnit.TestOtherCRUD.test6_selectLastNodePermissionByRoleId" />
       <item itemvalue="JUnit.TestOtherCRUD.test7_selectUpPermission" />
+      <item itemvalue="JUnit.TestUserCRUD.test6_selectUserByKey" />
+      <item itemvalue="JUnit.TestOtherCRUD.test5_selectListRoleUsers" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestOtherCRUD.test7_selectUpPermission" />
         <item itemvalue="JUnit.TestOtherCRUD.test6_selectLastNodePermissionByRoleId" />
         <item itemvalue="JUnit.TestOtherCRUD.test6_selectPermissionByRoleId" />
-        <item itemvalue="JUnit.TestOtherCRUD.test5_setPermission" />
         <item itemvalue="JUnit.TestOtherCRUD.test5_selectListRoleUsers" />
+        <item itemvalue="JUnit.TestUserCRUD.test6_selectUserByKey" />
+        <item itemvalue="JUnit.TestOtherCRUD.test7_selectUpPermission" />
       </list>
     </recent_temporary>
   </component>
@@ -471,43 +460,46 @@
       <workItem from="1623386550346" duration="8659000" />
       <workItem from="1623401342663" duration="1295000" />
       <workItem from="1623485992567" duration="10097000" />
+      <workItem from="1623572088091" duration="7309000" />
+      <workItem from="1623589435188" duration="3670000" />
+      <workItem from="1623842007997" duration="4551000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestOtherCRUD_test6_selectPermissionByRoleId - 2021.06.12 at 20h 03m 11s.xml">
-      <configuration name="TestOtherCRUD.test6_selectPermissionByRoleId" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestOtherCRUD_test6_selectPermissionByRoleId - 2021.06.12 at 20h 03m 43s.xml">
-      <configuration name="TestOtherCRUD.test6_selectPermissionByRoleId" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestOtherCRUD_test6_selectPermissionByRoleId - 2021.06.12 at 20h 05m 14s.xml">
-      <configuration name="TestOtherCRUD.test6_selectPermissionByRoleId" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestOtherCRUD_test6_selectPermissionByRoleId - 2021.06.12 at 20h 05m 55s.xml">
-      <configuration name="TestOtherCRUD.test6_selectPermissionByRoleId" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestOtherCRUD_test6_selectPermissionByRoleId - 2021.06.12 at 20h 08m 54s.xml">
-      <configuration name="TestOtherCRUD.test6_selectPermissionByRoleId" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestOtherCRUD_test6_selectLastNodePermissionByRoleId - 2021.06.12 at 20h 19m 17s.xml">
-      <configuration name="TestOtherCRUD.test6_selectLastNodePermissionByRoleId" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestOtherCRUD_test7_selectUpPermission - 2021.06.12 at 20h 33m 57s.xml">
-      <configuration name="TestOtherCRUD.test7_selectUpPermission" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestOtherCRUD_test7_selectUpPermission - 2021.06.12 at 20h 34m 54s.xml">
-      <configuration name="TestOtherCRUD.test7_selectUpPermission" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestOtherCRUD_test7_selectUpPermission - 2021.06.12 at 20h 36m 03s.xml">
-      <configuration name="TestOtherCRUD.test7_selectUpPermission" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TestOtherCRUD_test7_selectUpPermission - 2021.06.12 at 20h 40m 28s.xml">
       <configuration name="TestOtherCRUD.test7_selectUpPermission" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TestUserCRUD_test6_selectUserByKey - 2021.06.13 at 16h 37m 48s.xml">
+      <configuration name="TestUserCRUD.test6_selectUserByKey" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestUserCRUD_test6_selectUserByKey - 2021.06.13 at 16h 38m 49s.xml">
+      <configuration name="TestUserCRUD.test6_selectUserByKey" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestUserCRUD_test6_selectUserByKey - 2021.06.13 at 19h 07m 59s.xml">
+      <configuration name="TestUserCRUD.test6_selectUserByKey" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestOtherCRUD_test6_selectPermissionByRoleId - 2021.06.13 at 19h 50m 31s.xml">
+      <configuration name="TestOtherCRUD.test6_selectPermissionByRoleId" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestOtherCRUD_test5_selectListRoleUsers - 2021.06.13 at 19h 50m 51s.xml">
+      <configuration name="TestOtherCRUD.test5_selectListRoleUsers" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestOtherCRUD_test6_selectPermissionByRoleId - 2021.06.13 at 19h 51m 10s.xml">
+      <configuration name="TestOtherCRUD.test6_selectPermissionByRoleId" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestOtherCRUD_test6_selectPermissionByRoleId - 2021.06.13 at 19h 52m 11s.xml">
+      <configuration name="TestOtherCRUD.test6_selectPermissionByRoleId" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestOtherCRUD_test6_selectLastNodePermissionByRoleId - 2021.06.13 at 19h 52m 46s.xml">
+      <configuration name="TestOtherCRUD.test6_selectLastNodePermissionByRoleId" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestOtherCRUD_test6_selectLastNodePermissionByRoleId - 2021.06.13 at 19h 53m 01s.xml">
+      <configuration name="TestOtherCRUD.test6_selectLastNodePermissionByRoleId" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20478000" />
+    <option name="totallyTimeSpent" value="36008000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -516,7 +508,6 @@
       <window_info anchor="right" id="Key Promoter X" order="3" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32897604" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -524,11 +515,11 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2527233" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.375817" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26066098" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26865673" />
       <window_info anchor="right" id="Database" order="3" visible="true" weight="0.18390192" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -536,13 +527,14 @@
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39978212" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32897604" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Database Console" weight="0.32897604" />
+      <window_info anchor="bottom" id="Database Console" order="8" weight="0.32897604" />
       <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -583,31 +575,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/javasm/utils/SSF.java">
+    <entry file="file://$PROJECT_DIR$/resources/mybatis-config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="29" column="64" lean-forward="true" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../day01_6.7/lib/mybatis-3.4.1.jar!/org/apache/ibatis/session/SqlSessionFactoryBuilder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1539">
-          <caret line="69" column="39" selection-start-line="69" selection-start-column="39" selection-end-line="69" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../day01_6.7/lib/mybatis-3.4.1.jar!/org/apache/ibatis/parsing/XPathParser.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2295">
-          <caret line="108" column="17" selection-start-line="108" selection-start-column="17" selection-end-line="108" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../day01_6.7/lib/mybatis-3.4.1.jar!/org/apache/ibatis/builder/xml/XMLConfigBuilder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1593">
-          <caret line="98" column="28" selection-start-line="98" selection-start-column="28" selection-end-line="98" selection-end-column="28" />
+        <state relative-caret-position="1296">
+          <caret line="48" column="16" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -622,14 +593,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="999">
           <caret line="54" column="9" lean-forward="true" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
-          <folding>
-            <element signature="e#703#704#0" expanded="true" />
-            <element signature="e#740#741#0" expanded="true" />
-            <element signature="e#793#794#0" expanded="true" />
-            <element signature="e#817#818#0" expanded="true" />
-            <element signature="e#932#933#0" expanded="true" />
-            <element signature="e#963#964#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -808,16 +771,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/sysdept-mapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/BaseMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="21" column="20" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/javasm/entity/SysRole.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -832,27 +785,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/mybatis-config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1269">
-          <caret line="47" column="14" lean-forward="true" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/javasm/utils/SSF.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="602">
           <caret line="33" column="22" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/SysRoleMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="16" column="63" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="63" />
         </state>
       </provider>
     </entry>
@@ -863,17 +799,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/SysDeptMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SysroleDao.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="10" selection-end-column="16" />
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="10" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -884,10 +813,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/javasm/entity/SysPermission.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/SysPermissionMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/javasm/entity/SysDept.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../day01_6.7/lib/mybatis-3.4.1.jar!/org/apache/ibatis/plugin/Plugin.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../day01_6.7/lib/mybatis-3.4.1.jar!/org/apache/ibatis/plugin/Signature.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/javasm/plugin/MyFirstPlugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="837">
+          <caret line="36" column="56" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/javasm/TestUserCRUD.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5">
-          <caret line="103" column="27" lean-forward="true" selection-start-line="103" selection-start-column="27" selection-end-line="103" selection-end-column="27" />
+        <state relative-caret-position="594">
+          <caret line="38" column="34" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="34" />
           <folding>
             <element signature="e#740#741#0" expanded="true" />
             <element signature="e#777#778#0" expanded="true" />
@@ -895,63 +869,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/sysrole-mapper.xml">
+    <entry file="file://$PROJECT_DIR$/test/javasm/TestOtherCRUD.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state relative-caret-position="1053">
+          <caret line="58" column="44" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/javasm/entity/SysPermission.java">
+    <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/sysdept-mapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+        <state relative-caret-position="297">
+          <caret line="11" column="13" selection-start-line="5" selection-start-column="4" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/syspermission-mapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="56" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/BaseMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="652">
+          <caret line="33" column="34" selection-start-line="14" selection-start-column="4" selection-end-line="33" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/SysDeptMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/sysrole-mapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/SysRoleMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="16" column="63" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/sysuser-mapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
+        <state relative-caret-position="433">
           <caret line="104" column="42" selection-start-line="104" selection-start-column="35" selection-end-line="104" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/SysUserMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="405">
+          <caret line="20" selection-start-line="20" selection-end-line="21" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/syspermission-mapper.xml">
+    <entry file="file://$PROJECT_DIR$/resources/mybatis-config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="e#1392#1396#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/javasm/mapper/SysPermissionMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/javasm/TestOtherCRUD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="611">
-          <caret line="115" column="42" selection-start-line="115" selection-start-column="42" selection-end-line="115" selection-end-column="42" />
-          <folding>
-            <element signature="e#703#704#0" expanded="true" />
-            <element signature="e#740#741#0" expanded="true" />
-            <element signature="e#793#794#0" expanded="true" />
-            <element signature="e#817#818#0" expanded="true" />
-            <element signature="e#932#933#0" expanded="true" />
-            <element signature="e#963#964#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="503">
+          <caret line="48" column="18" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="18" />
         </state>
       </provider>
     </entry>

@@ -1,0 +1,29 @@
+{
+	"data": [{
+			year: 2020,
+			province: [{
+				pid: 65,
+				type: [1, 2],
+				batch: [8],
+				batch_group: {
+					14: [{
+						id: "3007",
+						sg_name: "（01）",
+						sg_type: "80001",
+						sg_fxk: "",
+						sg_sxk: "70008",
+						weight: "40",
+						elective_info: "不限"
+					}]
+				}
+				first: []
+			}]
+		},
+		{
+			year: 2019,
+			province: [
+
+			]
+		}
+	}
+}

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.SysdictsListDao">
+
+    <resultMap type="com.javasm.sys.entity.SysdictsList" id="SysdictsListMap">
+        <result property="lid" column="lid" jdbcType="INTEGER"/>
+        <result property="lname" column="lname" jdbcType="VARCHAR"/>
+        <result property="lkey" column="lkey" jdbcType="VARCHAR"/>
+        <result property="dkey" column="dkey" jdbcType="VARCHAR"/>
+        <result property="lsort" column="lsort" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="SysdictsListMap">
+        select
+          lid, lname, lkey, dkey, lsort
+        from sysdicts_list
+        where lid = #{lid}
+    </select>
+
+
+    <select id="selectList" resultMap="SysdictsListMap">
+        select
+        lid, lname, lkey, dkey, lsort
+        from sysdicts_list
+        <where>
+            <if test="lid != null">
+                and lid = #{lid}
+            </if>
+            <if test="lname != null and lname != ''">
+                and lname = #{lname}
+            </if>
+            <if test="lkey != null and lkey != ''">
+                and lkey = #{lkey}
+            </if>
+            <if test="dkey != null and dkey != ''">
+                and dkey = #{dkey}
+            </if>
+            <if test="lsort != null">
+                and lsort = #{lsort}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="lid" useGeneratedKeys="true">
+        insert into sysdicts_list(lname, lkey, dkey, lsort)
+        values (#{lname}, #{lkey}, #{dkey}, #{lsort})
+    </insert>
+
+    <update id="updateById">
+        update sysdicts_list
+        <set>
+            <if test="lname != null and lname != ''">
+                lname = #{lname},
+            </if>
+            <if test="lkey != null and lkey != ''">
+                lkey = #{lkey},
+            </if>
+            <if test="dkey != null and dkey != ''">
+                dkey = #{dkey},
+            </if>
+            <if test="lsort != null">
+                lsort = #{lsort},
+            </if>
+        </set>
+        where lid = #{lid}
+    </update>
+
+    <delete id="delById">
+        delete from sysdicts_list where lid = #{lid}
+    </delete>
+
+    <delete id="delByIds">
+        delete from sysdicts_list where lid in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

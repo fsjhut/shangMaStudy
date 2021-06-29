@@ -5,6 +5,7 @@ import com.javasm.dao.SqlDao;
 import com.javasm.entity.SysUser;
 import com.javasm.service.SqlService;
 import com.javasm.utils.JDBCUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -22,7 +23,7 @@ import java.util.List;
 @Service
 public class SqlServiceImpl implements SqlService {
 
-    @Resource
+    @Autowired
     private SqlDao sqlDao;
 
 

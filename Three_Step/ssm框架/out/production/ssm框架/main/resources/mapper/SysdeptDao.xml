@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.SysdeptDao">
+
+    <resultMap type="com.javasm.sys.entity.Sysdept" id="SysdeptMap">
+        <result property="deptId" column="dept_id" jdbcType="INTEGER"/>
+        <result property="deptName" column="dept_name" jdbcType="VARCHAR"/>
+        <result property="deptParentId" column="dept_parent_id" jdbcType="INTEGER"/>
+        <result property="deptManagerId" column="dept_manager_id" jdbcType="INTEGER"/>
+        <result property="deptPhone" column="dept_phone" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="SysdeptMap">
+        select
+          dept_id, dept_name, dept_parent_id, dept_manager_id, dept_phone, update_time
+        from crm.sysdept
+        where dept_id = #{deptId}
+    </select>
+
+
+    <select id="selectList" resultMap="SysdeptMap">
+        select
+        dept_id, dept_name, dept_parent_id, dept_manager_id, dept_phone, update_time
+        from crm.sysdept
+        <where>
+            <if test="deptId != null">
+                and dept_id = #{deptId}
+            </if>
+            <if test="deptName != null and deptName != ''">
+                and dept_name = #{deptName}
+            </if>
+            <if test="deptParentId != null">
+                and dept_parent_id = #{deptParentId}
+            </if>
+            <if test="deptManagerId != null">
+                and dept_manager_id = #{deptManagerId}
+            </if>
+            <if test="deptPhone != null and deptPhone != ''">
+                and dept_phone = #{deptPhone}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="deptId" useGeneratedKeys="true">
+        insert into crm.sysdept(dept_name, dept_parent_id, dept_manager_id, dept_phone, update_time)
+        values (#{deptName}, #{deptParentId}, #{deptManagerId}, #{deptPhone}, #{updateTime})
+    </insert>
+
+    <update id="updateById">
+        update crm.sysdept
+        <set>
+            <if test="deptName != null and deptName != ''">
+                dept_name = #{deptName},
+            </if>
+            <if test="deptParentId != null">
+                dept_parent_id = #{deptParentId},
+            </if>
+            <if test="deptManagerId != null">
+                dept_manager_id = #{deptManagerId},
+            </if>
+            <if test="deptPhone != null and deptPhone != ''">
+                dept_phone = #{deptPhone},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        where dept_id = #{deptId}
+    </update>
+
+    <delete id="delById">
+        delete from crm.sysdept where dept_id = #{deptId}
+    </delete>
+
+    <delete id="delByIds">
+        delete from crm.sysdept where dept_id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

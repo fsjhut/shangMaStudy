@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.SysuserDao">
+
+    <resultMap type="com.javasm.sys.entity.Sysuser" id="SysuserMap">
+        <result property="uid" column="uid" jdbcType="INTEGER"/>
+        <result property="uname" column="uname" jdbcType="VARCHAR"/>
+        <result property="upwd" column="upwd" jdbcType="VARCHAR"/>
+        <result property="uphone" column="uphone" jdbcType="VARCHAR"/>
+        <result property="uwechat" column="uwechat" jdbcType="VARCHAR"/>
+        <result property="uemail" column="uemail" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="VARCHAR"/>
+        <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+        <result property="rid" column="rid" jdbcType="INTEGER"/>
+        <result property="usex" column="usex" jdbcType="INTEGER"/>
+        <result property="did" column="did" />
+        <association property="sdept" javaType="sysdept">
+            <id property="did" column="did"></id>
+            <result column="dname" property="dname"></result>
+            <result column="duser" property="duser"></result>
+            <result column="duphone" property="duphone"></result>
+        </association>
+    </resultMap>
+
+    <select id="selectUserAndDept" parameterType="sysuser" resultMap="SysuserMap">
+        select u.*,d.dname,d.duser,d.duphone from sysuser u left join sysdept d on u.did=d.did
+        <where>
+            <if test="uid != null">
+                and u.uid = #{uid}
+            </if>
+            <if test="uname != null and uname != ''">
+                and u.uname = #{uname}
+            </if>
+            <if test="upwd != null and upwd != ''">
+                and u.upwd = #{upwd}
+            </if>
+            <if test="uphone != null and uphone != ''">
+                and u.uphone = #{uphone}
+            </if>
+            <if test="uwechat != null and uwechat != ''">
+                and u.uwechat = #{uwechat}
+            </if>
+            <if test="uemail != null and uemail != ''">
+                and u.uemail = #{uemail}
+            </if>
+            <if test="usex != null">
+                and u.usex = #{usex}
+            </if>
+            <if test="did != null">
+                and u.did = #{did}
+            </if>
+        </where>
+    </select>
+    <select id="selectById" resultMap="SysuserMap">
+        select
+          uid, uname, upwd, uphone, uwechat, uemail, create_time, update_time, create_by, rid, usex,did
+        from sysuser
+        where uid = #{uid}
+    </select>
+
+
+    <select id="selectList" resultMap="SysuserMap">
+        select
+        uid, uname, upwd, uphone, uwechat, uemail, create_time, update_time, create_by, rid, usex,did
+        from sysuser
+        <where>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+            <if test="uname != null and uname != ''">
+                and uname = #{uname}
+            </if>
+            <if test="upwd != null and upwd != ''">
+                and upwd = #{upwd}
+            </if>
+            <if test="uphone != null and uphone != ''">
+                and uphone = #{uphone}
+            </if>
+            <if test="uwechat != null and uwechat != ''">
+                and uwechat = #{uwechat}
+            </if>
+            <if test="uemail != null and uemail != ''">
+                and uemail = #{uemail}
+            </if>
+            <if test="createTime != null and createTime != ''">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null and updateTime != ''">
+                and update_time = #{updateTime}
+            </if>
+            <if test="createBy != null and createBy != ''">
+                and create_by = #{createBy}
+            </if>
+            <if test="rid != null">
+                and rid = #{rid}
+            </if>
+            <if test="usex != null">
+                and usex = #{usex}
+            </if>
+            <if test="did != null">
+                and did = #{did}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="uid" useGeneratedKeys="true">
+        insert into sysuser(did,uname, upwd, uphone, uwechat, uemail, create_time, update_time, create_by, rid, usex)
+        values (#{did},#{uname}, #{upwd}, #{uphone}, #{uwechat}, #{uemail}, #{createTime}, #{updateTime}, #{createBy}, #{rid}, #{usex})
+    </insert>
+
+    <update id="updateById">
+        update sysuser
+        <set>
+            <if test="uname != null and uname != ''">
+                uname = #{uname},
+            </if>
+            <if test="upwd != null and upwd != ''">
+                upwd = #{upwd},
+            </if>
+            <if test="uphone != null and uphone != ''">
+                uphone = #{uphone},
+            </if>
+            <if test="uwechat != null and uwechat != ''">
+                uwechat = #{uwechat},
+            </if>
+            <if test="uemail != null and uemail != ''">
+                uemail = #{uemail},
+            </if>
+            <if test="createTime != null and createTime != ''">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null and updateTime != ''">
+                update_time = #{updateTime},
+            </if>
+            <if test="createBy != null and createBy != ''">
+                create_by = #{createBy},
+            </if>
+            <if test="rid != null">
+                rid = #{rid},
+            </if>
+            <if test="usex != null">
+                usex = #{usex},
+            </if>
+            <if test="did != null">
+                did = #{did},
+            </if>
+        </set>
+        where uid = #{uid}
+    </update>
+
+
+    <delete id="delById">
+        delete from sysuser where uid = #{uid}
+    </delete>
+
+    <delete id="delByIds">
+        delete from sysuser where uid in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+
