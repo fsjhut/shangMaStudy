@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.CrmSysroleDao">
+
+    <resultMap type="com.javasm.sys.entity.CrmSysrole" id="CrmSysroleMap">
+        <result property="rid" column="rid" jdbcType="INTEGER"/>
+        <result property="rname" column="rname" jdbcType="VARCHAR"/>
+        <result property="rcode" column="rcode" jdbcType="VARCHAR"/>
+        <result property="rdesc" column="rdesc" jdbcType="VARCHAR"/>
+        <result property="rstate" column="rstate" jdbcType="INTEGER"/>
+        <result property="deptno" column="deptno" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="VARCHAR"/>
+        <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+        <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="CrmSysroleMap">
+        select
+          rid, rname, rcode, rdesc, rstate, deptno, create_time, update_time, create_by, update_by
+        from nothree_888.crm_sysrole
+        where rid = #{rid}
+    </select>
+
+
+    <select id="selectList" resultMap="CrmSysroleMap">
+        select
+        rid, rname, rcode, rdesc, rstate, deptno, create_time, update_time, create_by, update_by
+        from nothree_888.crm_sysrole
+        <where>
+            <if test="rid != null">
+                and rid = #{rid}
+            </if>
+            <if test="rname != null and rname != ''">
+                and rname = #{rname}
+            </if>
+            <if test="rcode != null and rcode != ''">
+                and rcode = #{rcode}
+            </if>
+            <if test="rdesc != null and rdesc != ''">
+                and rdesc = #{rdesc}
+            </if>
+            <if test="rstate != null">
+                and rstate = #{rstate}
+            </if>
+            <if test="deptno != null">
+                and deptno = #{deptno}
+            </if>
+            <if test="createBy != null and createBy != ''">
+                and create_by = #{createBy}
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                and update_by = #{updateBy}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="rid" useGeneratedKeys="true">
+        insert into nothree_888.crm_sysrole(rname, rcode, rdesc, rstate, deptno, create_by, update_by)
+        values (#{rname}, #{rcode}, #{rdesc}, #{rstate}, #{deptno}, #{createBy}, #{updateBy})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.crm_sysrole
+        <set>
+            <if test="rname != null and rname != ''">
+                rname = #{rname},
+            </if>
+            <if test="rcode != null and rcode != ''">
+                rcode = #{rcode},
+            </if>
+            <if test="rdesc != null and rdesc != ''">
+                rdesc = #{rdesc},
+            </if>
+            <if test="rstate != null">
+                rstate = #{rstate},
+            </if>
+            <if test="deptno != null">
+                deptno = #{deptno},
+            </if>
+        </set>
+        where rid = #{rid}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.crm_sysrole where rid = #{rid}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.crm_sysrole where rid in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+    
+    <resultMap id="sysrolesMap" type="com.javasm.commons.bean.ReturnCrmSysRole">
+        <result property="rid" column="rid" jdbcType="INTEGER"/>
+        <result property="rname" column="rname" jdbcType="VARCHAR"/>
+        <result property="rcode" column="rcode" jdbcType="VARCHAR"/>
+        <result property="rdesc" column="rdesc" jdbcType="VARCHAR"/>
+        <result property="rstate" column="rstate" jdbcType="INTEGER"/>
+        <result property="deptno" column="deptno" jdbcType="INTEGER"/>
+        <result property="dname" column="dname" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="selectAll" parameterType="crmsysrole" resultMap="sysrolesMap">
+        select r.rid,r.rcode,r.rname,r.rdesc,r.rstate,d.deptno,d.dname from crm_sysrole r LEFT JOIN tb_dept d on r.deptno=d.deptno
+        <where>
+            <if test="deptno != null">
+                and r.deptno = #{deptno}
+            </if>
+            <if test="rname != null and rname != ''">
+                and r.rname = #{rname}
+            </if>
+            <if test="rstate != null">
+                and r.rstate = #{rstate}
+            </if>
+            <if test="rdesc != null and rdesc !=''">
+                and r.rdesc = #{rdesc}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertSysroles" >
+        insert into crm_role_permission (rid,qid,create_by)
+        values 
+        <foreach collection="menuids" item="item" separator=",">
+            (#{rid},#{item},#{createBy})
+        </foreach>
+    </insert>
+
+    <delete id="deleteSysroles">
+        delete from crm_role_permission where rid=#{rid}
+    </delete>
+
+    <select id="selectIds" resultType="integer">
+        select qid from crm_role_permission where rid=#{rid}
+    </select>
+</mapper>
+

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.CrmSupplierDao">
+
+    <resultMap type="com.javasm.sys.entity.CrmSupplier" id="CrmSupplierMap">
+        <result property="sid" column="sid" jdbcType="INTEGER"/>
+        <result property="supplierName" column="supplier_name" jdbcType="VARCHAR"/>
+        <result property="supplierRealname" column="supplier_realname" jdbcType="VARCHAR"/>
+        <result property="supplierPhone" column="supplier_phone" jdbcType="VARCHAR"/>
+        <result property="supplierEmail" column="supplier_email" jdbcType="VARCHAR"/>
+        <result property="supplierAddress" column="supplier_address" jdbcType="VARCHAR"/>
+        <result property="depositBank" column="deposit_bank" jdbcType="VARCHAR"/>
+        <result property="accountNumber" column="account_number" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="selectById" resultMap="CrmSupplierMap">
+        select
+          sid, supplier_name, supplier_realname, supplier_phone, supplier_email, supplier_address, deposit_bank, account_number
+        from nothree_888.crm_supplier
+        where sid = #{sid}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="selectList" resultMap="CrmSupplierMap">
+        select
+        sid, supplier_name, supplier_realname, supplier_phone, supplier_email, supplier_address, deposit_bank,
+        account_number
+        from nothree_888.crm_supplier
+        <where>
+            <if test="sid != null">
+                and sid = #{sid}
+            </if>
+            <if test="supplierName != null and supplierName != ''">
+                and supplier_name = #{supplierName}
+            </if>
+            <if test="supplierRealname != null and supplierRealname != ''">
+                and supplier_realname = #{supplierRealname}
+            </if>
+            <if test="supplierPhone != null and supplierPhone != ''">
+                and supplier_phone = #{supplierPhone}
+            </if>
+            <if test="supplierEmail != null and supplierEmail != ''">
+                and supplier_email = #{supplierEmail}
+            </if>
+            <if test="supplierAddress != null and supplierAddress != ''">
+                and supplier_address = #{supplierAddress}
+            </if>
+            <if test="depositBank != null and depositBank != ''">
+                and deposit_bank = #{depositBank}
+            </if>
+            <if test="accountNumber != null and accountNumber != ''">
+                and account_number = #{accountNumber}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="add" keyProperty="sid" useGeneratedKeys="true">
+        insert into nothree_888.crm_supplier(supplier_name, supplier_realname, supplier_phone, supplier_email, supplier_address, deposit_bank, account_number)
+        values (#{supplierName}, #{supplierRealname}, #{supplierPhone}, #{supplierEmail}, #{supplierAddress}, #{depositBank}, #{accountNumber})
+    </insert>
+
+
+
+
+    <!--通过主键修改数据-->
+    <update id="updateById">
+        update nothree_888.crm_supplier
+        <set>
+            <if test="supplierName != null and supplierName != ''">
+                supplier_name = #{supplierName},
+            </if>
+            <if test="supplierRealname != null and supplierRealname != ''">
+                supplier_realname = #{supplierRealname},
+            </if>
+            <if test="supplierPhone != null and supplierPhone != ''">
+                supplier_phone = #{supplierPhone},
+            </if>
+            <if test="supplierEmail != null and supplierEmail != ''">
+                supplier_email = #{supplierEmail},
+            </if>
+            <if test="supplierAddress != null and supplierAddress != ''">
+                supplier_address = #{supplierAddress},
+            </if>
+            <if test="depositBank != null and depositBank != ''">
+                deposit_bank = #{depositBank},
+            </if>
+            <if test="accountNumber != null and accountNumber != ''">
+                account_number = #{accountNumber},
+            </if>
+        </set>
+        where sid = #{sid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="delById">
+        delete from nothree_888.crm_supplier where sid = #{sid}
+    </delete>
+    <delete id="delByIds">
+        delete from nothree_888.crm_supplier where sid in
+        <foreach collection="list" open="(" close=")" item="sid" separator=",">
+            #{sid}
+        </foreach>
+    </delete>
+</mapper>
+

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.CustomerComplaintFormDao">
+
+    <resultMap type="com.javasm.sys.entity.CustomerComplaintForm" id="CustomerComplaintFormMap">
+        <result property="cid" column="cid" jdbcType="INTEGER"/>
+        <result property="goodsIem" column="goods_iem" jdbcType="VARCHAR"/>
+        <result property="orderNumber" column="order_number" jdbcType="INTEGER"/>
+        <result property="cname" column="cname" jdbcType="VARCHAR"/>
+        <result property="sourceRepresentation" column="source_representation" jdbcType="VARCHAR"/>
+        <result property="complaintDescription" column="complaint_description" jdbcType="VARCHAR"/>
+        <result property="solutions" column="solutions" jdbcType="INTEGER"/>
+        <result property="reasonReplacement" column="reason_replacement" jdbcType="INTEGER"/>
+        <result property="detailedInformation" column="detailed_information" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+        <result property="maintenancePoint" column="maintenance_point" jdbcType="VARCHAR"/>
+        <result property="maintenancePhone" column="maintenance_phone" jdbcType="VARCHAR"/>
+        <result property="replyComment" column="reply_comment" jdbcType="VARCHAR"/>
+        <result property="cdesc" column="cdesc" jdbcType="VARCHAR"/>
+        <result property="makePeople" column="make_people" jdbcType="VARCHAR"/>
+        <result property="com_status" column="comStatus" jdbcType="INTEGER"/>
+
+    </resultMap>
+
+    <resultMap type="com.javasm.sys.entity.CustomerComplaintForm" id="CustomerComplaintFormMapVerify">
+        <result property="cid" column="cid" jdbcType="INTEGER"/>
+        <result property="goodsIem" column="goods_iem" jdbcType="VARCHAR"/>
+        <result property="orderNumber" column="order_number" jdbcType="INTEGER"/>
+        <result property="cname" column="cname" jdbcType="VARCHAR"/>
+        <result property="sourceRepresentation" column="source_representation" jdbcType="VARCHAR"/>
+        <result property="complaintDescription" column="complaint_description" jdbcType="VARCHAR"/>
+        <result property="solutions" column="solutions" jdbcType="INTEGER"/>
+        <result property="reasonReplacement" column="reason_replacement" jdbcType="INTEGER"/>
+        <result property="detailedInformation" column="detailed_information" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+        <result property="maintenancePoint" column="maintenance_point" jdbcType="VARCHAR"/>
+        <result property="maintenancePhone" column="maintenance_phone" jdbcType="VARCHAR"/>
+        <result property="replyComment" column="reply_comment" jdbcType="VARCHAR"/>
+        <result property="cdesc" column="cdesc" jdbcType="VARCHAR"/>
+        <result property="comStatus" column="com_status" jdbcType="INTEGER"/>
+        <result property="verifyPerson" column="verify_person"  jdbcType="VARCHAR"/>
+        <result property="verifySuggestion" column="verify_suggestion" jdbcType="VARCHAR"/>
+        <result property="verifyTime" column="verify_time"  jdbcType="VARCHAR"/>
+        <!--<result property="startTime" jdbcType="VARCHAR"></result>-->
+        <result property="makePeople" column="make_people" jdbcType="VARCHAR"/>
+        <association property="ver"  javaType="Ver">
+            <result property="verifyId" column="verify_id" jdbcType="INTEGER"/>
+            <result property="applicant" column="applicant" jdbcType="VARCHAR"/>
+            <result property="verifyTable" column="verify_table" jdbcType="VARCHAR"/>
+            <result property="verifyTableId" column="verify_table_id" jdbcType="INTEGER"/>
+            <result property="verifyPerson" column="verify_person" jdbcType="VARCHAR"/>
+            <result property="verifyStatus" column="verify_status" jdbcType="INTEGER"/>
+            <result property="verifySuggestion" column="verify_suggestion" jdbcType="VARCHAR"/>
+            <result property="verifyTime" column="verify_time" jdbcType="TIMESTAMP"/>
+        </association>
+    </resultMap>
+
+
+<select id="selectVerifyById" resultMap="CustomerComplaintFormMapVerify">
+     select
+        c.cid, c.goods_iem, c.order_number, c.cname, c.source_representation, c.complaint_description, c.solutions,
+        c.reason_replacement, c.detailed_information, c.create_time, c.maintenance_point, c.maintenance_phone, c.reply_comment,
+        c.cdesc, c.make_people,c.com_status,
+        v.verify_person,v.verify_suggestion,v.verify_time
+        from customer_complaint_form c
+        left join verify v on c.cid=v.verify_table_id
+        where c.cid=#{cid} and v.verify_table='customer_complaint_form'
+        ORDER BY  v.verify_time DESC LIMIT	0,1
+</select>
+
+    <select id="selectVerifyList" resultMap="CustomerComplaintFormMapVerify">
+     select
+        c.cid, c.goods_iem, c.order_number, c.cname, c.source_representation, c.complaint_description, c.solutions,
+        c.reason_replacement, c.detailed_information, c.create_time, c.maintenance_point, c.maintenance_phone, c.reply_comment,
+        c.cdesc, c.make_people,c.com_status,
+
+         v.verify_id,v.applicant,v.verify_table,v.verify_table_id,
+        v.verify_person,v.verify_status,v.verify_suggestion,v.verify_time
+        from customer_complaint_form c
+        left join verify v on c.cid=v.verify_table_id
+        where c.cid=#{cid} and v.verify_table='customer_complaint_form'
+        ORDER BY  v.verify_time DESC LIMIT	0,1
+</select>
+
+
+    <select id="selectVerifyFromList" resultMap="CustomerComplaintFormMapVerify">
+        select
+        c.cid, c.goods_iem, c.order_number, c.cname, c.source_representation, c.complaint_description, c.solutions,
+        c.reason_replacement, c.detailed_information, c.create_time, c.maintenance_point, c.maintenance_phone, c.reply_comment,
+        c.cdesc, c.make_people,c.com_status,
+        v.verify_id,v.applicant,v.verify_table,v.verify_table_id,
+        v.verify_person,v.verify_status,v.verify_suggestion,v.verify_time
+        from customer_complaint_form c
+        left join verify v on c.cid=v.verify_table_id
+        <where>
+            <if test="1">
+                and v.verify_table='customer_complaint_form'
+            </if>
+            <if test="orderNumber != null and orderNumber != ''">
+                and c.order_number = #{orderNumber}
+            </if>
+            <if test="makePeople != null and makePeople != ''">
+                and c.make_people = #{makePeople}
+            </if>
+
+            <!--<if test="createTime != null and createTime != ''">-->
+                <!--and c.create_time  &lt;= #{createTime}-->
+            <!--</if>-->
+            <if test="verifyPerson != null and verifyPerson != ''">
+                and v.verify_person = #{verifyPerson}
+            </if>
+
+            <!--<if test="verifyTime != null and verifyTime != ''">-->
+                <!--and v.verify_time = #{verifyTime}-->
+            <!--</if>-->
+            <if test="verifySuggestion != null and verifySuggestion != ''">
+                and v.verify_suggestion = #{verifySuggestion}
+            </if>
+        </where>
+
+        ORDER BY  v.verify_time DESC
+    </select>
+
+
+
+
+    <select id="selectByCid" resultMap="CustomerComplaintFormMap">
+        select
+          cid, goods_iem, order_number, cname, source_representation, complaint_description, solutions, reason_replacement, detailed_information, create_time, maintenance_point, maintenance_phone, reply_comment, cdesc, make_people,com_status
+        from nothree_888.customer_complaint_form
+        where cid = #{cid}
+    </select>
+
+    <select id="selectList" resultMap="CustomerComplaintFormMapVerify">
+     select
+        c.cid, c.goods_iem, c.order_number, c.cname, c.source_representation, c.complaint_description, c.solutions,
+        c.reason_replacement, c.detailed_information, c.create_time, c.maintenance_point, c.maintenance_phone, c.reply_comment,
+        c.cdesc, c.make_people,c.com_status,
+        v.verify_id,v.applicant,v.verify_table,v.verify_table_id,
+        v.verify_person,v.verify_status,v.verify_suggestion,v.verify_time
+        from customer_complaint_form c
+        left join verify v on c.cid=v.verify_table_id
+        <where>
+            <if test="1">
+                and v.verify_table='customer_complaint_form'
+            </if>
+            <if test="cid != null">
+                and c.cid = #{cid}
+            </if>
+            <if test="makePeople != null and makePeople != ''">
+                and c.make_people = #{makePeople}
+            </if>
+
+            <if test="createTime != null and createTime != ''">
+            and c.create_time  &lt;= #{createTime}
+        </if>
+            <if test="verifyPerson != null and verifyPerson != ''">
+                and v.verify_person = #{verifyPerson}
+            </if>
+
+            <if test="verifyTime != null and verifyTime != ''">
+                and v.verify_time = #{verifyTime}
+            </if>
+            <if test="verifySuggestion != null and verifySuggestion != ''">
+                and v.verify_suggestion = #{verifySuggestion}
+            </if>
+            <if test="comStatus != null and comStatus != ''">
+                and com_status = #{comStatus}
+            </if>
+        </where>
+
+        ORDER BY  v.verify_time DESC
+</select>
+
+
+
+    <select id="selectComplaintFormList" resultMap="CustomerComplaintFormMap">
+        select
+        cid, goods_iem, order_number, cname, source_representation, complaint_description, solutions,
+        reason_replacement, detailed_information, create_time, maintenance_point, maintenance_phone, reply_comment,
+        cdesc, make_people,com_status
+        from nothree_888.customer_complaint_form
+        <where>
+            <if test="cid != null">
+                and cid = #{cid}
+            </if>
+            <if test="goodsIem != null and goodsIem != ''">
+                and goods_iem = #{goodsIem}
+            </if>
+            <if test="orderNumber != null">
+                and order_number = #{orderNumber}
+            </if>
+            <if test="cname != null and cname != ''">
+                and cname = #{cname}
+            </if>
+            <if test="sourceRepresentation != null and sourceRepresentation != ''">
+                and source_representation = #{sourceRepresentation}
+            </if>
+            <if test="complaintDescription != null and complaintDescription != ''">
+                and complaint_description = #{complaintDescription}
+            </if>
+            <if test="solutions != null">
+                and solutions = #{solutions}
+            </if>
+            <if test="reasonReplacement != null">
+                and reason_replacement = #{reasonReplacement}
+            </if>
+            <if test="detailedInformation != null and detailedInformation != ''">
+                and detailed_information = #{detailedInformation}
+            </if>
+            <if test="createTime != null and createTime != ''">
+                and create_time = #{createTime}
+            </if>
+            <if test="maintenancePoint != null and maintenancePoint != ''">
+                and maintenance_point = #{maintenancePoint}
+            </if>
+            <if test="maintenancePhone != null and maintenancePhone != ''">
+                and maintenance_phone = #{maintenancePhone}
+            </if>
+            <if test="replyComment != null and replyComment != ''">
+                and reply_comment = #{replyComment}
+            </if>
+            <if test="cdesc != null and cdesc != ''">
+                and cdesc = #{cdesc}
+            </if>
+            <if test="makePeople != null and makePeople != ''">
+                and make_people = #{makePeople}
+            </if>
+            <if test="comStatus != null and comStatus != ''">
+                and com_status = #{comStatus}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="cid" useGeneratedKeys="true">
+        insert into nothree_888.customer_complaint_form(cid,goods_iem, order_number, cname, source_representation, complaint_description, solutions, reason_replacement, detailed_information, create_time, maintenance_point, maintenance_phone, reply_comment, cdesc, make_people,com_status)
+        values (#{cid},#{goodsIem}, #{orderNumber}, #{cname}, #{sourceRepresentation}, #{complaintDescription}, #{solutions}, #{reasonReplacement}, #{detailedInformation}, #{createTime}, #{maintenancePoint}, #{maintenancePhone}, #{replyComment}, #{cdesc}, #{makePeople},#{comStatus})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.customer_complaint_form
+        <set>
+            <if test="goodsIem != null and goodsIem != ''">
+                goods_iem = #{goodsIem},
+            </if>
+            <if test="orderNumber != null">
+                order_number = #{orderNumber},
+            </if>
+            <if test="cname != null and cname != ''">
+                cname = #{cname},
+            </if>
+            <if test="sourceRepresentation != null and sourceRepresentation != ''">
+                source_representation = #{sourceRepresentation},
+            </if>
+            <if test="complaintDescription != null and complaintDescription != ''">
+                complaint_description = #{complaintDescription},
+            </if>
+            <if test="solutions != null">
+                solutions = #{solutions},
+            </if>
+            <if test="reasonReplacement != null">
+                reason_replacement = #{reasonReplacement},
+            </if>
+            <if test="detailedInformation != null and detailedInformation != ''">
+                detailed_information = #{detailedInformation},
+            </if>
+            <if test="createTime != null and createTime != ''">
+                create_time = #{createTime},
+            </if>
+            <if test="maintenancePoint != null and maintenancePoint != ''">
+                maintenance_point = #{maintenancePoint},
+            </if>
+            <if test="maintenancePhone != null and maintenancePhone != ''">
+                maintenance_phone = #{maintenancePhone},
+            </if>
+            <if test="replyComment != null and replyComment != ''">
+                reply_comment = #{replyComment},
+            </if>
+            <if test="cdesc != null and cdesc != ''">
+                cdesc = #{cdesc},
+            </if>
+            <if test="makePeople != null and makePeople != ''">
+                make_people = #{makePeople},
+            </if>
+            <if test="comStatus != null and comStatus != ''">
+                 com_status = #{comStatus}
+            </if>
+        </set>
+        where cid = #{cid}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.customer_complaint_form where cid = #{cid}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.customer_complaint_form where cid in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.MaintainManagerDao">
+
+    <resultMap type="com.javasm.sys.entity.MaintainManager" id="MaintainManagerMap">
+        <result property="maintainId" column="maintain_id" jdbcType="INTEGER"/>
+        <result property="maintainName" column="maintain_name" jdbcType="VARCHAR"/>
+        <result property="maintainAddress" column="maintain_address" jdbcType="VARCHAR"/>
+        <result property="maintainPhone" column="maintain_phone" jdbcType="VARCHAR"/>
+        <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+        <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="VARCHAR"/>
+        <result property="maintainCity" column="maintain_city" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="MaintainManagerMap">
+        select
+          maintain_id, maintain_name, maintain_address, maintain_phone, create_by, update_by, create_time, update_time, maintain_city
+        from nothree_888.maintain_manager
+        where maintain_id = #{maintainId}
+    </select>
+
+
+    <select id="selectList" resultMap="MaintainManagerMap">
+        select
+        maintain_id, maintain_name, maintain_address, maintain_phone, create_by, update_by, create_time, update_time,
+        maintain_city
+        from nothree_888.maintain_manager
+        <where>
+            <if test="maintainId != null">
+                and maintain_id = #{maintainId}
+            </if>
+            <if test="maintainName != null and maintainName != ''">
+                and maintain_name like CONCAT('%',#{maintainName},'%')
+            </if>
+            <if test="maintainAddress != null and maintainAddress != ''">
+                and maintain_address like CONCAT('%',#{maintainAddress},'%')
+            </if>
+            <if test="maintainPhone != null and maintainPhone != ''">
+                and maintain_phone = #{maintainPhone}
+            </if>
+            <if test="createBy != null and createBy != ''">
+                and create_by = #{createBy}
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                and update_by = #{updateBy}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="maintainCity != null and maintainCity != ''">
+                and maintain_city = #{maintainCity}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="maintainId" useGeneratedKeys="true">
+        insert into nothree_888.maintain_manager(maintain_name, maintain_address, maintain_phone, create_by, update_by, create_time, update_time, maintain_city)
+        values (#{maintainName}, #{maintainAddress}, #{maintainPhone}, #{createBy}, #{updateBy}, #{createTime}, #{updateTime}, #{maintainCity})
+    </insert>
+
+    <insert id="saves"  >
+        insert into nothree_888.maintain_manager(maintain_name, maintain_address, maintain_phone, create_by, update_by, create_time, update_time, maintain_city)
+        values 
+        <foreach collection="list" separator="," item="r">
+            (#{r.maintainName}, #{r.maintainAddress}, #{r.maintainPhone}, #{r.createBy}, #{r.updateBy}, #{r.createTime}, #{r.updateTime}, #{r.maintainCity})
+        </foreach>
+    </insert>
+
+
+    <update id="updateById">
+        update nothree_888.maintain_manager
+        <set>
+            <if test="maintainName != null and maintainName != ''">
+                maintain_name = #{maintainName},
+            </if>
+            <if test="maintainAddress != null and maintainAddress != ''">
+                maintain_address = #{maintainAddress},
+            </if>
+            <if test="maintainPhone != null and maintainPhone != ''">
+                maintain_phone = #{maintainPhone},
+            </if>
+            <if test="createBy != null and createBy != ''">
+                create_by = #{createBy},
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by = #{updateBy},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="maintainCity != null and maintainCity != ''">
+                maintain_city = #{maintainCity},
+            </if>
+        </set>
+        where maintain_id = #{maintainId}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.maintain_manager where maintain_id = #{maintainId}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.maintain_manager where maintain_id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

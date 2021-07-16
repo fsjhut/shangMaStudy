@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--配置quartz环境-->
+    <!--任务bean对象-->
+    <!--<bean class="com.javasm.commons.task.MyTask" id="myTask"></bean>-->
+
+    <!--&lt;!&ndash;任务详情：JobDetail&ndash;&gt;-->
+    <!--<bean id="task1" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">-->
+        <!--<property name="targetObject" ref="myTask"/>-->
+        <!--<property name="targetMethod" value="task1"/>-->
+    <!--</bean>-->
+
+
+    <!--<bean id="task2" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">-->
+        <!--<property name="targetObject" ref="myTask"/>-->
+        <!--<property name="targetMethod" value="task2"/>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash;对jobDetail配置cron&ndash;&gt;-->
+    <!--<bean id="task1CronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">-->
+        <!--<property name="jobDetail" ref="task1"/>-->
+        <!--<property name="cronExpression" value="0/5 * * * * ?"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="task2CronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">-->
+        <!--<property name="jobDetail" ref="task1"/>-->
+        <!--<property name="cronExpression" value="3/5 * * * * ?"/>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash;quartz只能并行任务&ndash;&gt;-->
+    <!--&lt;!&ndash;识别Cron表达式，对任务进行调用&ndash;&gt;-->
+    <!--<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">-->
+        <!--<property name="triggers">-->
+            <!--<array>-->
+                <!--<ref bean="task1CronTrigger"/>-->
+                <!--<ref bean="task2CronTrigger"/>-->
+            <!--</array>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+
+</beans>

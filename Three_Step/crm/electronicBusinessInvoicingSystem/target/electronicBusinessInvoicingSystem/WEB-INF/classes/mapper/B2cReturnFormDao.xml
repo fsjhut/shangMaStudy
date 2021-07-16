@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.B2cReturnFormDao">
+
+    <resultMap type="com.javasm.sys.entity.B2cReturnForm" id="B2cReturnFormMap">
+        <result property="orderNumber" column="order_number" jdbcType="INTEGER"/>
+        <result property="statementRecordName" column="statement_record_name" jdbcType="VARCHAR"/>
+        <result property="returnType" column="return_type" jdbcType="VARCHAR"/>
+        <result property="goodsCode" column="goods_code" jdbcType="VARCHAR"/>
+        <result property="noteTaker" column="note_taker" jdbcType="VARCHAR"/>
+        <result property="recordingTime" column="recording_time" jdbcType="VARCHAR"/>
+        <result property="approved" column="approved" jdbcType="VARCHAR"/>
+        <result property="approvalTime" column="approval_time" jdbcType="VARCHAR"/>
+        <result property="documentStatus" column="document_status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="B2cReturnFormMap">
+        select
+          order_number, statement_record_name, return_type, goods_code, note_taker, recording_time, approved, approval_time, document_status
+        from nothree_888.b2c_return_form
+        where order_number = #{orderNumber}
+    </select>
+
+
+
+
+
+    <select id="selectList" resultMap="B2cReturnFormMap">
+        select
+        order_number, statement_record_name, return_type, goods_code, note_taker, recording_time, approved,
+        approval_time, document_status
+        from nothree_888.b2c_return_form
+        <where>
+            <if test="orderNumber != null">
+                and order_number = #{orderNumber}
+            </if>
+            <if test="statementRecordName != null and statementRecordName != ''">
+                and statement_record_name = #{statementRecordName}
+            </if>
+            <if test="returnType != null and returnType != ''">
+                and return_type = #{returnType}
+            </if>
+            <if test="goodsCode != null and goodsCode != ''">
+                and goods_code = #{goodsCode}
+            </if>
+            <if test="noteTaker != null and noteTaker != ''">
+                and note_taker = #{noteTaker}
+            </if>
+            <if test="recordingTime != null and recordingTime != ''">
+                and recording_time = #{recordingTime}
+            </if>
+            <if test="approved != null and approved != ''">
+                and approved = #{approved}
+            </if>
+            <if test="approvalTime != null and approvalTime != ''">
+                and approval_time = #{approvalTime}
+            </if>
+            <if test="documentStatus != null">
+                and document_status = #{documentStatus}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="orderNumber" useGeneratedKeys="true">
+        insert into nothree_888.b2c_return_form(statement_record_name, return_type, goods_code, note_taker, recording_time, approved, approval_time, document_status)
+        values (#{statementRecordName}, #{returnType}, #{goodsCode}, #{noteTaker}, #{recordingTime}, #{approved}, #{approvalTime}, #{documentStatus})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.b2c_return_form
+        <set>
+            <if test="statementRecordName != null and statementRecordName != ''">
+                statement_record_name = #{statementRecordName},
+            </if>
+            <if test="returnType != null and returnType != ''">
+                return_type = #{returnType},
+            </if>
+            <if test="goodsCode != null and goodsCode != ''">
+                goods_code = #{goodsCode},
+            </if>
+            <if test="noteTaker != null and noteTaker != ''">
+                note_taker = #{noteTaker},
+            </if>
+            <if test="recordingTime != null and recordingTime != ''">
+                recording_time = #{recordingTime},
+            </if>
+            <if test="approved != null and approved != ''">
+                approved = #{approved},
+            </if>
+            <if test="approvalTime != null and approvalTime != ''">
+                approval_time = #{approvalTime},
+            </if>
+            <if test="documentStatus != null">
+                document_status = #{documentStatus},
+            </if>
+        </set>
+        where order_number = #{orderNumber}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.b2c_return_form where order_number = #{orderNumber}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.b2c_return_form where order_number in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

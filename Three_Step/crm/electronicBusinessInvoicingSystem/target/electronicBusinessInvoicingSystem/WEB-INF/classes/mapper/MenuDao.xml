@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.MenuDao">
+
+    <resultMap type="com.javasm.sys.entity.Menu" id="MenuMap">
+        <result property="menuId" column="menu_id" jdbcType="INTEGER"/>
+        <result property="menuName" column="menu_name" jdbcType="VARCHAR"/>
+        <result property="parentId" column="parent_id" jdbcType="INTEGER"/>
+        <result property="menuUrl" column="menu_url" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="MenuMap">
+        select
+          menu_id, menu_name, parent_id, menu_url
+        from nothree_888.menu
+        where menu_id = #{menuId}
+    </select>
+
+
+    <select id="selectList" resultMap="MenuMap">
+        select
+        menu_id, menu_name, parent_id, menu_url,menu_desc,menu_handle,create_time,update_time,create_by,update_time
+        from nothree_888.menu
+        <where>
+            <if test="menuId != null">
+                and menu_id = #{menuId}
+            </if>
+            <if test="menuName != null and menuName != ''">
+                and menu_name = #{menuName}
+            </if>
+            <if test="parentId != null">
+                and parent_id = #{parentId}
+            </if>
+            <if test="menuUrl != null and menuUrl != ''">
+                and menu_url = #{menuUrl}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="menuId" useGeneratedKeys="true">
+        insert into nothree_888.menu(menu_id,menu_name, parent_id, menu_url,menu_handle,menu_desc)
+        values (#{menuId},#{menuName}, #{parentId}, #{menuUrl},#{menuHandle},#{menuDesc})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.menu
+        <set>
+            <if test="menuName != null and menuName != ''">
+                menu_name = #{menuName},
+            </if>
+            <if test="menuDesc != null and menuDesc != ''">
+                menu_desc = #{menuDesc},
+            </if>
+            <if test="menuHandle != null and menuHandle != ''">
+                menu_handle = #{menuHandle},
+            </if>
+            <if test="parentId != null">
+                parent_id = #{parentId},
+            </if>
+            <if test="menuUrl != null and menuUrl != ''">
+                menu_url = #{menuUrl},
+            </if>
+        </set>
+        where menu_id = #{menuId}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.menu where menu_id = #{menuId}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.menu where menu_id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectAll" resultType="com.javasm.commons.bean.ReturnPermission">
+        SELECT m.menu_id,m.menu_name,m.menu_desc,m.menu_handle,m.parent_id,r.rid,r.rname,rp.menu_state FROM `menu` m LEFT JOIN crm_role_permission rp on m.menu_id=rp.qid
+        LEFT JOIN crm_sysrole r on r.rid=rp.rid
+        <where>
+            <if test="menuId != null and menuId !=''">
+                and m.menu_id = #{menuId}
+            </if>
+            <if test="menuState != null">
+                and rp.menu_state = #{menuState}
+            </if>
+        </where>
+    </select>
+
+    <select id="getMaxId" resultType="com.javasm.sys.entity.Menu">
+        select menu_id from menu where parent_id=#{parentId} ORDER BY menu_id DESC
+    </select>
+    
+    <update id="editState">
+        update crm_role_permission set menu_state=#{menuState}
+        where rid=#{rid} and qid=#{qid}
+    </update>
+
+    <select id="getpermissionList" resultType="com.javasm.sys.entity.Menu">
+        select m.* from (select rp.qid from (select u.rid from crm_sysuser u where u.uid=#{uid}) ur
+        left join crm_role_permission rp on ur.rid=rp.rid) rq left join menu m on rq.qid=m.menu_id
+    </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

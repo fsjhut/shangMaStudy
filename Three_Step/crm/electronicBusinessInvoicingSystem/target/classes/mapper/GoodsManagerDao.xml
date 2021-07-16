@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.GoodsManagerDao">
+
+    <resultMap type="com.javasm.sys.entity.GoodsManager" id="GoodsManagerMap">
+        <result property="goodsId" column="goods_id" jdbcType="INTEGER"/>
+        <result property="goodsName" column="goods_name" jdbcType="VARCHAR"/>
+        <result property="goodsType" column="goods_type" jdbcType="VARCHAR"/>
+        <result property="goodsBrand" column="goods_brand" jdbcType="VARCHAR"/>
+        <result property="goodsModel" column="goods_model" jdbcType="VARCHAR"/>
+        <result property="goodsColor" column="goods_color" jdbcType="VARCHAR"/>
+        <result property="procurementRmb" column="procurement_RMB" jdbcType="NUMERIC"/>
+        <result property="marketRmb" column="market_RMB" jdbcType="NUMERIC"/>
+        <result property="mallRmb" column="mall_RMB" jdbcType="NUMERIC"/>
+        <result property="booleanBuy" column="boolean_buy" jdbcType="INTEGER"/>
+        <result property="goodsCode" column="goods_code" jdbcType="VARCHAR"/>
+        <result property="inventoryNumber" column="inventory_number" jdbcType="INTEGER"/>
+        <result property="businessModel" column="business_model" jdbcType="VARCHAR"/>
+        <result property="basePurchasingMode" column="base_purchasing_mode" jdbcType="VARCHAR"/>
+        <result property="baseComplementaryGoods" column="base_complementary_goods" jdbcType="VARCHAR"/>
+        <result property="baseStandby" column="base_standby" jdbcType="VARCHAR"/>
+        <result property="goodsLevel" column="goods_level" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="GoodsManagerMap">
+        select
+          goods_id, goods_name, goods_type, goods_brand, goods_model, goods_color, procurement_RMB, market_RMB, mall_RMB, boolean_buy, goods_code, inventory_number, business_model, base_purchasing_mode, base_complementary_goods, base_standby, goods_level
+        from nothree_888.goods_manager
+        where goods_id = #{goodsId}
+    </select>
+
+    <select id="selectGoodListNotIncludePriceAdjust" resultMap="GoodsManagerMap">
+        select
+        goods_id, goods_name, goods_type, goods_brand, goods_model, goods_color, procurement_RMB, market_RMB, mall_RMB,
+        boolean_buy, goods_code, inventory_number, business_model, base_purchasing_mode, base_complementary_goods,
+        base_standby, goods_level
+        from  goods_manager
+        <where>
+            <if test="goodsId != null">
+                and goods_id = #{goodsId}
+            </if>
+            <if test="goodsName != null and goodsName != ''">
+                and goods_name = #{goodsName}
+            </if>
+            <if test="goodsType != null and goodsType != ''">
+                and goods_type = #{goodsType}
+            </if>
+            <if test="goodsBrand != null and goodsBrand != ''">
+                and goods_brand = #{goodsBrand}
+            </if>
+            <if test="goodsModel != null and goodsModel != ''">
+                and goods_model = #{goodsModel}
+            </if>
+            <if test="goodsColor != null and goodsColor != ''">
+                and goods_color = #{goodsColor}
+            </if>
+            <if test="procurementRmb != null">
+                and procurement_RMB = #{procurementRmb}
+            </if>
+            <if test="marketRmb != null">
+                and market_RMB = #{marketRmb}
+            </if>
+            <if test="mallRmb != null">
+                and mall_RMB = #{mallRmb}
+            </if>
+            <if test="booleanBuy != null">
+                and boolean_buy = #{booleanBuy}
+            </if>
+            <if test="goodsCode != null and goodsCode != ''">
+                and goods_code = #{goodsCode}
+            </if>
+            <if test="inventoryNumber != null">
+                and inventory_number = #{inventoryNumber}
+            </if>
+            <if test="businessModel != null and businessModel != ''">
+                and business_model = #{businessModel}
+            </if>
+            <if test="basePurchasingMode != null and basePurchasingMode != ''">
+                and base_purchasing_mode = #{basePurchasingMode}
+            </if>
+            <if test="baseComplementaryGoods != null and baseComplementaryGoods != ''">
+                and base_complementary_goods = #{baseComplementaryGoods}
+            </if>
+            <if test="baseStandby != null and baseStandby != ''">
+                and base_standby = #{baseStandby}
+            </if>
+            <if test="goodsLevel != null">
+                and goods_level = #{goodsLevel}
+            </if>
+            <if test="true">
+                goods_manager.goods_id not in (select goods_price_adjustment.good_id from goods_price_adjustment)
+            </if>
+        </where>
+    </select>
+
+    <select id="selectList" resultMap="GoodsManagerMap">
+        select
+        goods_id, goods_name, goods_type, goods_brand, goods_model, goods_color, procurement_RMB, market_RMB, mall_RMB,
+        boolean_buy, goods_code, inventory_number, business_model, base_purchasing_mode, base_complementary_goods,
+        base_standby, goods_level
+        from nothree_888.goods_manager
+        <where>
+            <if test="goodsId != null">
+                and goods_id = #{goodsId}
+            </if>
+            <if test="goodsName != null and goodsName != ''">
+                and goods_name = #{goodsName}
+            </if>
+            <if test="goodsType != null and goodsType != ''">
+                and goods_type = #{goodsType}
+            </if>
+            <if test="goodsBrand != null and goodsBrand != ''">
+                and goods_brand = #{goodsBrand}
+            </if>
+            <if test="goodsModel != null and goodsModel != ''">
+                and goods_model = #{goodsModel}
+            </if>
+            <if test="goodsColor != null and goodsColor != ''">
+                and goods_color = #{goodsColor}
+            </if>
+            <if test="procurementRmb != null">
+                and procurement_RMB = #{procurementRmb}
+            </if>
+            <if test="marketRmb != null">
+                and market_RMB = #{marketRmb}
+            </if>
+            <if test="mallRmb != null">
+                and mall_RMB = #{mallRmb}
+            </if>
+            <if test="booleanBuy != null">
+                and boolean_buy = #{booleanBuy}
+            </if>
+            <if test="goodsCode != null and goodsCode != ''">
+                and goods_code = #{goodsCode}
+            </if>
+            <if test="inventoryNumber != null">
+                and inventory_number = #{inventoryNumber}
+            </if>
+            <if test="businessModel != null and businessModel != ''">
+                and business_model = #{businessModel}
+            </if>
+            <if test="basePurchasingMode != null and basePurchasingMode != ''">
+                and base_purchasing_mode = #{basePurchasingMode}
+            </if>
+            <if test="baseComplementaryGoods != null and baseComplementaryGoods != ''">
+                and base_complementary_goods = #{baseComplementaryGoods}
+            </if>
+            <if test="baseStandby != null and baseStandby != ''">
+                and base_standby = #{baseStandby}
+            </if>
+            <if test="goodsLevel != null">
+                and goods_level = #{goodsLevel}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="goodsId" useGeneratedKeys="true">
+        insert into nothree_888.goods_manager(goods_name, goods_type, goods_brand, goods_model, goods_color, procurement_RMB, market_RMB, mall_RMB, boolean_buy, goods_code, inventory_number, business_model, base_purchasing_mode, base_complementary_goods, base_standby, goods_level)
+        values (#{goodsName}, #{goodsType}, #{goodsBrand}, #{goodsModel}, #{goodsColor}, #{procurementRmb}, #{marketRmb}, #{mallRmb}, #{booleanBuy}, #{goodsCode}, #{inventoryNumber}, #{businessModel}, #{basePurchasingMode}, #{baseComplementaryGoods}, #{baseStandby}, #{goodsLevel})
+    </insert>
+    <!--批量增加商品-->
+    <insert id="insertGoods" parameterType="GoodsManager">
+        insert into nothree_888.goods_manager(goods_name, goods_type, goods_brand, goods_model, goods_color, procurement_RMB, market_RMB, mall_RMB, boolean_buy, goods_code, inventory_number, business_model, base_purchasing_mode, base_complementary_goods, base_standby, goods_level) values
+        <foreach collection="list" item="goods" index="index" separator=",">
+            (#{goods.goodsName}, #{goods.goodsType}, #{goods.goodsBrand}, #{goods.goodsModel}, #{goods.goodsColor}, #{goods.procurementRmb}, #{goods.marketRmb}, #{goods.mallRmb}, #{goods.booleanBuy}, #{goods.goodsCode}, #{goods.inventoryNumber}, #{goods.businessModel}, #{goods.basePurchasingMode}, #{goods.baseComplementaryGoods}, #{goods.baseStandby}, #{goods.goodsLevel})
+        </foreach>
+
+    </insert>
+
+
+    <update id="updateById">
+        update nothree_888.goods_manager
+        <set>
+            <if test="goodsName != null and goodsName != ''">
+                goods_name = #{goodsName},
+            </if>
+            <if test="goodsType != null and goodsType != ''">
+                goods_type = #{goodsType},
+            </if>
+            <if test="goodsBrand != null and goodsBrand != ''">
+                goods_brand = #{goodsBrand},
+            </if>
+            <if test="goodsModel != null and goodsModel != ''">
+                goods_model = #{goodsModel},
+            </if>
+            <if test="goodsColor != null and goodsColor != ''">
+                goods_color = #{goodsColor},
+            </if>
+            <if test="procurementRmb != null">
+                procurement_RMB = #{procurementRmb},
+            </if>
+            <if test="marketRmb != null">
+                market_RMB = #{marketRmb},
+            </if>
+            <if test="mallRmb != null">
+                mall_RMB = #{mallRmb},
+            </if>
+            <if test="booleanBuy != null">
+                boolean_buy = #{booleanBuy},
+            </if>
+            <if test="goodsCode != null and goodsCode != ''">
+                goods_code = #{goodsCode},
+            </if>
+            <if test="inventoryNumber != null">
+                inventory_number = #{inventoryNumber},
+            </if>
+            <if test="businessModel != null and businessModel != ''">
+                business_model = #{businessModel},
+            </if>
+            <if test="basePurchasingMode != null and basePurchasingMode != ''">
+                base_purchasing_mode = #{basePurchasingMode},
+            </if>
+            <if test="baseComplementaryGoods != null and baseComplementaryGoods != ''">
+                base_complementary_goods = #{baseComplementaryGoods},
+            </if>
+            <if test="baseStandby != null and baseStandby != ''">
+                base_standby = #{baseStandby},
+            </if>
+            <if test="goodsLevel != null">
+                goods_level = #{goodsLevel},
+            </if>
+        </set>
+        where goods_id = #{goodsId}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.goods_manager where goods_id = #{goodsId}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.goods_manager where goods_id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+
+    <select id="selectType" parameterType="String" resultType="GoodsManager">
+        select * from goods_manager group by ${string}
+    </select>
+
+</mapper>
+

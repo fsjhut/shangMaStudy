@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.ConsigneeInformationDao">
+
+    <resultMap type="com.javasm.sys.entity.ConsigneeInformation" id="ConsigneeInformationMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="consigneeName" column="consignee_name" jdbcType="VARCHAR"/>
+        <result property="consigneeAccount" column="consignee_account" jdbcType="VARCHAR"/>
+        <result property="consigneeCall" column="consignee_call" jdbcType="VARCHAR"/>
+        <result property="consigneePhone" column="consignee_phone" jdbcType="VARCHAR"/>
+        <result property="zipCode" column="zip_code" jdbcType="VARCHAR"/>
+        <result property="consigneeAddress" column="consignee_address" jdbcType="VARCHAR"/>
+        <result property="distributionRegion" column="distribution_region" jdbcType="VARCHAR"/>
+        <result property="distributionWay" column="distribution_way" jdbcType="VARCHAR"/>
+        <result property="distributionMoney" column="distribution_money" jdbcType="VARCHAR"/>
+        <result property="payMethod" column="pay_method" jdbcType="VARCHAR"/>
+        <result property="extractTime" column="extract_time" jdbcType="VARCHAR"/>
+        <result property="emil" column="emil" jdbcType="VARCHAR"/>
+        <result property="remitter" column="remitter" jdbcType="VARCHAR"/>
+        <result property="note" column="note" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="ConsigneeInformationMap">
+        select
+          id, consignee_name, consignee_account, consignee_call, consignee_phone, zip_code, consignee_address, distribution_region, distribution_way, distribution_money, pay_method, extract_time, emil, remitter, note
+        from nothree_888.consignee_information
+        where id = #{id}
+    </select>
+
+
+    <select id="selectList" resultMap="ConsigneeInformationMap">
+        select
+        id, consignee_name, consignee_account, consignee_call, consignee_phone, zip_code, consignee_address,
+        distribution_region, distribution_way, distribution_money, pay_method, extract_time, emil, remitter, note
+        from nothree_888.consignee_information
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="consigneeName != null and consigneeName != ''">
+                and consignee_name = #{consigneeName}
+            </if>
+            <if test="consigneeAccount != null and consigneeAccount != ''">
+                and consignee_account = #{consigneeAccount}
+            </if>
+            <if test="consigneeCall != null and consigneeCall != ''">
+                and consignee_call = #{consigneeCall}
+            </if>
+            <if test="consigneePhone != null and consigneePhone != ''">
+                and consignee_phone = #{consigneePhone}
+            </if>
+            <if test="zipCode != null and zipCode != ''">
+                and zip_code = #{zipCode}
+            </if>
+            <if test="consigneeAddress != null and consigneeAddress != ''">
+                and consignee_address = #{consigneeAddress}
+            </if>
+            <if test="distributionRegion != null and distributionRegion != ''">
+                and distribution_region = #{distributionRegion}
+            </if>
+            <if test="distributionWay != null and distributionWay != ''">
+                and distribution_way = #{distributionWay}
+            </if>
+            <if test="distributionMoney != null and distributionMoney != ''">
+                and distribution_money = #{distributionMoney}
+            </if>
+            <if test="payMethod != null and payMethod != ''">
+                and pay_method = #{payMethod}
+            </if>
+            <if test="extractTime != null and extractTime != ''">
+                and extract_time = #{extractTime}
+            </if>
+            <if test="emil != null and emil != ''">
+                and emil = #{emil}
+            </if>
+            <if test="remitter != null and remitter != ''">
+                and remitter = #{remitter}
+            </if>
+            <if test="note != null and note != ''">
+                and note = #{note}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="id" useGeneratedKeys="true">
+        insert into nothree_888.consignee_information(consignee_name, consignee_account, consignee_call, consignee_phone, zip_code, consignee_address, distribution_region, distribution_way, distribution_money, pay_method, extract_time, emil, remitter, note)
+        values (#{consigneeName}, #{consigneeAccount}, #{consigneeCall}, #{consigneePhone}, #{zipCode}, #{consigneeAddress}, #{distributionRegion}, #{distributionWay}, #{distributionMoney}, #{payMethod}, #{extractTime}, #{emil}, #{remitter}, #{note})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.consignee_information
+        <set>
+            <if test="consigneeName != null and consigneeName != ''">
+                consignee_name = #{consigneeName},
+            </if>
+            <if test="consigneeAccount != null and consigneeAccount != ''">
+                consignee_account = #{consigneeAccount},
+            </if>
+            <if test="consigneeCall != null and consigneeCall != ''">
+                consignee_call = #{consigneeCall},
+            </if>
+            <if test="consigneePhone != null and consigneePhone != ''">
+                consignee_phone = #{consigneePhone},
+            </if>
+            <if test="zipCode != null and zipCode != ''">
+                zip_code = #{zipCode},
+            </if>
+            <if test="consigneeAddress != null and consigneeAddress != ''">
+                consignee_address = #{consigneeAddress},
+            </if>
+            <if test="distributionRegion != null and distributionRegion != ''">
+                distribution_region = #{distributionRegion},
+            </if>
+            <if test="distributionWay != null and distributionWay != ''">
+                distribution_way = #{distributionWay},
+            </if>
+            <if test="distributionMoney != null and distributionMoney != ''">
+                distribution_money = #{distributionMoney},
+            </if>
+            <if test="payMethod != null and payMethod != ''">
+                pay_method = #{payMethod},
+            </if>
+            <if test="extractTime != null and extractTime != ''">
+                extract_time = #{extractTime},
+            </if>
+            <if test="emil != null and emil != ''">
+                emil = #{emil},
+            </if>
+            <if test="remitter != null and remitter != ''">
+                remitter = #{remitter},
+            </if>
+            <if test="note != null and note != ''">
+                note = #{note},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.consignee_information where id = #{id}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.consignee_information where id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

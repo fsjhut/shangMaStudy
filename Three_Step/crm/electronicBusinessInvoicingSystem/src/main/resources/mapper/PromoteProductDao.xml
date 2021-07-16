@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.PromoteProductDao">
+
+    <resultMap type="com.javasm.sys.entity.PromoteProduct" id="PromoteProductMap">
+        <result property="promoteId" column="promote_id" jdbcType="INTEGER"/>
+        <result property="productId" column="product_id" jdbcType="INTEGER"/>
+        <result property="productName" column="product_name" jdbcType="VARCHAR"/>
+        <result property="productStock" column="product_stock" jdbcType="INTEGER"/>
+        <result property="promoteNum" column="promote_num" jdbcType="INTEGER"/>
+        <result property="marketPrice" column="market_price" jdbcType="NUMERIC"/>
+        <result property="shoppingPrice" column="shopping_price" jdbcType="NUMERIC"/>
+        <result property="promotePrice" column="promote_price" jdbcType="NUMERIC"/>
+    </resultMap>
+
+    <select id="selectByPromote" resultMap="PromoteProductMap">
+        select
+          product_id, product_name, product_stock, promote_num, market_price, shopping_price, promote_price
+        from nothree_888.promote_product
+        where promote_id = #{pid}
+    </select>
+
+
+    <select id="selectList" resultMap="PromoteProductMap">
+        select
+        promote_id, product_id, product_name, product_stock, promote_num, market_price, shopping_price, promote_price
+        from nothree_888.promote_product
+        <where>
+            <if test="promoteId != null">
+                and promote_id = #{promoteId}
+            </if>
+            <if test="productId != null">
+                and product_id = #{productId}
+            </if>
+            <if test="productName != null and productName != ''">
+                and product_name = #{productName}
+            </if>
+            <if test="productStock != null">
+                and product_stock = #{productStock}
+            </if>
+            <if test="promoteNum != null">
+                and promote_num = #{promoteNum}
+            </if>
+            <if test="marketPrice != null">
+                and market_price = #{marketPrice}
+            </if>
+            <if test="shoppingPrice != null">
+                and shopping_price = #{shoppingPrice}
+            </if>
+            <if test="promotePrice != null">
+                and promote_price = #{promotePrice}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="PromoteProduct" useGeneratedKeys="true">
+        insert into nothree_888.promote_product(promote_id, product_id, product_name, product_stock, promote_num, market_price, shopping_price, promote_price)
+        values (#{promoteId}, #{productId}, #{productName}, #{productStock}, #{promoteNum}, #{marketPrice}, #{shoppingPrice}, #{promotePrice})
+    </insert>
+
+    <insert id="batchAddObj" >
+        insert into nothree_888.promote_product (promote_id, product_id, product_name, product_stock, promote_num, market_price, shopping_price, promote_price) values
+        <foreach collection="list" separator="," item="obj" >
+            (#{obj.promoteId}, #{obj.productId}, #{obj.productName}, #{obj.productStock}, #{obj.promoteNum}, #{obj.marketPrice}, #{obj.shoppingPrice}, #{obj.promotePrice})
+        </foreach>
+    </insert>
+
+    <!--<update id="updateById">-->
+        <!--update nothree_888.promote_product-->
+        <!--<set>-->
+            <!--<if test="promoteId != null">-->
+                <!--promote_id = #{promoteId},-->
+            <!--</if>-->
+            <!--<if test="productId != null">-->
+                <!--product_id = #{productId},-->
+            <!--</if>-->
+            <!--<if test="productName != null and productName != ''">-->
+                <!--product_name = #{productName},-->
+            <!--</if>-->
+            <!--<if test="productStock != null">-->
+                <!--product_stock = #{productStock},-->
+            <!--</if>-->
+            <!--<if test="promoteNum != null">-->
+                <!--promote_num = #{promoteNum},-->
+            <!--</if>-->
+            <!--<if test="marketPrice != null">-->
+                <!--market_price = #{marketPrice},-->
+            <!--</if>-->
+            <!--<if test="shoppingPrice != null">-->
+                <!--shopping_price = #{shoppingPrice},-->
+            <!--</if>-->
+            <!--<if test="promotePrice != null">-->
+                <!--promote_price = #{promotePrice},-->
+            <!--</if>-->
+        <!--</set>-->
+        <!--where = #{}-->
+    <!--</update>-->
+
+    <delete id="delById">
+        delete from nothree_888.promote_product where product_id = #{id}
+    </delete>
+
+    <delete id="delByPromoteId">
+        delete from nothree_888.promote_product where promote_id = #{pid}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.promote_product where in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

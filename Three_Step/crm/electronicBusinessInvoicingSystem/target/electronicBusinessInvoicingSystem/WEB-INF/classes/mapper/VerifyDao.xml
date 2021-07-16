@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.VerifyDao">
+
+    <resultMap type="com.javasm.sys.entity.Verify" id="VerifyMap">
+        <result property="verifyId" column="verify_id" jdbcType="INTEGER"/>
+        <result property="applicant" column="applicant" jdbcType="VARCHAR"/>
+        <result property="verifyTable" column="verify_table" jdbcType="VARCHAR"/>
+        <result property="verifyTableId" column="verify_table_id" jdbcType="INTEGER"/>
+        <result property="verifyPerson" column="verify_person" jdbcType="VARCHAR"/>
+        <result property="verifyStatus" column="verify_status" jdbcType="INTEGER"/>
+        <result property="verifySuggestion" column="verify_suggestion" jdbcType="VARCHAR"/>
+        <result property="verifyTime" column="verify_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="VerifyMap">
+        select
+          verify_id, applicant, verify_table, verify_table_id, verify_person, verify_status, verify_suggestion, verify_time
+        from nothree_888.verify
+        where verify_id = #{verifyId} and verify_table = 'promote_sale'
+    </select>
+
+    <select id="selectDetailByTableId" resultMap="VerifyMap">
+        select
+          verify_id, applicant, verify_table, verify_table_id, verify_person, verify_status, verify_suggestion, verify_time
+        from nothree_888.verify
+        where verify_table_id = #{tableId} and verify_table = 'promote_sale'
+    </select>
+
+    <select id="selectStatusByTableId" resultMap="VerifyMap">
+        select
+          verify_id, applicant, verify_table, verify_table_id, verify_person, verify_status, verify_suggestion, verify_time
+        from nothree_888.verify
+        where verify_table_id = #{tableId} and verify_table = 'promote_sale'
+        ORDER BY verify_time desc LIMIT 1,1
+    </select>
+
+
+    <select id="selectList" resultMap="VerifyMap">
+        select
+        verify_id, applicant, verify_table, verify_table_id, verify_person, verify_status, verify_suggestion,
+        verify_time
+        from nothree_888.verify
+        <where>
+            <if test="1">
+                and verify_table = 'promote_sale'
+            </if>
+
+            <if test="applicant != null and applicant != ''">
+                and applicant = #{applicant}
+            </if>
+            <if test="verifyTable != null and verifyTable != ''">
+                and verify_table = #{verifyTable}
+            </if>
+            <if test="verifyTableId != null">
+                and verify_table_id = #{verifyTableId}
+            </if>
+            <if test="verifyPerson != null and verifyPerson != ''">
+                and verify_person = #{verifyPerson}
+            </if>
+            <if test="verifyStatus != null">
+                and verify_status = #{verifyStatus}
+            </if>
+            <if test="verifySuggestion != null and verifySuggestion != ''">
+                and verify_suggestion = #{verifySuggestion}
+            </if>
+            <if test="verifyTime != null">
+                and verify_time = #{verifyTime}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="verifyId" useGeneratedKeys="true">
+        insert into nothree_888.verify(applicant, verify_table, verify_table_id, verify_person, verify_status, verify_suggestion, verify_time)
+        values (#{applicant}, #{verifyTable}, #{verifyTableId}, #{verifyPerson}, #{verifyStatus}, #{verifySuggestion}, #{verifyTime})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.verify
+        <set>
+            <if test="applicant != null and applicant != ''">
+                applicant = #{applicant},
+            </if>
+            <if test="verifyTable != null and verifyTable != ''">
+                verify_table = #{verifyTable},
+            </if>
+            <if test="verifyTableId != null">
+                verify_table_id = #{verifyTableId},
+            </if>
+            <if test="verifyPerson != null and verifyPerson != ''">
+                verify_person = #{verifyPerson},
+            </if>
+            <if test="verifyStatus != null">
+                verify_status = #{verifyStatus},
+            </if>
+            <if test="verifySuggestion != null and verifySuggestion != ''">
+                verify_suggestion = #{verifySuggestion},
+            </if>
+            <if test="verifyTime != null">
+                verify_time = #{verifyTime},
+            </if>
+        </set>
+        where verify_table_id = #{verifyTableId} and verify_status = 0 and verify_table = 'promote_sale'
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.verify where verify_id = #{verifyId} and verify_table = 'promote_sale'
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.verify where verify_id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

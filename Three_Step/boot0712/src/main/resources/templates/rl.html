@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${p}"></title>
+    <style>
+        html,body{
+            height: 100%;}
+    </style>
+</head>
+<body>
+<div th:replace="commons/top"></div>
+    角色列表页222
+    <Br>
+    request中数据:<span th:text="${u.uid+u.uname+u.uphone}">span中的默认值</span>或者[[${u.uphone}]]
+    <Br>
+<table>
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>uid</th>
+        <th>uname</th>
+        <th>uphone</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="u,s : ${ul}" th:if="${s.count%2==0}">
+        <td>[[${s.count}]]</td>
+        <td>[[${u.uid}]]</td>
+        <td th:text="${u.uname}">aaa</td>
+        <td th:text="${u.uphone}">111111111</td>
+    </tr>
+    </tbody>
+</table>
+
+    <br>
+    session中数据:<span th:text="${session.sp}"></span>或者[[${#session.getAttribute('sp')}]]
+    <br>
+    serveltContext中数据:[[${#servletContext.getAttribute('scp')}]]
+    <br>
+    <input th:value="${session.sp}" value="aaaaa">
+    <!--相对路径-->
+    <a th:href="@{/role/goadd(rid=${u.uid},rname='aaa')}">添加</a>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.GoodsInfoDao">
+
+    <resultMap type="com.javasm.sys.entity.GoodsInfo" id="GoodsInfoMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="goodsCode" column="goods_code" jdbcType="VARCHAR"/>
+        <result property="goodsName" column="goods_name" jdbcType="VARCHAR"/>
+        <result property="goodsPrice" column="goods_price" jdbcType="NUMERIC"/>
+        <result property="goodsCount" column="goods_count" jdbcType="INTEGER"/>
+        <result property="totalAmount" column="total_amount" jdbcType="VARCHAR"/>
+        <result property="goodsColor" column="goods_color" jdbcType="VARCHAR"/>
+        <result property="goodsBrand" column="goods_brand" jdbcType="VARCHAR"/>
+        <result property="goodsModel" column="goods_model" jdbcType="VARCHAR"/>
+        <result property="goodsSupply" column="goods_supply" jdbcType="VARCHAR"/>
+        <result property="goodsFollowing" column="goods_following" jdbcType="VARCHAR"/>
+        <result property="returnSet" column="return_set" jdbcType="VARCHAR"/>
+        <result property="rturnType" column="rturn_type" jdbcType="VARCHAR"/>
+        <result property="goodsAppearance" column="goods_appearance" jdbcType="VARCHAR"/>
+        <result property="goodsIem" column="goods_iem" jdbcType="VARCHAR"/>
+        <collection property="complaintForm" javaType="CustomerComplaintForm">
+            <result property="cname" column="cname"></result>
+            <result property="solutions" column="solutions"></result>
+            <result property="detailedInformation" column="detailed_information"></result>
+            <result property="maintenancePoint" column="maintenance_point"></result>
+        </collection>
+
+
+    </resultMap>
+
+    <select id="selectExchangeGoods"  resultMap="GoodsInfoMap">
+    	SELECT gi.goods_iem,gi.goods_name,goods_color, goods_brand, goods_model, goods_supply,goods_following, return_set,cc.cname,cc.solutions,cc.detailed_information,maintenance_point
+	from goods_info gi
+	right JOIN  customer_complaint_form cc
+	on
+	gi.goods_iem=cc.goods_iem
+    </select>
+
+    <select id="selectById" resultMap="GoodsInfoMap">
+        select
+          id, goods_code, goods_name, goods_price, goods_count, total_amount, goods_color, goods_brand, goods_model, goods_supply, goods_following, return_set, rturn_type, goods_appearance, goods_iem
+        from nothree_888.goods_info
+        where id = #{id}
+    </select>
+
+	 <select id="selectGoodsByOrderId" resultMap="GoodsInfoMap">
+        select
+          g.id, g.goods_code, g.goods_name, g.goods_price, g.goods_count, g.total_amount, g.goods_color, g.goods_brand,
+          g.goods_model, g.goods_supply, g.goods_following, g.return_set, g.rturn_type, g.goods_iem
+        from goods_info as g
+        left join order_goods as og on og.goods_id=g.id
+        left join b2c_order as o on og.order_code = o.order_number
+        where o.id = #{id}
+    </select>
+
+    <select id="selectList" resultMap="GoodsInfoMap">
+        select
+        id, goods_code, goods_name, goods_price, goods_count, total_amount, goods_color, goods_brand, goods_model,
+        goods_supply, goods_following, return_set, rturn_type, goods_appearance, goods_iem
+        from nothree_888.goods_info
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="goodsCode != null and goodsCode != ''">
+                and goods_code = #{goodsCode}
+            </if>
+            <if test="goodsName != null and goodsName != ''">
+                and goods_name = #{goodsName}
+            </if>
+            <if test="goodsPrice != null">
+                and goods_price = #{goodsPrice}
+            </if>
+            <if test="goodsCount != null">
+                and goods_count = #{goodsCount}
+            </if>
+            <if test="totalAmount != null and totalAmount != ''">
+                and total_amount = #{totalAmount}
+            </if>
+            <if test="goodsColor != null and goodsColor != ''">
+                and goods_color = #{goodsColor}
+            </if>
+            <if test="goodsBrand != null and goodsBrand != ''">
+                and goods_brand = #{goodsBrand}
+            </if>
+            <if test="goodsModel != null and goodsModel != ''">
+                and goods_model = #{goodsModel}
+            </if>
+            <if test="goodsSupply != null and goodsSupply != ''">
+                and goods_supply = #{goodsSupply}
+            </if>
+            <if test="goodsFollowing != null and goodsFollowing != ''">
+                and goods_following = #{goodsFollowing}
+            </if>
+            <if test="returnSet != null and returnSet != ''">
+                and return_set = #{returnSet}
+            </if>
+            <if test="rturnType != null and rturnType != ''">
+                and rturn_type = #{rturnType}
+            </if>
+            <if test="goodsAppearance != null and goodsAppearance != ''">
+                and goods_appearance = #{goodsAppearance}
+            </if>
+            <if test="goodsIem != null and goodsIem != ''">
+                and goods_iem = #{goodsIem}
+            </if>
+        </where>
+    </select>
+
+
+
+    <insert id="add" keyProperty="id" useGeneratedKeys="true">
+        insert into nothree_888.goods_info(goods_code, goods_name, goods_price, goods_count, total_amount, goods_color, goods_brand, goods_model, goods_supply, goods_following, return_set, rturn_type, goods_appearance, goods_iem)
+        values (#{goodsCode}, #{goodsName}, #{goodsPrice}, #{goodsCount}, #{totalAmount}, #{goodsColor}, #{goodsBrand}, #{goodsModel}, #{goodsSupply}, #{goodsFollowing}, #{returnSet}, #{rturnType}, #{goodsAppearance}, #{goodsIem})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.goods_info
+        <set>
+            <if test="goodsCode != null and goodsCode != ''">
+                goods_code = #{goodsCode},
+            </if>
+            <if test="goodsName != null and goodsName != ''">
+                goods_name = #{goodsName},
+            </if>
+            <if test="goodsPrice != null">
+                goods_price = #{goodsPrice},
+            </if>
+            <if test="goodsCount != null">
+                goods_count = #{goodsCount},
+            </if>
+            <if test="totalAmount != null and totalAmount != ''">
+                total_amount = #{totalAmount},
+            </if>
+            <if test="goodsColor != null and goodsColor != ''">
+                goods_color = #{goodsColor},
+            </if>
+            <if test="goodsBrand != null and goodsBrand != ''">
+                goods_brand = #{goodsBrand},
+            </if>
+            <if test="goodsModel != null and goodsModel != ''">
+                goods_model = #{goodsModel},
+            </if>
+            <if test="goodsSupply != null and goodsSupply != ''">
+                goods_supply = #{goodsSupply},
+            </if>
+            <if test="goodsFollowing != null and goodsFollowing != ''">
+                goods_following = #{goodsFollowing},
+            </if>
+            <if test="returnSet != null and returnSet != ''">
+                return_set = #{returnSet},
+            </if>
+            <if test="rturnType != null and rturnType != ''">
+                rturn_type = #{rturnType},
+            </if>
+            <if test="goodsAppearance != null and goodsAppearance != ''">
+                goods_appearance = #{goodsAppearance},
+            </if>
+            <if test="goodsIem != null and goodsIem != ''">
+                goods_iem = #{goodsIem},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.goods_info where id = #{id}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.goods_info where id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

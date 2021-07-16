@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.LogDao">
+
+    <resultMap type="com.javasm.sys.entity.Log" id="LogMap">
+        <result property="id" column="id" />
+        <result property="accessuser" column="accessUser" jdbcType="VARCHAR"/>
+        <result property="accessmodule" column="accessModule" jdbcType="VARCHAR"/>
+        <result property="accesstype" column="accessType" jdbcType="VARCHAR"/>
+        <result property="operatingcontents" column="operatingContents" jdbcType="VARCHAR"/>
+        <result property="operatingTime" column="operating_time" jdbcType="TIMESTAMP"/>
+        <result property="ipAddress" column="ip_address" jdbcType="VARCHAR"/>
+        <result property="port" column="port" jdbcType="VARCHAR"/>
+        <result property="operatingresult" column="operatingResult" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="LogMap">
+        select
+            id,
+            accessUser,
+            accessModule,
+            accessType,
+            operatingContents,
+            operating_time,
+            ip_address,
+            port,
+            operatingResult
+        from nothree_888.log
+        where id = #{id}
+    </select>
+
+
+    <select id="selectList" resultMap="LogMap">
+        select
+        id, accessUser, accessModule, accessType, operatingContents, operating_time, ip_address,  operatingResult
+        from nothree_888.log
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="accessuser != null and accessuser != ''">
+                and accessUser = #{accessuser}
+            </if>
+            <if test="accessmodule != null and accessmodule != ''">
+                and accessModule = #{accessmodule}
+            </if>
+            <if test="accesstype != null and accesstype != ''">
+                and accessType = #{accesstype}
+            </if>
+            <if test="operatingcontents != null and operatingcontents != ''">
+                and operatingContents = #{operatingcontents}
+            </if>
+            <if test="operatingTime != null">
+                and operating_time = #{operatingTime}
+            </if>
+            <if test="ipAddress != null and ipAddress != ''">
+                and ip_address = #{ipAddress}
+            </if>
+            <if test="port != null and port != ''">
+                and port = #{port}
+            </if>
+            <if test="operatingresult != null and operatingresult != ''">
+                and operatingResult = #{operatingresult}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectByKeyWords" resultMap="LogMap">
+        select
+            id, accessUser, accessModule, accessType, operatingContents, operating_time, ip_address,  operatingResult
+        from
+            nothree_888.log
+        where
+            1=1
+        <if test="keyWord !=null and keyWord !=''">
+            and CONCAT(accessUser) like CONCAT('%',#{keyWord},'%')
+            or CONCAT(accessModule) like CONCAT('%',#{keyWord},'%')
+            or CONCAT(accessType) like CONCAT('%',#{keyWord},'%')
+            or CONCAT(operatingContents) like CONCAT('%',#{keyWord},'%')
+            or CONCAT(operatingResult) like CONCAT('%',#{keyWord},'%')
+            or CONCAT(ip_address) like CONCAT('%',#{keyWord},'%')
+            or CONCAT(port) like CONCAT('%',#{keyWord},'%')
+        </if>
+
+    </select>
+
+    <select id="selectManyTerm" resultMap="LogMap">
+        select
+            id, accessUser, accessModule, accessType, operatingContents, operating_time, ip_address,  operatingResult
+        from
+            nothree_888.log
+        <where>
+
+            <if test="operatingTime != null and operatingTime != '' and operatingEndTime !=null and operatingEndTime != ''">
+                operating_time BETWEEN #{operatingTime} and #{operatingEndTime}
+
+            </if>
+
+            <if test="accessuser != null and accessuser != ''">
+                and accessUser = #{accessuser}
+            </if>
+            <if test="accessmodule != null and accessmodule != ''">
+                and accessModule = #{accessmodule}
+            </if>
+
+            <if test="operatingcontents != null and operatingcontents != ''">
+                and operatingContents = #{operatingcontents}
+            </if>
+
+        </where>
+
+    </select>
+
+    <insert id="add" keyProperty="id" useGeneratedKeys="true">
+        insert into nothree_888.log (accessUser, accessModule, accessType, operatingContents, operating_time, ip_address, port, operatingResult)
+        values (#{accessuser}, #{accessmodule}, #{accesstype}, #{operatingcontents}, #{operatingTime}, #{ipAddress},
+                #{port}, #{operatingresult})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.log
+        <set>
+            <if test="accessuser != null and accessuser != ''">
+                accessUser = #{accessuser},
+            </if>
+            <if test="accessmodule != null and accessmodule != ''">
+                accessModule = #{accessmodule},
+            </if>
+            <if test="accesstype != null and accesstype != ''">
+                accessType = #{accesstype},
+            </if>
+            <if test="operatingcontents != null and operatingcontents != ''">
+                operatingContents = #{operatingcontents},
+            </if>
+            <if test="operatingTime != null">
+                operating_time = #{operatingTime},
+            </if>
+            <if test="ipAddress != null and ipAddress != ''">
+                ip_address = #{ipAddress},
+            </if>
+            <if test="port != null and port != ''">
+                port = #{port},
+            </if>
+            <if test="operatingresult != null and operatingresult != ''">
+                operatingResult = #{operatingresult},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.log
+        where id = #{id}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.log where id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

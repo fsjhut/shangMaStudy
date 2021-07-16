@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.DeptDao">
+
+    <resultMap type="com.javasm.sys.entity.Dept" id="DeptMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="dname" column="dname" jdbcType="VARCHAR"/>
+        <result property="deptno" column="deptno" jdbcType="INTEGER"/>
+        <result property="isEnabled" column="is_enabled" jdbcType="INTEGER"/>
+        <result property="topDepartment" column="top_department" jdbcType="INTEGER"/>
+        <result property="sname" column="sname" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <resultMap type="com.javasm.sys.entity.Dept" id="DeptMapUserDept">
+        <result property="personNum" column="count(cs.deptno)" jdbcType="VARCHAR"/>
+        <result property="dname" column="dname" jdbcType="VARCHAR"/>
+        <result property="sname" column="sname" jdbcType="VARCHAR"/>
+        <result property="deptno" column="deptno" jdbcType="VARCHAR"/>
+        <result property="isEnabled" column="isEnabled" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="DeptMap">
+        select
+            id,
+            dname,
+            deptno,
+            is_enabled,
+            top_department,
+            sname
+        from nothree_888.tb_dept
+        where id = #{id}
+    </select>
+
+    <select id="selectByUserDeptno" resultMap="DeptMapUserDept">
+        select
+            count(cs.deptno) , d.dname dname , d.sname sname , d.deptno deptno , d.is_enabled isEnabled
+        from
+            crm_sysuser cs
+        right join
+            tb_dept d
+        on
+            cs.deptno = d.deptno
+        group by
+            d.dname
+    </select>
+
+
+    <select id="selectList" resultMap="DeptMap">
+        select
+        id, dname, deptno, is_enabled, top_department, sname
+        from nothree_888.tb_dept
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="dname != null and dname != ''">
+                and dname = #{dname}
+            </if>
+            <if test="deptno != null">
+                and deptno = #{deptno}
+            </if>
+            <if test="isEnabled != null">
+                and is_enabled = #{isEnabled}
+            </if>
+            <if test="topDepartment != null">
+                and top_department = #{topDepartment}
+            </if>
+            <if test="sname != null and sname != ''">
+                and sname = #{sname}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="id" useGeneratedKeys="true">
+        insert into nothree_888.tb_dept (dname, deptno, is_enabled, top_department, sname)
+        values (#{dname}, #{deptno}, #{isEnabled}, #{topDepartment}, #{sname})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.tb_dept
+        <set>
+            <if test="dname != null and dname != ''">
+                dname = #{dname},
+            </if>
+            <if test="deptno != null">
+                deptno = #{deptno},
+            </if>
+            <if test="isEnabled != null">
+                is_enabled = #{isEnabled},
+            </if>
+            <if test="topDepartment != null">
+                top_department = #{topDepartment},
+            </if>
+            <if test="sname != null and sname != ''">
+                sname = #{sname},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.tb_dept
+        where id = #{id}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.tb_dept where id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

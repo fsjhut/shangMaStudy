@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.SysdeptDao">
+
+    <resultMap type="com.javasm.sys.entity.Sysdept" id="SysdeptMap">
+        <result property="did" column="did" jdbcType="INTEGER"/>
+        <result property="dname" column="dname" jdbcType="VARCHAR"/>
+        <result property="duser" column="duser" jdbcType="VARCHAR"/>
+        <result property="duphone" column="duphone" jdbcType="VARCHAR"/>
+        <result property="dparentid" column="dparentid" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="SysdeptMap">
+        select
+          did, dname, duser, duphone, dparentid, create_time, update_time
+        from crm.sysdept
+        where did = #{did}
+    </select>
+
+
+    <select id="selectList" resultMap="SysdeptMap">
+        select
+        did, dname, duser, duphone, dparentid, create_time, update_time
+        from crm.sysdept
+        <where>
+            <if test="did != null">
+                and did = #{did}
+            </if>
+            <if test="dname != null and dname != ''">
+                and dname = #{dname}
+            </if>
+            <if test="duser != null and duser != ''">
+                and duser = #{duser}
+            </if>
+            <if test="duphone != null and duphone != ''">
+                and duphone = #{duphone}
+            </if>
+            <if test="dparentid != null">
+                and dparentid = #{dparentid}
+            </if>
+            <if test="createTime != null and createTime != ''">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null and updateTime != ''">
+                and update_time = #{updateTime}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="did" useGeneratedKeys="true">
+        insert into crm.sysdept(dname, duser, duphone, dparentid, create_time, update_time)
+        values (#{dname}, #{duser}, #{duphone}, #{dparentid}, #{createTime}, #{updateTime})
+    </insert>
+
+    <update id="updateById">
+        update crm.sysdept
+        <set>
+            <if test="dname != null and dname != ''">
+                dname = #{dname},
+            </if>
+            <if test="duser != null and duser != ''">
+                duser = #{duser},
+            </if>
+            <if test="duphone != null and duphone != ''">
+                duphone = #{duphone},
+            </if>
+            <if test="dparentid != null">
+                dparentid = #{dparentid},
+            </if>
+            <if test="createTime != null and createTime != ''">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null and updateTime != ''">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        where did = #{did}
+    </update>
+
+    <delete id="delById">
+        delete from crm.sysdept where did = #{did}
+    </delete>
+
+    <delete id="delByIds">
+        delete from crm.sysdept where did in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

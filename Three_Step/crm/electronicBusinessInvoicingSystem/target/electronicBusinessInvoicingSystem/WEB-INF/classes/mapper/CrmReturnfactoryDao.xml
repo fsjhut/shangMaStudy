@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.CrmReturnfactoryDao">
+
+    <resultMap type="com.javasm.sys.entity.CrmReturnfactory" id="CrmReturnfactoryMap">
+        <result property="fid" column="fid" jdbcType="INTEGER"/>
+        <result property="refactoryCode" column="refactory_code" jdbcType="VARCHAR"/>
+        <result property="refactoryFlag" column="refactory_flag" jdbcType="INTEGER"/>
+        <result property="refactoryState" column="refactory_state" jdbcType="INTEGER"/>
+        <result property="returnsId" column="returns_id" jdbcType="INTEGER"/>
+        <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+        <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="CrmReturnfactoryMap">
+        select
+          fid, refactory_code, refactory_flag, refactory_state, returns_id, create_by, update_by, create_time, update_time
+        from nothree_888.crm_returnfactory
+        where fid = #{fid}
+    </select>
+
+
+    <select id="selectList" resultMap="CrmReturnfactoryMap">
+        select
+        fid, refactory_code, refactory_flag, refactory_state, returns_id, create_by, update_by, create_time, update_time
+        from nothree_888.crm_returnfactory
+        <where>
+            <if test="fid != null">
+                and fid = #{fid}
+            </if>
+            <if test="refactoryCode != null and refactoryCode != ''">
+                and refactory_code = #{refactoryCode}
+            </if>
+            <if test="refactoryFlag != null">
+                and refactory_flag = #{refactoryFlag}
+            </if>
+            <if test="refactoryState != null">
+                and refactory_state = #{refactoryState}
+            </if>
+            <if test="returnsId != null">
+                and returns_id = #{returnsId}
+            </if>
+            <if test="createBy != null and createBy != ''">
+                and create_by = #{createBy}
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                and update_by = #{updateBy}
+            </if>
+            <if test="createTime != null and createTime != ''">
+                and create_time between #{createTime} and #{crendTime}
+            </if>
+            <if test="updateTime != null and updateTime != ''">
+                and update_time between #{updateTime} and #{upendTime}
+            </if>
+            <if test="true">
+                and if(refactory_state=3,create_by=#{uname},1=1)
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="fid" useGeneratedKeys="true" >
+        insert into nothree_888.crm_returnfactory(refactory_code, refactory_flag, refactory_state, returns_id, create_by, update_by)
+        values (#{refactoryCode}, #{refactoryFlag}, #{refactoryState}, #{returnsId}, #{createBy}, #{updateBy})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.crm_returnfactory
+        <set>
+            <if test="refactoryCode != null and refactoryCode != ''">
+                refactory_code = #{refactoryCode},
+            </if>
+            <if test="refactoryFlag != null">
+                refactory_flag = #{refactoryFlag},
+            </if>
+            <if test="refactoryState != null">
+                refactory_state = #{refactoryState},
+            </if>
+            <if test="returnsId != null">
+                returns_id = #{returnsId},
+            </if>
+            <if test="createBy != null and createBy != ''">
+                create_by = #{createBy},
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by = #{updateBy},
+            </if>
+        </set>
+        where fid = #{fid}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.crm_returnfactory where fid = #{fid}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.crm_returnfactory where fid in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="queryAllGoods" resultType="com.javasm.commons.bean.ReturnCrmReturnFactory">
+        SELECT * FROM `crm_factory_goods` where fid is null
+
+    </select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

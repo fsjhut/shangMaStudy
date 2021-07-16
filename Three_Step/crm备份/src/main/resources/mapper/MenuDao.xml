@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.MenuDao">
+
+    <resultMap type="com.javasm.sys.entity.Menu" id="MenuMap">
+        <result property="menuId" column="menu_id" jdbcType="INTEGER"/>
+        <result property="menuName" column="menu_name" jdbcType="VARCHAR"/>
+        <result property="parentId" column="parent_id" jdbcType="INTEGER"/>
+        <result property="menuUrl" column="menu_url" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="MenuMap">
+        select
+          menu_id, menu_name, parent_id, menu_url
+        from nothree_888.menu
+        where menu_id = #{menuId}
+    </select>
+
+
+    <select id="selectList" resultMap="MenuMap">
+        select
+        menu_id, menu_name, parent_id, menu_url
+        from nothree_888.menu
+        <where>
+            <if test="menuId != null">
+                and menu_id = #{menuId}
+            </if>
+            <if test="menuName != null and menuName != ''">
+                and menu_name = #{menuName}
+            </if>
+            <if test="parentId != null">
+                and parent_id = #{parentId}
+            </if>
+            <if test="menuUrl != null and menuUrl != ''">
+                and menu_url = #{menuUrl}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="menuId" useGeneratedKeys="true">
+        insert into nothree_888.menu(menu_name, parent_id, menu_url)
+        values (#{menuName}, #{parentId}, #{menuUrl})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.menu
+        <set>
+            <if test="menuName != null and menuName != ''">
+                menu_name = #{menuName},
+            </if>
+            <if test="parentId != null">
+                parent_id = #{parentId},
+            </if>
+            <if test="menuUrl != null and menuUrl != ''">
+                menu_url = #{menuUrl},
+            </if>
+        </set>
+        where menu_id = #{menuId}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.menu where menu_id = #{menuId}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.menu where menu_id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

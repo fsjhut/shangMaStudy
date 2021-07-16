@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.OutManagerDao">
+
+    <resultMap type="com.javasm.sys.entity.OutManager" id="OutManagerMap">
+        <result property="outOrderNum" column="out_order_num" jdbcType="INTEGER"/>
+        <result property="outMark" column="out_mark" jdbcType="VARCHAR"/>
+        <result property="auditStatus" column="audit_status" jdbcType="VARCHAR"/>
+        <result property="orderId" column="order_id" jdbcType="INTEGER"/>
+        <result property="orderPerson" column="order_person" jdbcType="VARCHAR"/>
+        <result property="auditPerson" column="audit_person" jdbcType="VARCHAR"/>
+        <result property="makeTime" column="make_time" jdbcType="VARCHAR"/>
+        <result property="auditTime" column="audit_time" jdbcType="VARCHAR"/>
+        <result property="outArea" column="out_area" jdbcType="VARCHAR"/>
+        <result property="outReason" column="out_reason" jdbcType="VARCHAR"/>
+        <result property="outNote" column="out_note" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="VARCHAR"/>
+        <result property="deleteStatus" column="delete_status" jdbcType="INTEGER"/>
+
+        <collection property="goodsInfo" javaType="GoodsInfo">
+            <result property="goodsIem" column="goods_iem"></result>
+            <result property="goodsBrand" column="goods_brand"></result>
+            <result property="goodsName" column="goods_name"></result>
+            <result property="goodsModel" column="goods_model"></result>
+            <result property="goodsColor" column="goods_color"></result>
+            <result property="goodsSupply" column="goods_supply"></result>
+            <result property="goodsFollowing" column="goods_following"></result>
+            <result property="returnSet" column="return_set"></result>
+        </collection>
+    </resultMap>
+
+    <select id="selectById" resultMap="OutManagerMap">
+        select
+          out_order_num, out_mark, audit_status, order_id, order_person, audit_person, make_time, audit_time, out_area, out_reason, out_note, create_time, update_time, delete_status
+        from nothree_888.out_manager
+        where out_order_num = #{outOrderNum}
+    </select>
+
+
+    <select id="selectList" resultMap="OutManagerMap">
+        select
+        out_order_num, out_mark, audit_status, order_id, order_person, audit_person, make_time, audit_time, out_area,
+        out_reason, out_note, create_time, update_time, delete_status
+        from nothree_888.out_manager
+        <where>
+            <if test="outOrderNum != null">
+                and out_order_num = #{outOrderNum}
+            </if>
+            <if test="outMark != null and outMark != ''">
+                and out_mark = #{outMark}
+            </if>
+            <if test="auditStatus != null and auditStatus != ''">
+                and audit_status = #{auditStatus}
+            </if>
+            <if test="orderId != null">
+                and order_id = #{orderId}
+            </if>
+            <if test="orderPerson != null and orderPerson != ''">
+                and order_person = #{orderPerson}
+            </if>
+            <if test="auditPerson != null and auditPerson != ''">
+                and audit_person = #{auditPerson}
+            </if>
+            <if test="makeTime != null and makeTime != ''">
+                and make_time = #{makeTime}
+            </if>
+            <if test="auditTime != null and auditTime != ''">
+                and audit_time = #{auditTime}
+            </if>
+            <if test="outArea != null and outArea != ''">
+                and out_area = #{outArea}
+            </if>
+            <if test="outReason != null and outReason != ''">
+                and out_reason = #{outReason}
+            </if>
+            <if test="outNote != null and outNote != ''">
+                and out_note = #{outNote}
+            </if>
+            <if test="createTime != null and createTime != ''">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null and updateTime != ''">
+                and update_time = #{updateTime}
+            </if>
+            <if test="deleteStatus != null">
+                and delete_status = #{deleteStatus}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="outOrderNum" useGeneratedKeys="true">
+        insert into nothree_888.out_manager(out_mark, audit_status, order_id, order_person, audit_person, make_time, audit_time, out_area, out_reason, out_note, create_time, update_time, delete_status)
+        values (#{outMark}, #{auditStatus}, #{orderId}, #{orderPerson}, #{auditPerson}, #{makeTime}, #{auditTime}, #{outArea}, #{outReason}, #{outNote}, #{createTime}, #{updateTime}, #{deleteStatus})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.out_manager
+        <set>
+            <if test="outMark != null and outMark != ''">
+                out_mark = #{outMark},
+            </if>
+            <if test="auditStatus != null and auditStatus != ''">
+                audit_status = #{auditStatus},
+            </if>
+            <if test="orderId != null">
+                order_id = #{orderId},
+            </if>
+            <if test="orderPerson != null and orderPerson != ''">
+                order_person = #{orderPerson},
+            </if>
+            <if test="auditPerson != null and auditPerson != ''">
+                audit_person = #{auditPerson},
+            </if>
+            <if test="makeTime != null and makeTime != ''">
+                make_time = #{makeTime},
+            </if>
+            <if test="auditTime != null and auditTime != ''">
+                audit_time = #{auditTime},
+            </if>
+            <if test="outArea != null and outArea != ''">
+                out_area = #{outArea},
+            </if>
+            <if test="outReason != null and outReason != ''">
+                out_reason = #{outReason},
+            </if>
+            <if test="outNote != null and outNote != ''">
+                out_note = #{outNote},
+            </if>
+            <if test="createTime != null and createTime != ''">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null and updateTime != ''">
+                update_time = #{updateTime},
+            </if>
+            <if test="deleteStatus != null">
+                delete_status = #{deleteStatus},
+            </if>
+        </set>
+        where out_order_num = #{outOrderNum}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.out_manager where out_order_num = #{outOrderNum}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.out_manager where out_order_num in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+
+    <select id="selectType" parameterType="String" resultType="OutManager">
+        select * from out_manager group by ${string}
+    </select>
+
+    <select id="selectGoods" parameterType="Integer" resultMap="OutManagerMap">
+     select gm.goods_iem,gm.goods_brand,gm.goods_name,gm.goods_model,
+     goods_color,goods_supply,goods_following,return_set
+	from
+	goods_info gm
+	right join
+	out_goods og
+	on
+	gm.goods_iem=og.goods_iem
+	where og.out_order_num=#{out_order}
+    </select>
+</mapper>
+

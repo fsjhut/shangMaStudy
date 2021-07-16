@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.GiftDao">
+
+    <resultMap type="com.javasm.sys.entity.Gift" id="GiftMap">
+        <result property="giftId" column="gift_id" jdbcType="INTEGER"/>
+        <result property="giftName" column="gift_name" jdbcType="VARCHAR"/>
+        <result property="giftType" column="gift_type" jdbcType="VARCHAR"/>
+        <result property="giftModel" column="gift_model" jdbcType="VARCHAR"/>
+        <result property="giftPrice" column="gift_price" jdbcType="NUMERIC"/>
+        <result property="giftCost" column="gift_cost" jdbcType="NUMERIC"/>
+        <result property="giftDepartment" column="gift_department" jdbcType="VARCHAR"/>
+        <result property="giftInventory" column="gift_inventory" jdbcType="VARCHAR"/>
+        <result property="giftColor" column="gift_color" jdbcType="VARCHAR"/>
+        <result property="giftBrand" column="gift_brand" jdbcType="VARCHAR"/>
+        <result property="giftNumber" column="gift_number" jdbcType="VARCHAR"/>
+        <result property="giftTyprice" column="gift_typrice" jdbcType="NUMERIC"/>
+        <result property="giftReviewstatus" column="gift_reviewstatus" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="GiftMap">
+        select
+          gift_id, gift_name, gift_type, gift_model, gift_price, gift_cost, gift_department, gift_inventory, gift_color, gift_brand, gift_typrice,gift_reviewstatus
+        from nothree_888.gift
+        where gift_id = #{giftId}
+    </select>
+
+
+    <select id="selectList" resultMap="GiftMap">
+        select
+        gift_id, gift_name, gift_type, gift_model, gift_price, gift_cost, gift_department, gift_inventory, gift_color,
+        gift_brand,  gift_number, gift_typrice,gift_reviewstatus
+        from gift
+        <where>
+            <if test="giftId != null">
+                and gift_id = #{giftId}
+            </if>
+            <if test="giftName != null and giftName != ''">
+                and gift_name like "%"#{giftName}"%"
+            </if>
+            <if test="giftType != null and giftType != ''">
+                and gift_type = #{giftType}
+            </if>
+            <if test="giftModel != null and giftModel != ''">
+                and gift_model like "%"#{giftModel}"%"
+            </if>
+            <if test="giftPrice != null and giftPrice != ''">
+                and gift_price = #{giftPrice}
+            </if>
+            <if test="giftCost != null">
+                and gift_cost = #{giftCost}
+            </if>
+            <if test="giftDepartment != null and giftDepartment != ''">
+                and gift_department = #{giftDepartment}
+            </if>
+            <if test="giftInventory != null and giftInventory != ''">
+                and gift_inventory = #{giftInventory}
+            </if>
+            <if test="giftColor != null and giftColor != ''">
+                and gift_color = #{giftColor}
+            </if>
+            <if test=" giftBrand != null and giftBrand != ''">
+                and gift_brand = #{giftBrand}
+            </if>
+            <if test="giftNumber != null and giftNumber != ''">
+                and gift_number = #{giftNumber}
+            </if>
+            <if test="giftTyprice != null">
+                and gift_typrice = #{giftTyprice}
+            </if>
+            <if test="giftReviewstatus == null">
+                and gift_reviewstatus !=3
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="giftId" useGeneratedKeys="true">
+        insert into nothree_888.gift(gift_name, gift_type, gift_model, gift_price, gift_cost, gift_department, gift_inventory, gift_color, gift_brand, gift_number, gift_typrice,gift_reviewstatus)
+        values (#{giftName}, #{giftType}, #{giftModel}, #{giftPrice}, #{giftCost}, #{giftDepartment}, #{giftInventory}, #{giftColor}, #{giftBrand},  #{giftNumber}, #{giftTyprice},#{giftReviewstatus})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.gift
+        <set>
+            <if test="giftName != null and giftName != ''">
+                gift_name = #{giftName},
+            </if>
+            <if test="giftType != null and giftType != ''">
+                gift_type = #{giftType},
+            </if>
+            <if test="giftModel != null and giftModel != ''">
+                gift_model = #{giftModel},
+            </if>
+            <if test="giftPrice != null and giftPrice != ''">
+                gift_price = #{giftPrice},
+            </if>
+            <if test="giftCost != null">
+                gift_cost = #{giftCost},
+            </if>
+            <if test="giftDepartment != null and giftDepartment != ''">
+                gift_department = #{giftDepartment},
+            </if>
+            <if test="giftInventory != null and giftInventory != ''">
+                gift_inventory = #{giftInventory},
+            </if>
+            <if test="giftColor != null and giftColor != ''">
+                gift_color = #{giftColor},
+            </if>
+            <if test="giftBrand != null and giftBrand != ''">
+                gift_brand = #{giftBrand},
+            </if>
+            <if test="giftNumber != null and giftNumber != ''">
+                gift_number = #{giftNumber},
+            </if>
+            <if test="giftTyprice != null">
+                gift_typrice = #{giftTyprice},
+            </if>
+            <if test="giftReviewstatus != null">
+                 gift_reviewstatus = #{giftReviewstatus},
+            </if>
+        </set>
+        where gift_id = #{giftId}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.gift where gift_id = #{giftId}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.gift where gift_id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+    <select id="selectBrand" resultMap="GiftMap">
+           select distinct
+         gift_brand
+        from nothree_888.gift
+        <where>
+            <if test="giftBrand != null and giftBrand != ''">
+                gift_brand = #{giftBrand},
+            </if>
+        </where>
+    </select>
+    <select id="selectColor" resultMap="GiftMap">
+         select distinct
+         gift_color
+        from nothree_888.gift
+        <where>
+            <if test="giftColor != null and giftColor != ''">
+                gift_color = #{giftColor},
+            </if>
+        </where>
+    </select>
+    <select id="selectType" resultMap="GiftMap">
+        select distinct
+        gift_type
+        from nothree_888.gift
+        <where>
+            <if test="giftType != null and giftType != ''">
+                gift_type = #{giftType},
+            </if>
+        </where>
+    </select>
+</mapper>
+

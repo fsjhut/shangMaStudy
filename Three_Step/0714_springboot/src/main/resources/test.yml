@@ -1,0 +1,70 @@
+server:
+	port: 8081
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/crm?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT%2B8&useSSL=false
+    username: root
+    password: root
+    druid:
+      initial-size: 3
+      min-idle: 5
+      max-active: 100
+  #redis连接的配置
+  redis:
+      host: 127.0.0.1
+      port: 6379
+      password: root
+      jedis:
+          pool:
+              min-idle: 10
+ 	#ThreadPoolTaskExecutor线程池的配置
+  task:
+      execution:
+          pool:
+              core-size: 10
+              max-size: 100
+              queue-capacity: 200
+      scheduling:
+          pool:
+              size: 10
+  #JavaMailSender对象中使用邮箱服务器数据
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: 1067224906@qq.com
+    password: tgnwoogisawgbbij
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+  # 禁用thyemleaf缓存.开发中使用
+  thymeleaf:
+    cache: false
+
+mybatis-plus:
+  configuration:
+#没有配置日志，因此先暂时在命令行中打印sql的执行语句日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.javasm
+  mapper-locations: classpath:mapper/*.xml
+
+# 分页参数合理化的配置
+pagehelper:
+	properties: reasonable=true
+
+# mybatis的配置，如果配置了mybatis-plus则不需要配置mybatis
+#mybatis:
+#  type-aliases-package: com.javasm
+#  mapper-locations: classpath:mapper/*.xml
+
+#配置静态资源访问路径，一般不需要进行配置，采用默认的4个静态资源路径即可
+#spring:
+#  mvc:
+#    static-path-pattern: /s/**
+#  resources:
+#    static-locations: classpath:/views/

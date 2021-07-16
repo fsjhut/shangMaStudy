@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.CrmSupplyGoodsDao">
+
+    <resultMap type="com.javasm.sys.entity.CrmSupplyGoods" id="CrmSupplyGoodsMap">
+        <result property="gid" column="gid" jdbcType="INTEGER"/>
+        <result property="goodName" column="good_name" jdbcType="VARCHAR"/>
+        <result property="goodType" column="good_type" jdbcType="VARCHAR"/>
+        <result property="purchasePrice" column="purchase_price" jdbcType="VARCHAR"/>
+        <result property="marketValue" column="market_value" jdbcType="VARCHAR"/>
+        <result property="goodBrand" column="good_brand" jdbcType="VARCHAR"/>
+        <result property="goodModel" column="good_model" jdbcType="VARCHAR"/>
+        <result property="goodStock" column="good_stock" jdbcType="INTEGER"/>
+        <result property="goodColor" column="good_color" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+    <select id="selectByIds" resultMap="CrmSupplyGoodsMap" >
+         SELECT g.gid,g.good_name,g.purchase_price,g.market_value FROM crm_supplier s LEFT JOIN crm_supplier_good sg ON s.sid=sg.sid
+        LEFT JOIN crm_supply_goods g ON g.gid=sg.gid
+        WHERE s.sid=#{sid}
+    </select>
+
+    <!--<select id="selectById" resultMap="CrmSupplyGoodsMap">-->
+        <!--select-->
+          <!--gid, good_name, good_type, purchase_price, market_value, good_brand, good_model, good_stock, good_color, create_time-->
+        <!--from nothree_888.crm_supply_goods-->
+        <!--where gid = #{gid}-->
+    <!--</select>-->
+
+
+    <select id="selectList" resultMap="CrmSupplyGoodsMap">
+        select
+        gid, good_name, good_type, purchase_price, market_value, good_brand, good_model, good_stock, good_color,
+        create_time
+        from nothree_888.crm_supply_goods
+        <where>
+            <if test="gid != null">
+                and gid = #{gid}
+            </if>
+            <if test="goodName != null and goodName != ''">
+                and good_name = #{goodName}
+            </if>
+            <if test="goodType != null and goodType != ''">
+                and good_type = #{goodType}
+            </if>
+            <if test="purchasePrice != null and purchasePrice != ''">
+                and purchase_price = #{purchasePrice}
+            </if>
+            <if test="marketValue != null and marketValue != ''">
+                and market_value = #{marketValue}
+            </if>
+            <if test="goodBrand != null and goodBrand != ''">
+                and good_brand = #{goodBrand}
+            </if>
+            <if test="goodModel != null and goodModel != ''">
+                and good_model = #{goodModel}
+            </if>
+            <if test="goodStock != null">
+                and good_stock = #{goodStock}
+            </if>
+            <if test="goodColor != null and goodColor != ''">
+                and good_color = #{goodColor}
+            </if>
+            <if test="createTime != null and createTime != ''">
+                and create_time = #{createTime}
+            </if>
+        </where>
+    </select>
+
+
+    <insert id="add" keyProperty="gid" useGeneratedKeys="true">
+        insert into nothree_888.crm_supply_goods(good_name, good_type, purchase_price, market_value, good_brand, good_model, good_stock, good_color, create_time)
+        values (#{goodName}, #{goodType}, #{purchasePrice}, #{marketValue}, #{goodBrand}, #{goodModel}, #{goodStock}, #{goodColor}, #{createTime})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.crm_supply_goods
+        <set>
+            <if test="goodName != null and goodName != ''">
+                good_name = #{goodName},
+            </if>
+            <if test="goodType != null and goodType != ''">
+                good_type = #{goodType},
+            </if>
+            <if test="purchasePrice != null and purchasePrice != ''">
+                purchase_price = #{purchasePrice},
+            </if>
+            <if test="marketValue != null and marketValue != ''">
+                market_value = #{marketValue},
+            </if>
+            <if test="goodBrand != null and goodBrand != ''">
+                good_brand = #{goodBrand},
+            </if>
+            <if test="goodModel != null and goodModel != ''">
+                good_model = #{goodModel},
+            </if>
+            <if test="goodStock != null">
+                good_stock = #{goodStock},
+            </if>
+            <if test="goodColor != null and goodColor != ''">
+                good_color = #{goodColor},
+            </if>
+            <if test="createTime != null and createTime != ''">
+                create_time = #{createTime},
+            </if>
+        </set>
+        where gid = #{gid}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.crm_supply_goods where gid = #{gid}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.crm_supply_goods where gid in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

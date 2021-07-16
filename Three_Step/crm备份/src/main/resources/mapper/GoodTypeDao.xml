@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.GoodTypeDao">
+
+    <resultMap type="com.javasm.sys.entity.GoodType" id="GoodTypeMap">
+        <result property="tid" column="tid" jdbcType="INTEGER"/>
+        <result property="typeName" column="type_name" jdbcType="VARCHAR"/>
+        <result property="typeDesc" column="type_desc" jdbcType="VARCHAR"/>
+        <result property="pid" column="pid" jdbcType="INTEGER"/>
+        <result property="brand" column="brand" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="selectById" resultMap="GoodTypeMap">
+        select
+          tid, type_name, type_desc, pid, brand
+        from nothree_888.good_type
+        where tid = #{tid}
+    </select>
+
+
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="selectList" resultMap="GoodTypeMap">
+        select
+        tid, type_name, type_desc, pid
+        from nothree_888.good_type
+        <where>
+            <if test="tid != null">
+                and tid = #{tid}
+            </if>
+            <if test="typeName != null and typeName != ''">
+                and type_name = #{typeName}
+            </if>
+            <if test="typeDesc != null and typeDesc != ''">
+                and type_desc = #{typeDesc}
+            </if>
+            <if test="pid != null">
+                and pid = #{pid}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="add" keyProperty="tid" useGeneratedKeys="true">
+        insert into nothree_888.good_type(type_name, type_desc, pid)
+        values (#{typeName}, #{typeDesc}, #{pid})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="tid" useGeneratedKeys="true">
+        insert into nothree_888.good_type(type_name, type_desc, pid)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.typeName}, #{entity.typeDesc}, #{entity.pid})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="tid" useGeneratedKeys="true">
+        insert into nothree_888.good_type(type_name, type_desc, pid)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.typeName}, #{entity.typeDesc}, #{entity.pid}
+        </foreach>
+        on duplicate key update
+        type_name = values(type_name) , type_desc = values(type_desc) , pid = values(pid)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="updateById">
+        update nothree_888.good_type
+        <set>
+            <if test="typeName != null and typeName != ''">
+                type_name = #{typeName},
+            </if>
+            <if test="typeDesc != null and typeDesc != ''">
+                type_desc = #{typeDesc},
+            </if>
+            <if test="pid != null">
+                pid = #{pid},
+            </if>
+
+        </set>
+        where tid = #{tid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from nothree_888.good_type where tid = #{tid}
+    </delete>
+
+    <delete id="deleteByIds">
+        delete from nothree_888.goods_price_adjustment where tid in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

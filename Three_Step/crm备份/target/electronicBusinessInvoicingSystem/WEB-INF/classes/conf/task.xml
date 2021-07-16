@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/task
+          http://www.springframework.org/schema/task/spring-task.xsd">
+    <!--1、串行任务的配置-->
+
+
+
+
+
+
+    <!--开启定时任务的注解驱动-->
+    <!--<task:annotation-driven></task:annotation-driven>-->
+
+    <!--2、这是并行任务的配置-->
+    <!--<bean id="myTask" class="com.javasm.commons.task.MyTask"></bean>-->
+
+    <!--&lt;!&ndash;定义ThreadPoolTaskSchedule一个线程池,任务调度线程池，大小为2&ndash;&gt;-->
+    <!--<task:scheduler id="threadPoolTaskScheduler" pool-size="2"></task:scheduler>-->
+
+    <!--<task:scheduled-tasks>-->
+        <!--<task:scheduled ref="myTask" method="task1" cron="0/5 * * * * ?"/>-->
+        <!--<task:scheduled ref="myTask" method="task2" cron="3/5 * * * * ?"/>-->
+    <!--</task:scheduled-tasks>-->
+</beans>

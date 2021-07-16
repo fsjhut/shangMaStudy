@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.B2cGodownDao">
+
+    <resultMap type="com.javasm.sys.entity.B2cGodown" id="B2cGodownMap">
+        <result property="godownId" column="godown_id" jdbcType="INTEGER"/>
+        <result property="orderId" column="order_id" jdbcType="INTEGER"/>
+        <result property="operatePerson" column="operate_person" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <select id="selectByOrderId" resultMap="B2cGodownMap">
+        select
+          godown_id, order_id, operate_person, create_time
+        from nothree_888.b2c_godown
+        where order_id = #{orderId}
+    </select>
+
+
+    <select id="selectList" resultMap="B2cGodownMap">
+        select
+        godown_id, order_id, operate_person, create_time
+        from nothree_888.b2c_godown
+        <where>
+            <if test="godownId != null">
+                and godown_id = #{godownId}
+            </if>
+            <if test="orderId != null">
+                and order_id = #{orderId}
+            </if>
+            <if test="operatePerson != null and operatePerson != ''">
+                and operate_person = #{operatePerson}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="godownId" useGeneratedKeys="true">
+        insert into nothree_888.b2c_godown(order_id, operate_person, create_time)
+        values (#{orderId}, #{operatePerson}, #{createTime})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.b2c_godown
+        <set>
+            <if test="orderId != null">
+                order_id = #{orderId},
+            </if>
+            <if test="operatePerson != null and operatePerson != ''">
+                operate_person = #{operatePerson},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+        </set>
+        where godown_id = #{godownId}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.b2c_godown where godown_id = #{godownId}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.b2c_godown where godown_id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

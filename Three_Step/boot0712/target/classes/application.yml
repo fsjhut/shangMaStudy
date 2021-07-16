@@ -1,0 +1,41 @@
+#缩进表示层级关系
+#yml会自动排版
+#冒号后必须有空格
+#yml文件的嵌套：active属性
+#如果读取自定义配置
+#@Value @ConfigurationProperties(prefix="")--->批量加载统一前缀
+server:
+  port: 8081
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/crm?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT%2B8&useSSL=false
+    username: root
+    password: root
+    # type必须指定，在引入mybatis启动后，如果不指定type，则会自动创建HikariCP连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 100
+  # 禁用thyemleaf缓存，开发中使用
+  thymeleaf:
+    cache: false
+
+# mybatis的配置
+mybatis:
+  type-aliases-package: com.javasm
+  mapper-locations: classpath:mapper/*.xml
+
+#pagehelper:
+#  properties: reasonable=true
+
+#  config-location: classpath:
+
+#springboot内,已经集成的连接池
+#spring:
+#  mvc:
+#    static-path-pattern: /s/**
+#  resources:
+#    static-locations: classpath:/views/

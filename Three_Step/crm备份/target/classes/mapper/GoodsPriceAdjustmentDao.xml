@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.GoodsPriceAdjustmentDao">
+
+    <resultMap type="com.javasm.sys.entity.GoodsPriceAdjustment" id="GoodsPriceAdjustmentMap">
+        <result property="priceAdjustmentId" column="price_adjustment_id" jdbcType="VARCHAR"/>
+        <result property="goodId" column="good_id" jdbcType="INTEGER"/>
+        <result property="currentPrice" column="current_price" jdbcType="NUMERIC"/>
+        <result property="startTime" column="start_time" jdbcType="VARCHAR"/>
+        <result property="endTime" column="end_time" jdbcType="VARCHAR"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="adjustAccount" column="adjust_account" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="VARCHAR"/>
+        <result property="createBy" column="create_by" jdbcType="INTEGER"/>
+        <result property="updateBy" column="update_by" jdbcType="INTEGER"/>
+        <result property="checkStatus" column="check_status" jdbcType="INTEGER"/>
+
+        <result property="goodsName" column="goods_name" jdbcType="INTEGER"/>
+        <result property="inventoryNumber" column="inventory_number" jdbcType="INTEGER"/>
+        <result property="originalPrice" column="market_RMB" jdbcType="NUMERIC"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="GoodsPriceAdjustmentMap">
+        select
+          price_adjustment_id, good_id, original_price, current_price, start_time, end_time, remark, adjust_account, create_time, update_time, create_by, update_by, check_status
+        from nothree_888.goods_price_adjustment
+        where price_adjustment_id = #{priceAdjustmentId}
+    </select>
+
+
+    <select id="selectList" parameterType="GoodsPriceAdjustment" resultMap="GoodsPriceAdjustmentMap">
+        select
+        a.price_adjustment_id, a.good_id, a.current_price, a.start_time, a.end_time, a.remark, a.adjust_account,
+        a.create_time, a.update_time, a.create_by, a.update_by, a.check_status,b.goods_name,b.inventory_number,b.market_RMB
+        from nothree_888.goods_price_adjustment as a left join goods_manager as b on b.goods_id=a.good_id
+        <where>
+            <if test="priceAdjustmentId != null and priceAdjustmentId != ''">
+                and price_adjustment_id = #{priceAdjustmentId}
+            </if>
+            <if test="goodId != null">
+                and good_id = #{goodId}
+            </if>
+            <if test="originalPrice != null">
+                and original_price = #{originalPrice}
+            </if>
+            <if test="currentPrice != null">
+                and current_price = #{currentPrice}
+            </if>
+            <if test="goodsName != null">
+                and b.goods_name like CONCAT('%',#{goodsName},'%')
+            </if>
+
+
+
+
+            <if test="startTime != null and startTime != ''">
+                AND UNIX_TIMESTAMP(create_time) &gt; UNIX_TIMESTAMP(#{startTime})
+            </if>
+
+
+            <if test="endTime != null and endTime != ''">
+                AND UNIX_TIMESTAMP(update_time) &lt; UNIX_TIMESTAMP(#{endTime})
+            </if>
+
+            <if test="remark != null and remark != ''">
+                and remark = #{remark}
+            </if>
+            <if test="adjustAccount != null and adjustAccount != ''">
+                and adjust_account = #{adjustAccount}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="createBy != null">
+                and create_by = #{createBy}
+            </if>
+            <if test="updateBy != null">
+                and update_by = #{updateBy}
+            </if>
+
+            <if test="checkStatus != null and  checkStatus != 3 and  checkStatus != 4 and (checkStatus != '' or checkStatus == 0)">
+                and check_status = #{checkStatus}
+            </if>
+
+            <if test="checkStatus == null or (checkStatus == '' and checkStatus != 0)">
+                and check_status !=3 and check_status !=4
+            </if>
+
+            <if test="checkStatus == 3 or checkStatus == 4">
+                and check_status= #{checkStatus}
+            </if>
+
+
+
+        </where>
+
+    </select>
+
+    <insert id="add" keyProperty="priceAdjustmentId" useGeneratedKeys="true">
+        insert into nothree_888.goods_price_adjustment(price_adjustment_id,good_id, current_price, start_time, end_time, remark, adjust_account, create_by, update_by, check_status)
+        values (#{priceAdjustmentId},#{goodId}, #{currentPrice}, #{startTime}, #{endTime}, #{remark}, #{adjustAccount}, #{createBy}, #{updateBy}, #{checkStatus})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.goods_price_adjustment
+        <set>
+
+            <if test="currentPrice != null">
+                current_price = #{currentPrice},
+            </if>
+            <if test="startTime != null and startTime != ''">
+                start_time = #{startTime},
+            </if>
+            <if test="endTime != null and endTime != ''">
+                end_time = #{endTime},
+            </if>
+            <if test="remark != null and remark != ''">
+                remark = #{remark},
+            </if>
+            <if test="adjustAccount != null and adjustAccount != ''">
+                adjust_account = #{adjustAccount},
+            </if>
+
+            <if test="updateBy != null">
+                update_by = #{updateBy},
+            </if>
+
+            <if test="checkStatus != null">
+                check_status = #{checkStatus},
+            </if>
+        </set>
+        where price_adjustment_id = #{priceAdjustmentId}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.goods_price_adjustment where price_adjustment_id = #{priceAdjustmentId}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.goods_price_adjustment where price_adjustment_id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+    
+
+    
+</mapper>
+

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--相对路径:容易写错,不好写-->
+    <link rel="stylesheet" th:href="@{/add.css}">
+
+</head>
+<body>
+    添加角色页....
+<br>
+    <form th:action="@{/role/doadd}" method="post">
+        <input type="text" name="rname">
+        <button>提交</button>
+    </form>
+
+</body>
+</html>

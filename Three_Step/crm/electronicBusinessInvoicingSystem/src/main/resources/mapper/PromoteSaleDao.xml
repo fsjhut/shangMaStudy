@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.PromoteSaleDao">
+
+    <resultMap type="com.javasm.sys.entity.PromoteSale" id="PromoteSaleMap">
+        <result property="promoteId" column="promote_id" jdbcType="INTEGER"/>
+        <result property="promoteName" column="promote_name" jdbcType="VARCHAR"/>
+        <result property="startTime" column="start_time" jdbcType="TIMESTAMP"/>
+        <result property="endTime" column="end_time" jdbcType="TIMESTAMP"/>
+        <result property="promoteType" column="promote_type" jdbcType="INTEGER"/>
+        <result property="priceStartTime" column="price_start_time" jdbcType="TIMESTAMP"/>
+        <result property="priceEndTime" column="price_end_time" jdbcType="TIMESTAMP"/>
+        <result property="promoteFile" column="promote_file" jdbcType="VARCHAR"/>
+        <result property="promoteDetail" column="promote_detail" jdbcType="VARCHAR"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+        <result property="promoteStatus" column="promote_status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="PromoteSaleMap">
+        select
+          promote_id, promote_name, start_time, end_time, promote_type, price_start_time, price_end_time, promote_file, promote_detail, remark, create_by, promote_status
+        from nothree_888.promote_sale
+        where promote_id = #{promoteId}
+    </select>
+
+
+    <select id="selectDetail" resultMap="PromoteSaleMap">
+        select
+        promote_id, promote_name, start_time, end_time, promote_type, price_start_time, price_end_time, promote_file,
+        promote_detail, remark, create_by, promote_status
+        from nothree_888.promote_sale
+        <where>
+            <if test="promoteId != null">
+                and promote_id = #{promoteId}
+            </if>
+            <if test="promoteName != null and promoteName != ''">
+                and promote_name = #{promoteName}
+            </if>
+            <if test="startTime != null">
+                and start_time = #{startTime}
+            </if>
+            <if test="endTime != null">
+                and end_time = #{endTime}
+            </if>
+            <if test="promoteType != null">
+                and promote_type = #{promoteType}
+            </if>
+            <if test="priceStartTime != null">
+                and price_start_time = #{priceStartTime}
+            </if>
+            <if test="priceEndTime != null">
+                and price_end_time = #{priceEndTime}
+            </if>
+            <if test="promoteFile != null and promoteFile != ''">
+                and promote_file = #{promoteFile}
+            </if>
+            <if test="promoteDetail != null and promoteDetail != ''">
+                and promote_detail = #{promoteDetail}
+            </if>
+            <if test="remark != null and remark != ''">
+                and remark = #{remark}
+            </if>
+            <if test="createBy != null and createBy != ''">
+                and create_by = #{createBy}
+            </if>
+            <if test="promoteStatus != null">
+                and promote_status = #{promoteStatus}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectList" resultMap="PromoteSaleMap">
+        select
+        promote_id,promote_name, start_time,promote_type, price_start_time, promote_status
+        from nothree_888.promote_sale
+        <where>
+            <if test="promoteId != null and promoteId != ''">
+                and promote_id = #{promoteId}
+            </if>
+            <if test="promoteName != null and promoteName != ''">
+                and promote_name like "%"#{promoteName}"%"
+            </if>
+            <if test="startTime != null">
+                and start_time = #{startTime}
+            </if>
+            <if test="promoteType != null">
+                and promote_type = #{promoteType}
+            </if>
+            <if test="priceStartTime != null">
+                and price_start_time = #{priceStartTime}
+            </if>
+            <if test="promoteStatus != null">
+                and promote_status = #{promoteStatus}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add"  keyProperty="promoteId" useGeneratedKeys="true">
+        insert into nothree_888.promote_sale(promote_name, start_time, end_time, promote_type, price_start_time, price_end_time, promote_file, promote_detail, remark, create_by, promote_status)
+        values (#{promoteName}, #{startTime}, #{endTime}, #{promoteType}, #{priceStartTime}, #{priceEndTime}, #{promoteFile}, #{promoteDetail}, #{remark}, #{createBy}, #{promoteStatus})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.promote_sale
+        <set>
+            <if test="promoteName != null and promoteName != ''">
+                promote_name = #{promoteName},
+            </if>
+            <if test="startTime != null">
+                start_time = #{startTime},
+            </if>
+            <if test="endTime != null">
+                end_time = #{endTime},
+            </if>
+            <if test="promoteType != null">
+                promote_type = #{promoteType},
+            </if>
+            <if test="priceStartTime != null">
+                price_start_time = #{priceStartTime},
+            </if>
+            <if test="priceEndTime != null">
+                price_end_time = #{priceEndTime},
+            </if>
+            <if test="promoteFile != null and promoteFile != ''">
+                promote_file = #{promoteFile},
+            </if>
+            <if test="promoteDetail != null and promoteDetail != ''">
+                promote_detail = #{promoteDetail},
+            </if>
+            <if test="remark != null and remark != ''">
+                remark = #{remark},
+            </if>
+            <if test="createBy != null and createBy != ''">
+                create_by = #{createBy},
+            </if>
+            <if test="promoteStatus != null">
+                promote_status = #{promoteStatus},
+            </if>
+        </set>
+        where promote_id = #{promoteId}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.promote_sale where promote_id = #{promoteId}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.promote_sale where promote_id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

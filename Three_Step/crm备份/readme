@@ -1,0 +1,8 @@
+Spring-RestTemplate工具类(重要)
+spring内置的一个调用工具类
+RestTemplate t = new RestTemplate();
+t.getForObject();
+t.postForObject()
+t.put(0
+t.delete
+t.exchange()

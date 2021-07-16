@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.CrmFactoryGoodsDao">
+
+    <resultMap type="com.javasm.sys.entity.CrmFactoryGoods" id="CrmFactoryGoodsMap">
+        <result property="goodsCode" column="goods_code" jdbcType="VARCHAR"/>
+        <result property="goodsBrand" column="goods_brand" jdbcType="VARCHAR"/>
+        <result property="goodsName" column="goods_name" jdbcType="VARCHAR"/>
+        <result property="goodsModel" column="goods_model" jdbcType="VARCHAR"/>
+        <result property="goodsColor" column="goods_color" jdbcType="VARCHAR"/>
+        <result property="goodsFrom" column="goods_from" jdbcType="VARCHAR"/>
+        <result property="goodsFlowing" column="goods_flowing" jdbcType="VARCHAR"/>
+        <result property="outMark" column="out_mark" jdbcType="INTEGER"/>
+        <result property="editCode" column="edit_code" jdbcType="VARCHAR"/>
+        <result property="fid" column="fid" jdbcType="INTEGER"/>
+        <result property="fdesc" column="fdesc" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="CrmFactoryGoodsMap">
+        select
+          goods_code, goods_brand, goods_name, goods_model, goods_color, goods_from, goods_flowing, out_mark, edit_code, fid, fdesc
+        from nothree_888.crm_factory_goods
+        where goods_code = #{goodsCode}
+    </select>
+
+
+    <select id="selectList" resultMap="CrmFactoryGoodsMap">
+        select
+        goods_code, goods_brand, goods_name, goods_model, goods_color, goods_from, goods_flowing, out_mark, edit_code,
+        fid, fdesc
+        from nothree_888.crm_factory_goods
+        <where>
+            <if test="goodsCode != null and goodsCode != ''">
+                and goods_code = #{goodsCode}
+            </if>
+            <if test="goodsBrand != null and goodsBrand != ''">
+                and goods_brand = #{goodsBrand}
+            </if>
+            <if test="goodsName != null and goodsName != ''">
+                and goods_name = #{goodsName}
+            </if>
+            <if test="goodsModel != null and goodsModel != ''">
+                and goods_model = #{goodsModel}
+            </if>
+            <if test="goodsColor != null and goodsColor != ''">
+                and goods_color = #{goodsColor}
+            </if>
+            <if test="goodsFrom != null and goodsFrom != ''">
+                and goods_from = #{goodsFrom}
+            </if>
+            <if test="goodsFlowing != null and goodsFlowing != ''">
+                and goods_flowing = #{goodsFlowing}
+            </if>
+            <if test="outMark != null">
+                and out_mark = #{outMark}
+            </if>
+            <if test="editCode != null and editCode != ''">
+                and edit_code = #{editCode}
+            </if>
+            <if test="fid != null">
+                and fid = #{fid}
+            </if>
+            <if test="fdesc != null and fdesc != ''">
+                and fdesc = #{fdesc}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="goodsCode" useGeneratedKeys="true">
+        insert into nothree_888.crm_factory_goods(goods_brand, goods_name, goods_model, goods_color, goods_from, goods_flowing, out_mark, edit_code, fid, fdesc)
+        values (#{goodsBrand}, #{goodsName}, #{goodsModel}, #{goodsColor}, #{goodsFrom}, #{goodsFlowing}, #{outMark}, #{editCode}, #{fid}, #{fdesc})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.crm_factory_goods
+        <set>
+            <if test="goodsBrand != null and goodsBrand != ''">
+                goods_brand = #{goodsBrand},
+            </if>
+            <if test="goodsName != null and goodsName != ''">
+                goods_name = #{goodsName},
+            </if>
+            <if test="goodsModel != null and goodsModel != ''">
+                goods_model = #{goodsModel},
+            </if>
+            <if test="goodsColor != null and goodsColor != ''">
+                goods_color = #{goodsColor},
+            </if>
+            <if test="goodsFrom != null and goodsFrom != ''">
+                goods_from = #{goodsFrom},
+            </if>
+            <if test="goodsFlowing != null and goodsFlowing != ''">
+                goods_flowing = #{goodsFlowing},
+            </if>
+            <if test="outMark != null">
+                out_mark = #{outMark},
+            </if>
+            <if test="editCode != null and editCode != ''">
+                edit_code = #{editCode},
+            </if>
+            <if test="fid != null">
+                fid = #{fid},
+            </if>
+            <if test="fdesc != null and fdesc != ''">
+                fdesc = #{fdesc},
+            </if>
+        </set>
+        where goods_code = #{goodsCode}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.crm_factory_goods where goods_code = #{goodsCode}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.crm_factory_goods where goods_code in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

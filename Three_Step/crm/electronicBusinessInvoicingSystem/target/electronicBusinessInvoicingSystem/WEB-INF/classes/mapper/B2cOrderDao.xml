@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.B2cOrderDao">
+
+    <resultMap type="com.javasm.sys.entity.B2cOrder" id="B2cOrderMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="orderNumber" column="order_number" jdbcType="INTEGER"/>
+        <result property="orderType" column="order_type" jdbcType="VARCHAR"/>
+        <result property="orderAction" column="order_action" jdbcType="VARCHAR"/>
+        <result property="businessTypes" column="business_types" jdbcType="VARCHAR"/>
+        <result property="payMethod" column="pay_method" jdbcType="VARCHAR"/>
+        <result property="distribution" column="distribution" jdbcType="VARCHAR"/>
+        <result property="orderState" column="order_state" jdbcType="VARCHAR"/>
+        <result property="orderDate" column="order_date" jdbcType="TIMESTAMP"/>
+        <result property="creatBy" column="creat_by" jdbcType="VARCHAR"/>
+        <result property="creatTime" column="creat_time" jdbcType="TIMESTAMP"/>
+        <result property="consigneeId" column="consignee_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <resultMap type="com.javasm.sys.entity.B2cOrder" id="B2cOrderMapDetail">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="orderNumber" column="order_number" jdbcType="INTEGER"/>
+        <result property="orderType" column="order_type" jdbcType="VARCHAR"/>
+        <result property="orderAction" column="order_action" jdbcType="VARCHAR"/>
+        <result property="businessTypes" column="business_types" jdbcType="VARCHAR"/>
+        <result property="payMethod" column="pay_method" jdbcType="VARCHAR"/>
+        <result property="distribution" column="distribution" jdbcType="VARCHAR"/>
+        <result property="orderState" column="order_state" jdbcType="VARCHAR"/>
+        <result property="orderDate" column="order_date" jdbcType="TIMESTAMP"/>
+        <result property="creatBy" column="creat_by" jdbcType="VARCHAR"/>
+        <result property="creatTime" column="creat_time" jdbcType="TIMESTAMP"/>
+        <result property="consigneeId" column="consignee_id" jdbcType="INTEGER"/>
+        <association property="consigneeInformation" javaType="ConsigneeInformation">
+            <result property="consigneeName" column="consignee_name" jdbcType="VARCHAR"/>
+            <result property="consigneeAccount" column="consignee_account" jdbcType="VARCHAR"/>
+            <result property="consigneeCall" column="consignee_call" jdbcType="VARCHAR"/>
+            <result property="consigneePhone" column="consignee_phone" jdbcType="VARCHAR"/>
+            <result property="zipCode" column="zip_code" jdbcType="VARCHAR"/>
+            <result property="consigneeAddress" column="consignee_address" jdbcType="VARCHAR"/>
+            <result property="distributionRegion" column="distribution_region" jdbcType="VARCHAR"/>
+            <result property="distributionWay" column="distribution_way" jdbcType="VARCHAR"/>
+            <result property="distributionMoney" column="distribution_money" jdbcType="VARCHAR"/>
+            <result property="payMethod" column="pay_method" jdbcType="VARCHAR"/>
+            <result property="extractTime" column="extract_time" jdbcType="VARCHAR"/>
+            <result property="emil" column="emil" jdbcType="VARCHAR"/>
+            <result property="remitter" column="remitter" jdbcType="VARCHAR"/>
+            <result property="note" column="note" jdbcType="VARCHAR"/>
+        </association>
+    </resultMap>
+
+    <select id="selectById" resultMap="B2cOrderMap">
+        select
+          id, order_number, order_type, order_action, business_types, pay_method, distribution, order_state, order_date, creat_by, creat_time, consignee_id
+        from nothree_888.b2c_order
+        where id = #{id}
+    </select>
+
+    <select id="selectOrderDetailById" resultMap="B2cOrderMapDetail">
+      select
+            o.id, o.order_number, o.order_type, o.order_action, o.business_types, o.pay_method,
+            o.distribution, o.order_state, o.order_date, o.creat_by, o.creat_time, o.consignee_id,
+            con.consignee_name, con.consignee_account, con.consignee_call, con.consignee_phone,
+            con.zip_code, con.consignee_address, con.distribution_region, con.distribution_way,
+            con.distribution_money, con.pay_method, con.extract_time, con.emil, con.remitter, con.note
+      from b2c_order as o
+      left join `consignee_information` as con
+      on con.id = o.consignee_id
+      where o.id = #{id}
+    </select>
+
+
+    <select id="selectList" resultMap="B2cOrderMap">
+        select
+          id, order_number, order_type, order_action, business_types, pay_method, distribution, order_state, order_date, creat_by, creat_time, consignee_id
+        from nothree_888.b2c_order
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="orderNumber != null">
+                and order_number = #{orderNumber}
+            </if>
+            <if test="orderType != null and orderType != ''">
+                and order_type = #{orderType}
+            </if>
+            <if test="orderAction != null and orderAction != ''">
+                and order_action = #{orderAction}
+            </if>
+            <if test="businessTypes != null and businessTypes != ''">
+                and business_types = #{businessTypes}
+            </if>
+            <if test="payMethod != null and payMethod != ''">
+                and pay_method = #{payMethod}
+            </if>
+            <if test="distribution != null and distribution != ''">
+                and distribution = #{distribution}
+            </if>
+            <if test="orderState != null and orderState != ''">
+                and order_state = #{orderState}
+            </if>
+            <if test="orderDate != null">
+                and order_date = #{orderDate}
+            </if>
+            <if test="creatBy != null and creatBy != ''">
+                and creat_by = #{creatBy}
+            </if>
+            <if test="creatTime != null">
+                and creat_time = #{creatTime}
+            </if>
+            <if test="consigneeId != null">
+                and consignee_id = #{consigneeId}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="id" useGeneratedKeys="true">
+        insert into nothree_888.b2c_order(order_number, order_type, order_action, business_types, pay_method, distribution, order_state, order_date, creat_by, creat_time, consignee_id)
+        values (#{orderNumber}, #{orderType}, #{orderAction}, #{businessTypes}, #{payMethod}, #{distribution}, #{orderState}, #{orderDate}, #{creatBy}, #{creatTime}, #{consigneeId})
+    </insert>
+
+    <insert id="insertB2C" parameterType="B2cOrder" >
+        insert into nothree_888.b2c_order(order_number, order_type, order_action, business_types, pay_method, distribution, order_state, order_date, creat_by, creat_time, consignee_id)
+        values
+        <foreach collection="list" item="B2cOrder" separator=",">
+            (#{B2cOrder.orderNumber}, #{B2cOrder.orderType}, #{B2cOrder.orderAction}, #{B2cOrder.businessTypes}, #{B2cOrder.payMethod}, #{B2cOrder.distribution}, #{B2cOrder.orderState}, #{B2cOrder.orderDate}, #{B2cOrder.creatBy}, #{B2cOrder.creatTime}, #{B2cOrder.consigneeId})
+        </foreach>
+    </insert>
+    <update id="updateById">
+        update nothree_888.b2c_order
+        <set>
+            <if test="orderNumber != null">
+                order_number = #{orderNumber},
+            </if>
+            <if test="orderType != null and orderType != ''">
+                order_type = #{orderType},
+            </if>
+            <if test="orderAction != null and orderAction != ''">
+                order_action = #{orderAction},
+            </if>
+            <if test="businessTypes != null and businessTypes != ''">
+                business_types = #{businessTypes},
+            </if>
+            <if test="payMethod != null and payMethod != ''">
+                pay_method = #{payMethod},
+            </if>
+            <if test="distribution != null and distribution != ''">
+                distribution = #{distribution},
+            </if>
+            <if test="orderState != null and orderState != ''">
+                order_state = #{orderState},
+            </if>
+            <if test="orderDate != null">
+                order_date = #{orderDate},
+            </if>
+            <if test="creatBy != null and creatBy != ''">
+                creat_by = #{creatBy},
+            </if>
+            <if test="creatTime != null">
+                creat_time = #{creatTime},
+            </if>
+            <if test="consigneeId != null">
+                consignee_id = #{consigneeId},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.b2c_order where id = #{id}
+    </delete>
+
+  <delete id="delByIds">
+        delete from nothree_888.b2c_order where id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+ </mapper>
+

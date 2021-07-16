@@ -1,0 +1,55 @@
+package com.javasm.sys.handler;
+
+import com.javasm.sys.entity.CrmSupplier;
+import com.javasm.sys.service.CrmSupplierService;
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+
+import com.javasm.commons.base.BaseHandler;
+import com.javasm.commons.entity.AxiosResult;
+
+import java.util.Arrays;
+import java.util.List;
+
+@RestController
+@RequestMapping("crmSupplier")
+public class CrmSupplierHandler extends BaseHandler {
+
+    @Resource
+    private CrmSupplierService crmSupplierService;
+
+    @GetMapping("{id}")
+    public AxiosResult selectById(@PathVariable("id") String id) {
+        CrmSupplier obj = this.crmSupplierService.selectById(id);
+        return suc(obj);
+    }
+
+    @GetMapping("list")
+    public AxiosResult selectList(CrmSupplier obj) {
+        startPage();
+        List<CrmSupplier> list = this.crmSupplierService.selectList(obj);
+        return toTableDatas(list);
+    }
+
+    @PostMapping
+    public AxiosResult add(@RequestBody CrmSupplier obj) {
+        boolean r = this.crmSupplierService.add(obj);
+        return result(r);
+    }
+
+    @PutMapping
+    public AxiosResult update(@RequestBody CrmSupplier obj) {
+        boolean r = this.crmSupplierService.updateById(obj);
+        return result(r);
+    }
+
+    @DeleteMapping("{ids}")
+    public AxiosResult delById(@PathVariable("ids") String ids) {
+        String[] split = ids.split(",");
+        boolean r = this.crmSupplierService.delByIds(Arrays.asList(split));
+        return result(r);
+    }
+
+
+}

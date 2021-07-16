@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.CrmSysuserDao">
+
+    <resultMap type="com.javasm.sys.entity.CrmSysuser" id="CrmSysuserMap">
+        <result property="uid" column="uid" jdbcType="INTEGER"/>
+        <result property="uname" column="uname" jdbcType="VARCHAR"/>
+        <result property="realname" column="realname" jdbcType="VARCHAR"/>
+        <result property="upassword" column="upassword" jdbcType="VARCHAR"/>
+        <result property="usex" column="usex" jdbcType="INTEGER"/>
+        <result property="ustate" column="ustate" jdbcType="INTEGER"/>
+        <result property="ujob" column="ujob" jdbcType="INTEGER"/>
+        <result property="uphone" column="uphone" jdbcType="VARCHAR"/>
+        <result property="uemail" column="uemail" jdbcType="VARCHAR"/>
+        <result property="udesc" column="udesc" jdbcType="VARCHAR"/>
+        <result property="deptno" column="deptno" jdbcType="INTEGER"/>
+        <result property="rid" column="rid" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="VARCHAR"/>
+        <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+        <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="CrmSysuserMap">
+        select
+          uid, uname, realname, upassword, usex, ustate, ujob, uphone, uemail, udesc, deptno, rid, create_time, update_time, create_by, update_by
+        from nothree_888.crm_sysuser
+        where uid = #{uid}
+    </select>
+
+
+    <select id="selectList" resultMap="CrmSysuserMap">
+        select
+        uid, uname, realname, upassword, usex, ustate, ujob, uphone, uemail, udesc, deptno, rid, create_time,
+        update_time, create_by, update_by
+        from nothree_888.crm_sysuser
+        <where>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+            <if test="uname != null and uname != ''">
+                and uname = #{uname}
+            </if>
+            <if test="realname != null and realname != ''">
+                and realname = #{realname}
+            </if>
+            <if test="upassword != null and upassword != ''">
+                and upassword = #{upassword}
+            </if>
+            <if test="usex != null and usex != ''">
+                and usex = #{usex}
+            </if>
+            <if test="ustate != null">
+                and ustate = #{ustate}
+            </if>
+            <if test="ujob != null">
+                and ujob = #{ujob}
+            </if>
+            <if test="uphone != null and uphone != ''">
+                and uphone = #{uphone}
+            </if>
+            <if test="uemail != null and uemail != ''">
+                and uemail = #{uemail}
+            </if>
+            <if test="udesc != null and udesc != ''">
+                and udesc = #{udesc}
+            </if>
+            <if test="deptno != null">
+                and deptno = #{deptno}
+            </if>
+            <if test="rid != null">
+                and rid = #{rid}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="uid" useGeneratedKeys="true">
+        insert into nothree_888.crm_sysuser(uname, realname, upassword, usex, ustate, ujob, uphone, uemail, udesc, deptno, rid)
+        values (#{uname}, #{realname}, #{upassword}, #{usex}, #{ustate}, #{ujob}, #{uphone}, #{uemail}, #{udesc}, #{deptno}, #{rid})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.crm_sysuser
+        <set>
+            <if test="uname != null and uname != ''">
+                uname = #{uname},
+            </if>
+            <if test="realname != null and realname != ''">
+                realname = #{realname},
+            </if>
+            <if test="upassword != null and upassword != ''">
+                upassword = #{upassword},
+            </if>
+            <if test="usex != null and usex != ''">
+                usex = #{usex},
+            </if>
+            <if test="ustate != null">
+                ustate = #{ustate},
+            </if>
+            <if test="ujob != null">
+                ujob = #{ujob},
+            </if>
+            <if test="uphone != null and uphone != ''">
+                uphone = #{uphone},
+            </if>
+            <if test="uemail != null and uemail != ''">
+                uemail = #{uemail},
+            </if>
+            <if test="udesc != null and udesc != ''">
+                udesc = #{udesc},
+            </if>
+            <if test="deptno != null">
+                deptno = #{deptno},
+            </if>
+            <if test="rid != null">
+                rid = #{rid},
+            </if>
+        </set>
+        where uid = #{uid}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.crm_sysuser where uid = #{uid}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.crm_sysuser where uid in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+
+    <select id="selectAll" parameterType="crmsysuser" resultType="com.javasm.commons.bean.ReturnCrmSysuser">
+        SELECT u.uid,u.uname,u.upassword,u.realname,d.deptno,d.dname,u.usex as sexvalue,u.ustate,u.ujob,u.uphone,u.uemail,r.rname from crm_sysuser u
+        left join tb_dept d on u.deptno=d.deptno
+        left join crm_sysrole r on u.rid=r.rid
+        <where>
+            <if test="deptno != null and deptno !='' ">
+                u.deptno = #{deptno}
+            </if>
+            <if test="ustate != null">
+                u.ustate = #{ustate}
+            </if>
+            <if test="ujob != null and ujob !='' ">
+                u.ujob = #{ujob}
+            </if>
+            <if test="rid != null and rid !='' ">
+                u.rid = #{rid}
+            </if>
+            <if test="uname != null and uname != ''">
+                u.uname = #{uname}
+            </if>
+            <if test="realname != null and realname != ''">
+                u.realname = #{realname}
+            </if>
+            <if test="usex != null">
+                u.usex = #{usex}
+            </if>
+        </where>
+    </select>
+
+    <update id="Sysuserforbidden">
+        update crm_sysuser set ustate=-1 where uid=#{uid};
+    </update>
+    <update id="sysuserOpen">
+        update crm_sysuser set ustate=0 where uid=#{uid}
+    </update>
+</mapper>
+

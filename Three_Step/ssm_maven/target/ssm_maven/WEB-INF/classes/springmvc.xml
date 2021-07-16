@@ -29,15 +29,15 @@
         <property name="suffix" value=".jsp"/>
     </bean>
     <!--配置监听器-->
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <mvc:mapping path="/**"/>
-            <mvc:exclude-mapping path="/sysuser/loginByPwd"/>
-            <mvc:exclude-mapping path="/down"/>
-            <mvc:exclude-mapping path="/upload"/>
-            <mvc:exclude-mapping path="/sysuser/loginByPhone/**"/>
-            <mvc:exclude-mapping path="/sysuser/valicode/**"/>
-            <bean class="com.javasm.commons.interceptor.LoginInterceptor"/>
-        </mvc:interceptor>
-    </mvc:interceptors>
+    <!--<mvc:interceptors>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/**"/>-->
+            <!--<mvc:exclude-mapping path="/sysuser/loginByPwd"/>-->
+            <!--<mvc:exclude-mapping path="/down"/>-->
+            <!--<mvc:exclude-mapping path="/upload"/>-->
+            <!--<mvc:exclude-mapping path="/sysuser/loginByPhone/**"/>-->
+            <!--<mvc:exclude-mapping path="/sysuser/valicode/**"/>-->
+            <!--<bean class="com.javasm.commons.interceptor.LoginInterceptor"/>-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
 </beans>

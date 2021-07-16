@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.BrandManagerDao">
+
+    <resultMap type="com.javasm.sys.entity.BrandManager" id="BrandManagerMap">
+        <result property="brandId" column="brand_id" jdbcType="INTEGER"/>
+        <result property="brandName" column="brand_name" jdbcType="VARCHAR"/>
+        <result property="brandUrl" column="brand_url" jdbcType="VARCHAR"/>
+        <result property="brandDesc" column="brand_desc" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="BrandManagerMap">
+        select
+          brand_id, brand_name, brand_url, brand_desc
+        from nothree_888.brand_manager
+        where brand_id = #{brandId}
+    </select>
+
+
+    <select id="selectList" resultMap="BrandManagerMap">
+        select
+        brand_id, brand_name, brand_url, brand_desc
+        from nothree_888.brand_manager
+        <where>
+            <if test="brandId != null">
+                and brand_id = #{brandId}
+            </if>
+            <if test="brandName != null and brandName != ''">
+                and brand_name = #{brandName}
+            </if>
+            <if test="brandUrl != null and brandUrl != ''">
+                and brand_url = #{brandUrl}
+            </if>
+            <if test="brandDesc != null and brandDesc != ''">
+                and brand_desc = #{brandDesc}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="brandId" useGeneratedKeys="true">
+        insert into nothree_888.brand_manager(brand_name, brand_url, brand_desc)
+        values (#{brandName}, #{brandUrl}, #{brandDesc})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.brand_manager
+        <set>
+            <if test="brandName != null and brandName != ''">
+                brand_name = #{brandName},
+            </if>
+            <if test="brandUrl != null and brandUrl != ''">
+                brand_url = #{brandUrl},
+            </if>
+            <if test="brandDesc != null and brandDesc != ''">
+                brand_desc = #{brandDesc},
+            </if>
+        </set>
+        where brand_id = #{brandId}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.brand_manager where brand_id = #{brandId}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.brand_manager where brand_id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

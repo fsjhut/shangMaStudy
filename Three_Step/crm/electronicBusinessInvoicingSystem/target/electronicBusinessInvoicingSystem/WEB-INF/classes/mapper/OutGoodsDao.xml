@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.sys.dao.OutGoodsDao">
+
+    <resultMap type="com.javasm.sys.entity.OutGoods" id="OutGoodsMap">
+        <result property="outGoodsId" column="out_goods_id" jdbcType="INTEGER"/>
+        <result property="outOrder" column="out_order" jdbcType="INTEGER"/>
+        <result property="goodsIem" column="goods_iem" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="OutGoodsMap">
+        select
+          out_goods_id, out_order, goods_iem
+        from nothree_888.out_goods
+        where out_goods_id = #{outGoodsId}
+    </select>
+
+
+    <select id="selectList" resultMap="OutGoodsMap">
+        select
+        out_goods_id, out_order, goods_iem
+        from nothree_888.out_goods
+        <where>
+            <if test="outGoodsId != null">
+                and out_goods_id = #{outGoodsId}
+            </if>
+            <if test="outOrder != null">
+                and out_order = #{outOrder}
+            </if>
+            <if test="goodsIem != null">
+                and goods_iem = #{goodsIem}
+            </if>
+        </where>
+    </select>
+
+    <insert id="add" keyProperty="outGoodsId" useGeneratedKeys="true">
+        insert into nothree_888.out_goods(out_order, goods_iem)
+        values (#{outOrder}, #{goodsIem})
+    </insert>
+
+    <update id="updateById">
+        update nothree_888.out_goods
+        <set>
+            <if test="outOrder != null">
+                out_order = #{outOrder},
+            </if>
+            <if test="goodsIem != null">
+                goods_iem = #{goodsIem},
+            </if>
+        </set>
+        where out_goods_id = #{outGoodsId}
+    </update>
+
+    <delete id="delById">
+        delete from nothree_888.out_goods where out_goods_id = #{outGoodsId}
+    </delete>
+
+    <delete id="delByIds">
+        delete from nothree_888.out_goods where out_goods_id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+
