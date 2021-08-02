@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.dynamic.dao.DynamicDao">
+    <resultMap type="com.javasm.dynamic.entity.Dynamic" id="DynamicMap">
+        <result property="dynamicId" column="dynamic_id" jdbcType="INTEGER"/>
+        <result property="uid" column="uid" jdbcType="INTEGER"/>
+        <result property="dynamicText" column="dynamic_text" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+        <result property="type" column="type" jdbcType="INTEGER"/>
+        <result property="equipment" column="equipment" jdbcType="INTEGER"/>
+        <result property="likeNum" column="like_num" jdbcType="INTEGER"/>
+        <result property="commentNum" column="comment_num" jdbcType="INTEGER"/>
+        <result property="dynamicStatus" column="dynamic_status" jdbcType="INTEGER"/>
+        <result property="nickName" column="nickname" jdbcType="VARCHAR"/>
+        <!--<result property="imgStr" column="imgStr" jdbcType="VARCHAR"/>-->
+        <collection property="imgList" ofType="java.lang.String">
+            <constructor>
+                <arg column="imgStr"/>
+            </constructor>
+        </collection>
+    </resultMap>
+
+    <!--<select id="selectById" resultMap="DynamicMap">-->
+        <!--select-->
+          <!--dynamic_id, uid, dynamic_text, create_time, type, equipment, like_num, comment_num, dynamic_status-->
+        <!--from live.dynamic-->
+        <!--where dynamic_id = #{dynamicId}-->
+    <!--</select>-->
+
+
+    <select id="selectListDetail" resultMap="DynamicMap">
+        select d.dynamic_id, u.nickname as nickname, img.img_src as imgStr, d.dynamic_text,
+        d.create_time, d.type, d.equipment, d.like_num, d.comment_num
+        from dynamic as d
+        left join user_base_info as u  on u.uid = d.uid
+        left join dynamic_img as img on img.dynamic_id = d.dynamic_id and img.uid = d.uid
+        <where>
+            <if test="dynamicId != null">
+                and dynamic_id = #{dynamicId}
+            </if>
+            <if test="uid != null">
+                and uid = #{uid}
+            </if>
+            <if test="dynamicText != null and dynamicText != ''">
+                and dynamic_text = #{dynamicText}
+            </if>
+            <if test="createTime != null and createTime != ''">
+                and create_time = #{createTime}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="equipment != null">
+                and equipment = #{equipment}
+            </if>
+            <if test="likeNum != null">
+                and like_num = #{likeNum}
+            </if>
+            <if test="commentNum != null">
+                and comment_num = #{commentNum}
+            </if>
+            <if test="1">
+                and dynamic_status = 3
+            </if>
+        </where>
+    </select>
+
+    <!--<insert id="insert" keyProperty="dynamicId" useGeneratedKeys="true">-->
+        <!--insert into live.dynamic(uid, dynamic_text, create_time, type, equipment, like_num, comment_num, dynamic_status)-->
+        <!--values (#{uid}, #{dynamicText}, #{createTime}, #{type}, #{equipment}, #{likeNum}, #{commentNum}, #{dynamicStatus})-->
+    <!--</insert>-->
+
+    <!--<update id="updateById">-->
+        <!--update live.dynamic-->
+        <!--<set>-->
+            <!--<if test="uid != null">-->
+                <!--uid = #{uid},-->
+            <!--</if>-->
+            <!--<if test="dynamicText != null and dynamicText != ''">-->
+                <!--dynamic_text = #{dynamicText},-->
+            <!--</if>-->
+            <!--<if test="createTime != null and createTime != ''">-->
+                <!--create_time = #{createTime},-->
+            <!--</if>-->
+            <!--<if test="type != null">-->
+                <!--type = #{type},-->
+            <!--</if>-->
+            <!--<if test="equipment != null">-->
+                <!--equipment = #{equipment},-->
+            <!--</if>-->
+            <!--<if test="likeNum != null">-->
+                <!--like_num = #{likeNum},-->
+            <!--</if>-->
+            <!--<if test="commentNum != null">-->
+                <!--comment_num = #{commentNum},-->
+            <!--</if>-->
+            <!--<if test="dynamicStatus != null">-->
+                <!--dynamic_status = #{dynamicStatus},-->
+            <!--</if>-->
+        <!--</set>-->
+        <!--where dynamic_id = #{dynamicId}-->
+    <!--</update>-->
+
+    <!--<delete id="deleteById">-->
+        <!--delete from live.dynamic where dynamic_id = #{dynamicId}-->
+    <!--</delete>-->
+
+    <!--<delete id="deleteBatchIds">-->
+        <!--delete from live.dynamic where dynamic_id in-->
+        <!--<foreach collection="list" open="(" close=")" item="id" separator=",">-->
+            <!--#{id}-->
+        <!--</foreach>-->
+    <!--</delete>-->
+</mapper>
+

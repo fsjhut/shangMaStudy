@@ -2,7 +2,9 @@ package com.javasm;
 
 import org.junit.Test;
 
+import java.nio.charset.Charset;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -348,6 +350,41 @@ public class JavaTest {
     public void test16() {
         int[] arr = {9, 8, 7, 0, 6};
         sort(arr);
+        System.out.println(arr.toString());
         System.out.println(Arrays.toString(arr));
+    }
+    @Test
+    public void test17(){
+        String s = String.valueOf(10);
+        Integer i = Integer.parseInt("150");
+        Integer j = Integer.parseInt("150");
+        Integer integer = Integer.valueOf(100);
+        System.out.println(i==j);
+        Integer.parseInt("150");
+        int i1 = Character.charCount(150);
+        System.out.println(i1);
+//        Character.toUpperCase();
+        int d = Character.getNumericValue('m');
+        System.out.println(d);
+        System.out.println(Math.random());
+        int round = Math.round(20);
+        System.out.println(round);
+//        i.wait(100);
+        Class<String> stringClass = String.class;
+//        Class<? extends JavaTest> aClass = getClass(String);
+//        Class.forName()
+        Charset charset = Charset.forName("utf-8");
+        System.out.println(charset);
+        byte[] bytes = "尚马教育".getBytes();
+        System.out.println(Arrays.toString(bytes));
+        String a = new String(bytes,Charset.forName("utf-16"));
+        System.out.println(a);
+    }
+    @Test
+    public void test18(){
+        String str = "bca12a33a44";
+        //通过a进行分割
+        String[] split = str.split("a", -4);
+        System.out.println(Arrays.toString(split));
     }
 }

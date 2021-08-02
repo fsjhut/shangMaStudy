@@ -9,5 +9,5 @@ public class MvcException extends Exception {
     public MvcException(){ super(); }
     public MvcException(String msg){ super(msg); }
     String msg = "该错误是：密码错误";
-    super.
+
 }

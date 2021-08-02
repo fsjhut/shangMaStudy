@@ -1,0 +1,33 @@
+{
+  "name" : "DynamicImg",
+  "preName" : "",
+  "comment" : null,
+  "templateGroupName" : "MybatisPlus",
+  "fullColumn" : [ {
+    "name" : "dynamicId",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "uid",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "imgSrc",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "com.javasm.dynamic",
+  "savePath" : "./src/main/java/com/javasm/dynamic",
+  "saveModelName" : "piglive"
+}

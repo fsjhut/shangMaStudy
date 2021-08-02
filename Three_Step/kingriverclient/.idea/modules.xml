@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kingriverclient.iml" filepath="$PROJECT_DIR$/kingriverclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/order-system/ordersystem.iml" filepath="$PROJECT_DIR$/order-system/ordersystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user-system/user-system.iml" filepath="$PROJECT_DIR$/user-system/user-system.iml" />
+    </modules>
+  </component>
+</project>

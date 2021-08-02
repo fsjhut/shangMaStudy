@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.dynamic.dao.UserCommentDao">
+
+    <resultMap type="com.javasm.dynamic.entity.UserComment" id="UserCommentMap">
+        <result property="commentId" column="comment_id" jdbcType="INTEGER"/>
+        <result property="commentContext" column="comment_context" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+        <result property="commentEquip" column="comment_equip" jdbcType="INTEGER"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="userInfoId" column="user_info_id" jdbcType="INTEGER"/>
+        <result property="dynamicId" column="dynamic_id" jdbcType="INTEGER"/>
+        <result property="commentPid" column="comment_pid" jdbcType="INTEGER"/>
+        <result property="commentStatus" column="comment_status" jdbcType="INTEGER"/>
+        <result property="backup2" column="backup2" jdbcType="VARCHAR"/>
+        <result property="userName" column="uname" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--<select id="selectById" resultMap="UserCommentMap">-->
+        <!--select-->
+          <!--comment_id, comment_context, create_time, comment_equip, user_id, user_info_id, dynamic_id, comment_pid, status, backup2-->
+        <!--from live.user_comment-->
+        <!--where comment_id = #{commentId}-->
+    <!--</select>-->
+
+
+    <select id="selectListDetail" resultMap="UserCommentMap">
+        select comment_id, comment_context, create_time, comment_equip, u.accountname as uname, user_info_id, dynamic_id, comment_pid, comment_status
+        from live.user_comment
+        left JOIN user_account as u on u.uid = live.user_comment.user_id
+        <where>
+            <if test="commentId != null">
+                and comment_id = #{commentId}
+            </if>
+            <if test="commentContext != null and commentContext != ''">
+                and comment_context = #{commentContext}
+            </if>
+            <if test="createTime != null and createTime != ''">
+                and create_time = #{createTime}
+            </if>
+            <if test="commentEquip != null">
+                and comment_equip = #{commentEquip}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="userInfoId != null">
+                and user_info_id = #{userInfoId}
+            </if>
+            <if test="dynamicId != null">
+                and dynamic_id = #{dynamicId}
+            </if>
+            <if test="commentPid != null">
+                and comment_pid = #{commentPid}
+            </if>
+            <if test="1">
+                and comment_status = 1
+            </if>
+            <if test="backup2 != null and backup2 != ''">
+                and backup2 = #{backup2}
+            </if>
+        </where>
+    </select>
+
+    <!--<insert id="add" keyProperty="commentId" useGeneratedKeys="true">-->
+        <!--insert into live.user_comment(comment_context, create_time, comment_equip, user_id, user_info_id, dynamic_id, comment_pid, status, backup2)-->
+        <!--values (#{commentContext}, #{createTime}, #{commentEquip}, #{userId}, #{userInfoId}, #{dynamicId}, #{commentPid}, #{status}, #{backup2})-->
+    <!--</insert>-->
+
+    <!--<update id="updateById">-->
+        <!--update live.user_comment-->
+        <!--<set>-->
+            <!--<if test="commentContext != null and commentContext != ''">-->
+                <!--comment_context = #{commentContext},-->
+            <!--</if>-->
+            <!--<if test="createTime != null and createTime != ''">-->
+                <!--create_time = #{createTime},-->
+            <!--</if>-->
+            <!--<if test="commentEquip != null">-->
+                <!--comment_equip = #{commentEquip},-->
+            <!--</if>-->
+            <!--<if test="userId != null">-->
+                <!--user_id = #{userId},-->
+            <!--</if>-->
+            <!--<if test="userInfoId != null">-->
+                <!--user_info_id = #{userInfoId},-->
+            <!--</if>-->
+            <!--<if test="dynamicId != null">-->
+                <!--dynamic_id = #{dynamicId},-->
+            <!--</if>-->
+            <!--<if test="commentPid != null">-->
+                <!--comment_pid = #{commentPid},-->
+            <!--</if>-->
+            <!--<if test="status != null">-->
+                <!--status = #{status},-->
+            <!--</if>-->
+            <!--<if test="backup2 != null and backup2 != ''">-->
+                <!--backup2 = #{backup2},-->
+            <!--</if>-->
+        <!--</set>-->
+        <!--where comment_id = #{commentId}-->
+    <!--</update>-->
+
+    <!--<delete id="delById">-->
+        <!--delete from live.user_comment where comment_id = #{commentId}-->
+    <!--</delete>-->
+
+    <!--<delete id="delByIds">-->
+        <!--delete from live.user_comment where comment_id in-->
+        <!--<foreach collection="list" open="(" close=")" item="id" separator=",">-->
+            <!--#{id}-->
+        <!--</foreach>-->
+    <!--</delete>-->
+</mapper>
+

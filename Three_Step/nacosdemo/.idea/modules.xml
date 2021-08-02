@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/nacosdemo.iml" filepath="$PROJECT_DIR$/nacosdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/order-system/ordersystem.iml" filepath="$PROJECT_DIR$/order-system/ordersystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user-system/usersystem.iml" filepath="$PROJECT_DIR$/user-system/usersystem.iml" />
+    </modules>
+  </component>
+</project>
