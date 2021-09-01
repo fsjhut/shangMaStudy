@@ -5,11 +5,11 @@
 	  </div>
 	  
 	  <el-form :rules="rules" ref="loginform" :model="loginform" hide-required-asterisk label-width="80px">
-	    <el-form-item label="用户名" prop="uname">
-	      <el-input  v-model="loginform.uname"suffix-icon="el-icon-user-solid" ></el-input>
+	    <el-form-item label="用户名" prop="username">
+	      <el-input  v-model="loginform.username"suffix-icon="el-icon-user-solid" ></el-input>
 	    </el-form-item>
-		<el-form-item label="密码" prop="upwd">
-	      <el-input v-model="loginform.upwd" suffix-icon="el-icon-lock"  show-password></el-input>
+		<el-form-item label="密码" prop="pwd">
+	      <el-input v-model="loginform.pwd" suffix-icon="el-icon-lock"  show-password></el-input>
 	    </el-form-item>
 		
 	    <el-form-item>
@@ -55,18 +55,19 @@
 		3. 页面跳转时，使用路由跳转  this.$router.push('/main')
 		
 	 */
+	
 	export default{
 		
 		data(){
 			return{
 				loginform: {
-					  uname: '',
-					  upwd: ''
+					  username: '',
+					  pwd: ''
 				    },
 				rules: {
-					  uname: [
+					  username: [
 						{ required: true, message: '请输入用户名', trigger: 'blur' },
-						{ min: 6, max: 8, message: '长度在 6 到 8 个字符', trigger: 'blur' }
+						{ min: 2, max: 8, message: '长度在 6 到 8 个字符', trigger: 'blur' }
 					  ]
 				}
 			}
@@ -79,15 +80,30 @@
 				this.$refs[formname].validate((valid) => {
 					  if (valid) {
 						console.log("发送ajax请求 去登录");
-						console.log(this);
-						this.$router.push('/main');
+						console.log("整理参数")
+						console.log(this)
+						// console.log(this.$qs.stringify(this.loginform));
+						// this.$router.push('/main');
+						// 跨域请求，因此需要传递完整的路径，比较麻烦，可以配置一个baseurl，然后进行拼接
+						this.$axios.post("login",this.$qs.stringify(this.loginform))
+						.then(returnData=>{
+							console.log(returnData);
+							   if(returnData.data.returnCode==20001){
+								   //失败时 提示信息
+								   this.$message.error(returnData.data.returnMsg);
+							   }else if(returnData.data.returnCode==10000){
+								   //成功时 切换视图
+								   this.$router.push('/main');
+							   }
+						}).catch(err=>{
+							console.log(err);
+					   })
 					  } else {
 						console.log('参数有误');
 						return false;
 					  }
 					});
-				
-					
+	
 			 },
 			 myreset(){
 				 this.$refs['loginform'].resetFields();

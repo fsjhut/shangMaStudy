@@ -11,7 +11,9 @@ public class Menu {
     private Integer pid;
     private String pname;
     private String glyphicon;
+    // 显示对应的子菜单
     private List<Menu> submenu = new ArrayList<Menu>();
+//    private List<SubMenu> subs;
 
     public Integer getMenuid() {
         return menuid;

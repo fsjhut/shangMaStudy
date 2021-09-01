@@ -20,7 +20,7 @@ import java.util.List;
 @WebServlet("/menu/*")
 public class MenuServlet extends BaseServlet {
 
-    public void query(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
+    public void query(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
         String dowhat = req.getParameter("dowhat");
         ReturnEntity re = new ReturnEntity();
@@ -28,22 +28,22 @@ public class MenuServlet extends BaseServlet {
         String qmname = req.getParameter("qmname");
         String qpidstr = req.getParameter("qpid");
         Integer qpid = null;
-        if(qpidstr!=null&&!"".equals(qpidstr)){
+        if (qpidstr != null && !"".equals(qpidstr)) {
             qpid = Integer.valueOf(qpidstr);
         }
-        Menu queryMenu = new Menu(qmname,qpid);
+        Menu queryMenu = new Menu(qmname, qpid);
         String pagestr = req.getParameter("page");
         String pagesizestr = req.getParameter("pagesize");
         Integer page = 1;
         Integer pagesize = 10;
-        if(pagestr!=null&&!"".equals(pagestr)){
-            page=Integer.valueOf(pagestr);
+        if (pagestr != null && !"".equals(pagestr)) {
+            page = Integer.valueOf(pagestr);
         }
-        if(pagesizestr!=null&&!"".equals(pagesizestr)){
-            pagesize=Integer.valueOf(pagesizestr);
+        if (pagesizestr != null && !"".equals(pagesizestr)) {
+            pagesize = Integer.valueOf(pagesizestr);
         }
 
-        List<Menu> lm = ms.getMenuByPage(page,pagesize,queryMenu);
+        List<Menu> lm = ms.getMenuByPage(page, pagesize, queryMenu);
         Integer total = ms.getMenuNum(queryMenu);
         PageInfo pif = new PageInfo();
         pif.setPage(page);
@@ -62,7 +62,7 @@ public class MenuServlet extends BaseServlet {
         writer.close();
     }
 
-    public void getmenuselect(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
+    public void getmenuselect(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
         String dowhat = req.getParameter("dowhat");
         ReturnEntity re = new ReturnEntity();
@@ -79,7 +79,7 @@ public class MenuServlet extends BaseServlet {
         writer.close();
     }
 
-    public void add(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
+    public void add(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
         String dowhat = req.getParameter("dowhat");
         ReturnEntity re = new ReturnEntity();
@@ -90,12 +90,12 @@ public class MenuServlet extends BaseServlet {
         String pid = req.getParameter("pid");
         String glyphicon = req.getParameter("glyphicon");
 
-        Menu menu = new Menu(Integer.valueOf(menuid), menuname, menuurl, Integer.valueOf(pid),"", glyphicon);
+        Menu menu = new Menu(Integer.valueOf(menuid), menuname, menuurl, Integer.valueOf(pid), "", glyphicon);
         Integer res = ms.addMenu(menu);
-        if(res>0){
+        if (res > 0) {
             re.setReturnCode(ReturnCode.SUCCESS.getCode());
             re.setReturnMsg(ReturnCode.SUCCESS.getMsg());
-        }else{
+        } else {
             re.setReturnCode(ReturnCode.FAILED.getCode());
             re.setReturnMsg(ReturnCode.FAILED.getMsg());
         }
@@ -107,7 +107,7 @@ public class MenuServlet extends BaseServlet {
         writer.close();
     }
 
-    public void edit(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
+    public void edit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
         String dowhat = req.getParameter("dowhat");
         ReturnEntity re = new ReturnEntity();
@@ -118,12 +118,12 @@ public class MenuServlet extends BaseServlet {
         String pid = req.getParameter("pid");
         String glyphicon = req.getParameter("glyphicon");
 
-        Menu menu = new Menu(Integer.valueOf(menuid), menuname, menuurl, Integer.valueOf(pid),"", glyphicon);
+        Menu menu = new Menu(Integer.valueOf(menuid), menuname, menuurl, Integer.valueOf(pid), "", glyphicon);
         Integer res = ms.editMenu(menu);
-        if(res>0){
+        if (res > 0) {
             re.setReturnCode(ReturnCode.SUCCESS.getCode());
             re.setReturnMsg(ReturnCode.SUCCESS.getMsg());
-        }else{
+        } else {
             re.setReturnCode(ReturnCode.FAILED.getCode());
             re.setReturnMsg(ReturnCode.FAILED.getMsg());
         }
@@ -135,7 +135,7 @@ public class MenuServlet extends BaseServlet {
         writer.close();
     }
 
-    public void remove(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
+    public void remove(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
         String dowhat = req.getParameter("dowhat");
         ReturnEntity re = new ReturnEntity();
@@ -145,10 +145,10 @@ public class MenuServlet extends BaseServlet {
         Menu menu = new Menu();
         menu.setMenuid(Integer.valueOf(menuid));
         Integer res = ms.removeMenu(menu);
-        if(res>0){
+        if (res > 0) {
             re.setReturnCode(ReturnCode.SUCCESS.getCode());
             re.setReturnMsg(ReturnCode.SUCCESS.getMsg());
-        }else{
+        } else {
             re.setReturnCode(ReturnCode.FAILED.getCode());
             re.setReturnMsg(ReturnCode.FAILED.getMsg());
         }

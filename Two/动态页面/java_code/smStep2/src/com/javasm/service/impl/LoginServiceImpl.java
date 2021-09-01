@@ -34,7 +34,7 @@ public class LoginServiceImpl implements LoginService {
         //如果匹配上 把当前遍历到的二级菜单 放入一级菜单的submenu中
         for(Menu m1:lm1){
             for(Menu m2:lm2){
-                if(m2.getPid()==m1.getMenuid()){
+                if(m2.getPid().equals(m1.getMenuid())){
                     m1.getSubmenu().add(m2);
                 }
             }

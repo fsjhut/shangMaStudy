@@ -13,6 +13,7 @@
 			    <el-menu
 			      default-active="2"
 			      class="el-menu-vertical-demo"
+				  :router="true"
 			      @open="handleOpen"
 			      @close="handleClose"
 			      background-color="#545c64"
@@ -21,13 +22,13 @@
 				  
 				  
 				  
-			      <el-submenu v-for="menu in mymenu" :index="menu.mid">
+			      <el-submenu v-for="menu in mymenu" :index="menu.menuid.toString()" :keys="menu.menuid">
 			        <template slot="title">
-			          <i :class="menu.menuicon"></i>
+			          <i :class="menu.glyphicon"></i>
 			          <span>{{menu.menuname}}</span>
 			        </template>
 					
-			        <el-menu-item v-for=" submenus in menu.submenu" :index="submenus.mid">{{submenus.menuname}}</el-menu-item>
+			        <el-menu-item v-for=" submenus in menu.submenu" :index="submenus.menuurl">{{submenus.menuname}}</el-menu-item>
 					
 			      </el-submenu>
 				  
@@ -38,7 +39,9 @@
 			</el-row>
 			
 		</el-aside>
-	    <el-main>Main</el-main>
+	    <el-main>
+			<router-view></router-view>
+		</el-main>
 	  </el-container>
 	</el-container>
 </template>
@@ -47,13 +50,7 @@
 	export default{
 		data(){
 			return{
-				mymenu:[{"mid":1000,"menuname":"系统管理","menuicon":"el-icon-setting","submenu":[
-							{"mid":1001,"menuname":"系统参数"},
-							{"mid":1002,"menuname":"人员设置"}]},
-						{"mid":2000,"menuname":"订单管理","menuicon":"el-icon-s-check","submenu":[
-							{"mid":2001,"menuname":"订单查询"},
-							{"mid":2002,"menuname":"订单核对"}],
-						}]
+				mymenu:[]
 			}
 		},
 		methods:{
@@ -65,6 +62,15 @@
 			  }
 		},
 		mounted() {
+			this.$axios.get("getmenu")
+			.then(returnval=>{
+				if(returnval.data.returnCode=10000){
+					this.mymenu = returnval.data.returnData;
+				}
+			})
+			.catch(err=>{
+				
+			})
 			console.log("vue加载完成了")
 		}
 	}

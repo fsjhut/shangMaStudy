@@ -1,6 +1,5 @@
 package com.javasm.util;
 
-import javax.xml.transform.Result;
 import java.io.IOException;
 import java.sql.*;
 import java.util.Properties;
@@ -20,9 +19,7 @@ public class  JDBCUtil {
             url = prop.getProperty("jdbc.url");
             drivername = prop.getProperty("jdbc.driver");
             Class.forName(drivername);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -59,7 +56,6 @@ public class  JDBCUtil {
 
     public static void main(String[] args) {
         JDBCUtil ju = new JDBCUtil();
-
     }
 
 }
